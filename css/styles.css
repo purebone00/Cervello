@@ -1,0 +1,30 @@
+
+
+h1 {
+	text-align: center;
+
+}
+#canvas{
+   text-align:center;
+}
+
+table, h4, li, p{
+	color: white;
+}
+
+.info, caption {
+	text-align: center;
+	margin: auto;
+}
+caption{
+	color: white;
+}
+
+.nopadding {
+   padding: 0;
+   margin: 0;
+}
+ul {
+	margin: auto;
+    list-style-image: url('../icon/check.png');
+}
