@@ -1,8 +1,20 @@
-
 //canvas name
-var c2;
+var canvas;
 
-var drawMe = function () {
-	c2 = document.getElementById('myCanvas').getContext('2d');
+var mainMenu = function() {
+	canvas = document.getElementById('myCanvas').getContext('2d');
 	myCanvas.style.border = "inset";
 };
+
+$(document).ready(function(){
+    $("#playButton").click(function(){
+        $("#playButton").fadeOut();
+        $("#optionButton").fadeOut()
+    });
+    $("#optionButton").click(function(){
+        $("#playButton").fadeOut();
+        $("#optionButton").fadeOut()
+    });
+});
+
+

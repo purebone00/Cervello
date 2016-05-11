@@ -1,30 +1,58 @@
-
-
-h1 {
-	text-align: center;
-
+#container {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 480px;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-#canvas{
-   text-align:center;
+#view {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c3c3c3;
 }
-
-table, h4, li, p{
-	color: white;
+#main {
+    bottom: 4%;
+    left: 29%;
+    position: absolute;
+    width: 100%;
+    height: 25%;
 }
-
-.info, caption {
-	text-align: center;
-	margin: auto;
+#playButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: white;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
 }
-caption{
-	color: white;
+#playButton:hover {
+    color: black;
+    background-color: white;
 }
-
-.nopadding {
-   padding: 0;
-   margin: 0;
+#optionButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: white;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
 }
-ul {
-	margin: auto;
-    list-style-image: url('../icon/check.png');
+#optionButton:hover {
+    color: black;
+    background-color: white;
 }
