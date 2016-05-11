@@ -17,6 +17,9 @@ $(document).ready(function(){
     });
 });
 
+var OptionsMenu = function(){
+    $("#options").fadeIn();
+};
 
 $(document).keydown(function(e) {
     //press up arrow key
