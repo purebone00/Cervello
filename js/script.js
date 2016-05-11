@@ -18,3 +18,9 @@ $(document).ready(function(){
 });
 
 
+$(document).keydown(function(e) {
+    //press up arrow key
+    if (e.keyCode == '38') {
+        alert('creators \n Albert \"PureBone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Nitori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
+        }
+});
