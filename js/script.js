@@ -13,10 +13,21 @@ $(document).ready(function(){
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
-        $("#optionButton").fadeOut()
+        $("#optionButton").fadeOut();
+        $("#options").show();
+    });
+    $("#backButton").click(function(){
+        $("#options").hide();
+        $("#playButton").fadeIn();
+        $("#optionButton").fadeIn();
+    });
+    $("#sfxButton").click(function(){
+        //SFX toggle function here
+    });
+    $("#bgmButton").click(function(){
+        //BGM toggle function here
     });
 });
-
 
 $(document).keydown(function(e) {
     //press up arrow key
