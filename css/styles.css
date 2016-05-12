@@ -67,3 +67,11 @@
     width: 100px;
     margin: 4px;
 }
+
+#clock {
+    position: absolute;
+    color: black;
+    left: 200px;
+    top: -200px;
+
+}
