@@ -14,23 +14,25 @@
         <menu id="main">
             <button id="playButton">Play</button>
             <br>
-            <button id="optionButton" onclick="OptionsMenu();">Options</button>
+            <button id="optionButton">Options</button>
         </menu>
-		<menu id="options">
+		<div id="options">
+			Options
 			<p>
-				<label>Color Blindness</label>
-				<select>
+				<label for="colorblind">Color Blindness</label>
+				<select id="colorblind">
+					<option value="None">None</option>
 					<option value="Protanopia">Protanopia</option>
 					<option value="Deuteranopia">Deuteranopia</option>
 					<option value="Tritanopia">Tritanopia</option>
 				</select>
-			</p>
-
-			<button id="bgmButton"></button>
-			<button id="sfxButton"></button>
+			<br>
+			<button id="bgmButton">BGM</button>
+			<button id="sfxButton">SFX</button>
 			<br>
 			<button id="backButton">Back</button>
-		</menu>
+			</p>
+		</div>
 	</div>
 </body>
 </html>
