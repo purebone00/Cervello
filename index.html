@@ -12,7 +12,7 @@
     // kynd.info 2014
 
     function Ball(r, p, v) {
-        this.radius = 15;
+        this.radius = 30;
         this.point = p;
         this.vector = v;
         this.maxVec = 15;
@@ -51,14 +51,14 @@
 
         checkBorders: function() {
             var size = view.size;
-            if (this.point.x < -this.radius)
-                this.point.x = size.width + this.radius;
-            if (this.point.x > size.width + this.radius)
-                this.point.x = -this.radius;
-            if (this.point.y < -this.radius)
-                this.point.y = size.height + this.radius;
-            if (this.point.y > size.height + this.radius)
-                this.point.y = -this.radius;
+            if (this.point.x < 0)
+                this.vector.angle = -this.vector.angle + 180;
+            if (this.point.x > size.width)
+                this.vector.angle = -this.vector.angle + 180;
+            if (this.point.y < 0)
+                this.vector.angle = -this.vector.angle;
+            if (this.point.y > size.height)
+                this.vector.angle = -this.vector.angle;
         },
 
         updateShape: function() {
@@ -124,7 +124,7 @@
     //--------------------- main ---------------------
 
     var balls = [];
-    var numBalls = 5;
+    var numBalls = 7;
     for (var i = 0; i < numBalls; i++) {
         var position = Point.random() * view.size;
         var vector = new Point({
