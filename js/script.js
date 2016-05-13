@@ -49,4 +49,7 @@ function tick() {
     document.getElementById("clock").innerHTML = secs;
 }
 
-startTimer(10);  // 10 seconds 
+startTimer(10);  // 10 seconds
+
+var audio  = new Audio('testMusic.mp3');
+audio.play();
