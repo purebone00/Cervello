@@ -51,5 +51,7 @@ function tick() {
 
 startTimer(10);  // 10 seconds
 
+
+
 var audio  = new Audio('testMusic.mp3');
 audio.play();
