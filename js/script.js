@@ -1,7 +1,9 @@
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
-        $("#optionButton").fadeOut()
+        $("#optionButton").fadeOut();
+        $("#clock").show();
+        startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
@@ -24,7 +26,7 @@ $(document).ready(function(){
 $(document).keydown(function(e) {
     //press up arrow key
     if (e.keyCode == '38') {
-        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Nitori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
+        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
         }
 });
 
@@ -49,4 +51,4 @@ function tick() {
     document.getElementById("clock").innerHTML = secs;
 }
 
-startTimer(10);  // 10 seconds 
+
