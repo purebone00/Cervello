@@ -19,7 +19,11 @@ $(document).ready(function(){
         //SFX toggle function here
     });
     $("#bgmButton").click(function(){
-        //BGM toggle function here
+      if (bgm.paused) {
+        bgm.play();
+      } else {
+        bgm.pause();
+      }
     });
 });
 
@@ -56,5 +60,6 @@ startTimer(10);  // 10 seconds
 
 
 
-var audio  = new Audio('bkmusic.mp3');
-audio.play();
+var bgm  = new Audio('bkmusic.mp3');
+bgm.loop = true;
+bgm.play();
