@@ -20,6 +20,9 @@
     position: absolute;
     left: -10px;
     top: -200px;
+    opacity: 0.85;
+    width: 200px;
+    height: 200px;
 
 }
 #main {
