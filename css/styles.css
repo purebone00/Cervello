@@ -15,6 +15,13 @@
     height: 100%;
     border: 1px solid #c3c3c3;
 }
+
+#title {
+    position: absolute;
+    left: -10px;
+    top: -200px;
+
+}
 #main {
     bottom: 4%;
     left: 29%;

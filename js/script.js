@@ -1,7 +1,15 @@
+window.onload = function() {
+    var c = document.getElemetByID("view");
+    var ctx = c.getContext("2d");
+    var img = document.getElementByID("title");
+    ctx.drawImage(img,10,10);
+}
+
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
+        $("#title").fadeOut();
         $("#clock").show();
         startTimer(10);  // 10 seconds
     });
