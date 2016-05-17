@@ -66,7 +66,16 @@ function tick() {
 
 startTimer(10);  // 10 seconds
 
-
+var ColorEnum = {
+    RED: 1,
+    BLUE: 2,
+    GREEN: 3,
+    fillColor: {
+        1: {hue: 1, saturation: 1, brightness: 1},
+        2: {hue: 1, saturation: 1, brightness: 1},
+        3: {hue: 1, saturation: 1, brightness: 1}
+    }
+};
 
 var bgm  = new Audio('bkmusic.mp3');
 bgm.loop = true;
