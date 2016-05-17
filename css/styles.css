@@ -19,10 +19,9 @@
 #title {
     position: absolute;
     left: -10px;
-    top: -200px;
-    opacity: 0.85;
+    top: -100px;
     width: 200px;
-    height: 200px;
+    height: 70px;
 
 }
 #main {
