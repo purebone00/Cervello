@@ -10,6 +10,28 @@
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
 			<!-- Constructor for our ball object -->
+
+	var ColorEnum = {
+            fillColor: {
+                1: '#F44336',
+                2: '#E91E63',
+                3: '#9C27B0',
+                4: '#673AB7',
+                5: '#3F51B5',
+                6: '#2196F3',
+                7: '#03A9F4',
+                8: '#00BCD4',
+                9: '#009688',
+                10: '#4CAF50',
+                11: '#74D108',
+                12: '#CDDC39',
+                13: '#FFEB3B',
+                14: '#FFC107',
+                15: '#FF9800',
+                16: '#FF5722'
+            }
+    };
+
 	function Ball(r, p, v) {
 		this.radius = r;
 		this.point = p;
@@ -20,11 +42,7 @@
 		this.boundOffsetBuff = [];
 		this.sidePoints = [];
 		this.path = new Path({
-			fillColor: {
-				hue: Math.random() * 360,
-				saturation: 1,
-				brightness: 1
-			},
+			fillColor: ColorEnum.fillColor[Math.floor((Math.random() * 16) + 1)],
 			blendMode: 'screen'
 		});
 
