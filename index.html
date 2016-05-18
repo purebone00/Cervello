@@ -139,6 +139,8 @@
 	//--------------------- main ---------------------
 	var balls = [];
 	var numBalls = 5;
+	var curBalls = 5;
+	var maxBalls = 16;
 
 	function createBall(givenPos) {
 		var radius = 30;
@@ -150,7 +152,10 @@
 	}
 
 	function onMouseDown(event) {
-		balls.push(createBall(event.point));
+		if (curBalls < maxBalls) {
+			curBalls++;
+			balls.push(createBall(event.point));
+		}
 	}
 
 
