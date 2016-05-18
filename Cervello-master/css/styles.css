@@ -1,0 +1,113 @@
+#container {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 480px;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#view {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c3c3c3;
+}
+#title {
+    position: absolute;
+    left: -10px;
+    top: -125px;
+    width: 200px;
+    height: 70px;
+}
+#main {
+    bottom: 4%;
+    left: 29%;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+}
+#options {
+    bottom: 13%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+#playButton, #optionButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: white;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
+}
+#playButton:hover, #optionButton:hover, #backButton:hover {
+    color: black;
+    background-color: white;
+}
+#backButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: #87CEFA;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
+}
+#clock {
+    position: absolute;
+    color: black;
+    left: 200px;
+    top: -200px;
+    display:none;
+}
+#bgmButton {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 12px;
+}
+#sfxButton {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 12px;
+}
+#colorblind {
+    margin-bottom: 12px;
+}
+#optionBox {
+    margin-top: 15px;
+}
+#hud {
+    bottom: 90%;
+    margin-left: 5px;
+    position: absolute;
+    display: none;
+}
+#score {
+    text-align: center;
+}
+.heart {
+    height: 25px;
+    width: 25px;
+}
