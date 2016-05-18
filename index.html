@@ -9,7 +9,6 @@
 	<script type="text/javascript" src="js/paper.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
-			<!-- Constructor for our ball object -->
 
 	var ColorEnum = {
             fillColor: {
@@ -32,6 +31,10 @@
             }
     };
 
+    var counter = 1;
+
+			<!-- Constructor for our ball object -->
+
 	function Ball(r, p, v) {
 		this.radius = r;
 		this.point = p;
@@ -41,8 +44,12 @@
 		this.boundOffset = [];
 		this.boundOffsetBuff = [];
 		this.sidePoints = [];
+		if(counter > 16){
+		    counter = 1;
+		}
+		
 		this.path = new Path({
-			fillColor: ColorEnum.fillColor[Math.floor((Math.random() * 16) + 1)],
+			fillColor: ColorEnum.fillColor[counter++],
 			blendMode: 'screen'
 		});
 
@@ -139,6 +146,8 @@
 	//--------------------- main ---------------------
 	var balls = [];
 	var numBalls = 5;
+	var curBalls = 5;
+	var maxBalls = 16;
 
 	function createBall(givenPos) {
 		var radius = 30;
@@ -150,7 +159,10 @@
 	}
 
 	function onMouseDown(event) {
-		balls.push(createBall(event.point));
+		if (curBalls < maxBalls) {
+			curBalls++;
+			balls.push(createBall(event.point));
+		}
 	}
 
 

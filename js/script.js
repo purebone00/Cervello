@@ -64,7 +64,6 @@ function tick() {
 }
 
 
-startTimer(10);  // 10 seconds
 
 
 
