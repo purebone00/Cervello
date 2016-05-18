@@ -198,20 +198,26 @@
 			</menu>
 			<div id="options">
 				Options
-				<p>
+				<br/>
+				<p id="optionBox">
 					<label for="colorblind">Color Blindness</label>
 					<select id="colorblind">
-						<option value="None">None</option>
+						<option value="Off">Off</option>
 						<option value="Protanopia">Protanopia</option>
 						<option value="Deuteranopia">Deuteranopia</option>
 						<option value="Tritanopia">Tritanopia</option>
 					</select>
-				<br>
-				<button id="bgmButton">BGM</button>
-				<button id="sfxButton">SFX</button>
-				<br>
-				<button id="backButton">Back</button>
+					<br/>
+					<input type="image" src="images/button/bgm.png" id="bgmButton"/>
+					<input type="image" src="images/button/sfx.png" id="sfxButton"/>
+					<br/>
+					<button id="backButton">Back</button>
 				</p>
+			</div>
+			<div id="hud">
+				<img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart">
+				<img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
+				<img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
 			</div>
 		</div>
 	</body>

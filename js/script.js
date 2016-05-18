@@ -10,16 +10,17 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#title").fadeOut();
-        $("#clock").show();
+        $("#hud").fadeIn();
+        $("#clock").fadeIn();
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
-        $("#options").show();
+        $("#options").fadeIn();
     });
     $("#backButton").click(function(){
-        $("#options").hide();
+        $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
     });
