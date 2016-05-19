@@ -1,38 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Cervello</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/styles.css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/paper.js"></script>
-	<script type="text/javascript" src="js/timer.js"></script>
-	<script type="text/javascript" src="js/easterEgg.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/paperscript" canvas="view">
+$(document).ready(function(){
 	var ColorEnum = {
-						fillColor: {
-								1: '#F44336',
-								2: '#E91E63',
-								3: '#9C27B0',
-								4: '#673AB7',
-								5: '#3F51B5',
-								6: '#2196F3',
-								7: '#03A9F4',
-								8: '#00BCD4',
-								9: '#009688',
-								10: '#4CAF50',
-								11: '#74D108',
-								12: '#CDDC39',
-								13: '#FFEB3B',
-								14: '#FFC107',
-								15: '#FF9800',
-								16: '#FF5722'
-						}
-		};
+            fillColor: {
+                1: '#F44336',
+                2: '#E91E63',
+                3: '#9C27B0',
+                4: '#673AB7',
+                5: '#3F51B5',
+                6: '#2196F3',
+                7: '#03A9F4',
+                8: '#00BCD4',
+                9: '#009688',
+                10: '#4CAF50',
+                11: '#74D108',
+                12: '#CDDC39',
+                13: '#FFEB3B',
+                14: '#FFC107',
+                15: '#FF9800',
+                16: '#FF5722'
+            }
+    };
 
-		var counter = 1;
+    var counter = 1;
 
 			<!-- Constructor for our ball object -->
 
@@ -46,7 +34,7 @@
 		this.boundOffsetBuff = [];
 		this.sidePoints = [];
 		if(counter > 16){
-				counter = 1;
+		    counter = 1;
 		}
 
 		this.path = new Path({
@@ -147,73 +135,43 @@
 
 
 	var balls = [];
-	var numBalls = 5;
-	var curBalls = 5;
-	var maxBalls = 16;
+  var numBalls = 5;
+  var curBalls = 5;
+  var maxBalls = 16;
 
-	function createBall(givenPos) {
-		var radius = 30;
-			var vector = new Point({
-				angle: 360 * Math.random(),
-				length: Math.random() * 10
-			});
-			return new Ball(radius, givenPos, vector);
-	}
+  function createBall(givenPos) {
+    var radius = 30;
+      var vector = new Point({
+        angle: 360 * Math.random(),
+        length: Math.random() * 10
+      });
+      return new Ball(radius, givenPos, vector);
+  }
 
-	function onMouseDown(event) {
-		if (curBalls < maxBalls) {
-			curBalls++;
-			balls.push(createBall(event.point));
-		}
-	}
-
-
-	for (var i = 0; i < numBalls; i++) {
-		var position = Point.random() * view.size;
-		balls.push(createBall(position));
-	}
-
-	function onFrame() {
-		for (var i = 0; i < balls.length - 1; i++) {
-			for (var j = i + 1; j < balls.length; j++) {
-				balls[i].react(balls[j]);
-			}
-		}
-		for (var i = 0, l = balls.length; i < l; i++) {
-			balls[i].iterate();
-		}
-	}
-	</script>
-	</head>
-	<body>
-		<div id="container">
-			<canvas id="view">Something went wrong...</canvas>
-			<menu id="main">
-				<img id = "title"  src = "img/title.png" alt ="title.png">
-				<span id="clock" style="font-weight: bold;">10</span>
+  function onMouseDown(event) {
+    if (curBalls < maxBalls) {
+      curBalls++;
+      balls.push(createBall(event.point));
+    }
+  }
 
 
-				<button id="playButton">Play</button>
-				<br>
-				<button id="optionButton">Options</button>
-			</menu>
-			<div id="options">
-				Options
-				<p>
-					<label for="colorblind">Color Blindness</label>
-					<select id="colorblind">
-						<option value="None">None</option>
-						<option value="Protanopia">Protanopia</option>
-						<option value="Deuteranopia">Deuteranopia</option>
-						<option value="Tritanopia">Tritanopia</option>
-					</select>
-				<br>
-				<button id="bgmButton">BGM</button>
-				<button id="sfxButton">SFX</button>
-				<br>
-				<button id="backButton">Back</button>
-				</p>
-			</div>
-		</div>
-	</body>
-	</html>
+  for (var i = 0; i < numBalls; i++) {
+    var position = Point.random() * view.size;
+    balls.push(createBall(position));
+  }
+
+  function onFrame() {
+    for (var i = 0; i < balls.length - 1; i++) {
+      for (var j = i + 1; j < balls.length; j++) {
+        balls[i].react(balls[j]);
+      }
+    }
+    for (var i = 0, l = balls.length; i < l; i++) {
+      balls[i].iterate();
+    }
+  }
+
+
+
+});
