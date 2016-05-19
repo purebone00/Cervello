@@ -182,11 +182,14 @@
 
 		//check if the ball's fill color equals that of the target
 		if(JSON.stringify(ball.path.fillColor) === JSON.stringify(targetColor)){
+			return 0;
+
 			alert('Correct target');
 			calculatePoints();
 			createBall();
 			getNewTarget();
 		}else{
+			return 1;
 			deductLife();
 		}
 	}
@@ -210,7 +213,7 @@
 	function onMouseDown(event) {
 		project.activeLayer.selected = false;
 		if (event.item) {
-			if (curBalls < maxBalls) {
+			if (curBalls < maxBalls && checkTarget(event.item) == 0) {
 				curBalls++;
 				balls.push(createBall(event.point));
 			}
