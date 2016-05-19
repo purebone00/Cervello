@@ -62,6 +62,9 @@
 				length: 1
 			}));
 		}
+
+
+
 	}
 
 	Ball.prototype = {
@@ -143,6 +146,54 @@
 		}
 	};
 
+	//--------------------- target ---------------------
+	var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
+	var targetColor = new Color(color);
+
+	function getNewTarget(){
+		var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
+		var targetColor = new Color(color);
+	}
+
+	function calculatePoints(){
+		//add some number of points to the score variable
+	}
+
+	function deductLife(){
+		/**
+		* decrement the lives variable, and fade out the hearts graphic;
+		* if lives == 2, fade out heartThree
+		* if lives == 1, fade out heartTwo
+		* if lives == 0, fade out heartOne and execute gameOver()
+		**/
+	}
+
+	function gameOver(){
+		//display game over screen
+	}
+
+	function pause(){
+		//display pause screen
+	}
+
+	//whenever a ball is clicked, call this function
+	function checkTarget(ball){
+		alert(color);
+		alert(targetColor);
+		alert(ball.path.fillColor);
+
+		//check if the ball's fill color equals that of the target
+		if(JSON.stringify(ball.path.fillColor) === JSON.stringify(targetColor)){
+			alert('Correct target');
+			calculatePoints();
+			createBall();
+			getNewTarget();
+		}else{
+			deductLife();
+		}
+	}
+
+
 	//--------------------- main ---------------------
 	var balls = [];
 	var numBalls = 5;
@@ -155,15 +206,21 @@
 				angle: 360 * Math.random(),
 				length: Math.random() * 10
 			});
-			return new Ball(radius, givenPos, vector);
+			var ball = new Ball(radius, givenPos, vector);
+
+			//adds click listener to the ball
+			ball.path.onMouseDown = function(event){
+				checkTarget(ball);
+			}
+			return ball;
 	}
 
-	function onMouseDown(event) {
+	/*function onMouseDown(event) {
 		if (curBalls < maxBalls) {
 			curBalls++;
 			balls.push(createBall(event.point));
 		}
-	}
+	}*/
 
 
 	for (var i = 0; i < numBalls; i++) {
@@ -182,32 +239,7 @@
 		}
 	}
 
-	//--------------------- target ---------------------
-	var targetColor = ColorEnum.fillColor[Math.floor(Math.random() * 16)];
 
-	function getNewTarget(){
-	 	targetColor = ColorEnum.fillColor[Math.floor(Math.random() * 16)];
-	}
-
-	function calculatePoints(){
-
-	}
-
-	function deductLife(){
-
-	}
-
-	//whenever a ball is clicked, call this function
-	function checkTarget(ball){
-		//check if the ball's fill color equals that of the target
-		if(ball.path.fillColor.localeCompare(targetColor) == 0){
-			calculatePoints();
-			createBall();
-			getNewTarget();
-		}else{
-			deductLife();
-		}
-	}
 
 
 
