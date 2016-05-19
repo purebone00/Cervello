@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="js/easterEgg.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
+
 	var ColorEnum = {
 						fillColor: {
 								1: '#F44336',
@@ -77,9 +78,9 @@
 		checkBorders: function() {
 			var size = view.size;
 			if (this.point.x < 0)
-				this.vector.angle = -this.vector.angle + 180;
+				this.vector.angle = (-this.vector.angle + 180)  % 360;
 			if (this.point.x > size.width)
-				this.vector.angle = -this.vector.angle + 180;
+				this.vector.angle = (-this.vector.angle + 180)  % 360;
 			if (this.point.y < 0)
 				this.vector.angle = -this.vector.angle;
 			if (this.point.y > size.height)
@@ -92,14 +93,15 @@
 				segments[i].point = this.getSidePoint(i);
 				this.path.smooth();
 			for (var i = 0; i < this.numSegment; i ++) {
-				if (this.boundOffset[i] < this.radius / 4)
-					this.boundOffset[i] = this.radius / 4;
+				if (this.boundOffset[i] < this.radius / 2)
+					this.boundOffset[i] = this.radius / 2;
 				var next = (i + 1) % this.numSegment;
 				var prev = (i > 0) ? i - 1 : this.numSegment - 1;
 				var offset = this.boundOffset[i];
 				offset += (this.radius - offset) / 15;
 				offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
 				this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+				this.path.smooth();
 			}
 		},
 
@@ -160,7 +162,7 @@
 		var radius = 30;
 			var vector = new Point({
 				angle: 360 * Math.random(),
-				length: Math.random() * 10
+				length: Math.random() * 5
 			});
 			return new Ball(radius, givenPos, vector);
 	}
