@@ -144,12 +144,57 @@
 			for (var i = 0; i < this.numSegment; i ++)
 				this.boundOffset[i] = this.boundOffsetBuff[i];
 		}
-
-
-
-
-
 	};
+
+	//--------------------- target ---------------------
+	var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
+	var targetColor = new Color(color);
+
+	function getNewTarget(){
+		var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
+		var targetColor = new Color(color);
+	}
+
+	function calculatePoints(){
+		//add some number of points to the score variable
+	}
+
+	function deductLife(){
+		/**
+		* decrement the lives variable, and fade out the hearts graphic;
+		* if lives == 2, fade out heartThree
+		* if lives == 1, fade out heartTwo
+		* if lives == 0, fade out heartOne and execute gameOver()
+		**/
+	}
+
+	function gameOver(){
+		//display game over screen
+	}
+
+	function pause(){
+		//display pause screen
+	}
+
+	//whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
+	function checkTarget(ball){
+		alert(color);
+		alert(targetColor);
+		alert(ball.path.fillColor);
+
+		//check if the ball's fill color equals that of the target
+		if(JSON.stringify(ball.path.fillColor) === JSON.stringify(targetColor)){
+			return 0;
+
+			alert('Correct target');
+			calculatePoints();
+			createBall();
+			getNewTarget();
+		}else{
+			return 1;
+			deductLife();
+		}
+	}
 
 
 
@@ -170,7 +215,7 @@
 	function onMouseDown(event) {
 		project.activeLayer.selected = false;
 		if (event.item) {
-			if (curBalls < maxBalls) {
+			if (curBalls < maxBalls && checkTarget(event.item) == 0) {
 				curBalls++;
 				balls.push(createBall(event.point));
 			}
