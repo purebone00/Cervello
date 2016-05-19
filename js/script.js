@@ -10,18 +10,22 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#title").fadeOut();
+<<<<<<< HEAD
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
+=======
+        $("#clock").show();
+>>>>>>> a8be1186e777470becb52c6cf6279a00c1bcda5d
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
-        $("#options").fadeIn();
+        $("#options").show();
     });
     $("#backButton").click(function(){
-        $("#options").fadeOut();
+        $("#options").hide();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
     });
@@ -66,6 +70,7 @@ function tick() {
 }
 
 
+startTimer(10);  // 10 seconds
 
 
 

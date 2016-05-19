@@ -7,31 +7,32 @@
 	<link rel="stylesheet" href="css/styles.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/paper.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/easterEgg.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
-
 	var ColorEnum = {
-            fillColor: {
-                1: '#F44336',
-                2: '#E91E63',
-                3: '#9C27B0',
-                4: '#673AB7',
-                5: '#3F51B5',
-                6: '#2196F3',
-                7: '#03A9F4',
-                8: '#00BCD4',
-                9: '#009688',
-                10: '#4CAF50',
-                11: '#74D108',
-                12: '#CDDC39',
-                13: '#FFEB3B',
-                14: '#FFC107',
-                15: '#FF9800',
-                16: '#FF5722'
-            }
-    };
+						fillColor: {
+								1: '#F44336',
+								2: '#E91E63',
+								3: '#9C27B0',
+								4: '#673AB7',
+								5: '#3F51B5',
+								6: '#2196F3',
+								7: '#03A9F4',
+								8: '#00BCD4',
+								9: '#009688',
+								10: '#4CAF50',
+								11: '#74D108',
+								12: '#CDDC39',
+								13: '#FFEB3B',
+								14: '#FFC107',
+								15: '#FF9800',
+								16: '#FF5722'
+						}
+		};
 
-    var counter = 1;
+		var counter = 1;
 
 			<!-- Constructor for our ball object -->
 
@@ -45,9 +46,9 @@
 		this.boundOffsetBuff = [];
 		this.sidePoints = [];
 		if(counter > 16){
-		    counter = 1;
+				counter = 1;
 		}
-		
+
 		this.path = new Path({
 			fillColor: ColorEnum.fillColor[counter++],
 			blendMode: 'screen'
@@ -141,9 +142,15 @@
 			for (var i = 0; i < this.numSegment; i ++)
 				this.boundOffset[i] = this.boundOffsetBuff[i];
 		}
+
+
+
+
+
 	};
 
-	//--------------------- main ---------------------
+
+
 	var balls = [];
 	var numBalls = 5;
 	var curBalls = 5;
@@ -159,9 +166,12 @@
 	}
 
 	function onMouseDown(event) {
-		if (curBalls < maxBalls) {
-			curBalls++;
-			balls.push(createBall(event.point));
+		project.activeLayer.selected = false;
+		if (event.item) {
+			if (curBalls < maxBalls) {
+				curBalls++;
+				balls.push(createBall(event.point));
+			}
 		}
 	}
 
@@ -181,15 +191,18 @@
 			balls[i].iterate();
 		}
 	}
-
-		</script>
+	</script>
 	</head>
-	<body onload="mainMenu(); ">
+	<body>
 		<div id="container">
 			<canvas id="view">Something went wrong...</canvas>
 			<menu id="main">
+<<<<<<< HEAD
 				<img id = "title" src = "title.png" alt="title.png" width="674px" height="232px" >
                 <p id="timerUI">Timer:</p>
+=======
+				<img id = "title"  src = "img/title.png" alt ="title.png">
+>>>>>>> a8be1186e777470becb52c6cf6279a00c1bcda5d
 				<span id="clock" style="font-weight: bold;">10</span>
                 <button id="playButton">Play</button>
 				<br>
