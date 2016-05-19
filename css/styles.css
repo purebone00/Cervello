@@ -32,11 +32,11 @@
     height: 25%;
 }
 #options {
-    bottom: 13%;
+    bottom: 25%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 75%;
+    height: 50%;
     display: none;
     border: 2px solid #87CEFA;
     border-radius: 4px;
@@ -45,7 +45,6 @@
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px;
 }
 #playButton, #optionButton {
     border: 2px solid #87CEFA;
@@ -85,30 +84,4 @@
     top: -200px;
     display:none;
 
-}
-#bgmButton {
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-bottom: 12px;
-}
-#sfxButton {
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-bottom: 12px;
-}
-#colorblind {
-    margin-bottom: 12px;
-}
-#optionBox {
-    margin-top: 15px;
-}
-#hud {
-    bottom: 90%;
-    margin-left: 5px;
-    position: absolute;
-    display: none;
-}
-.heart {
-    height: 25px;
-    width: 25px;
 }

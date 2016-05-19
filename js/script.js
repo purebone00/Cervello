@@ -1,10 +1,8 @@
 window.onload = function() {
+    var c = document.getElemetByID("view");
     var ctx = c.getContext("2d");
     var img = document.getElementByID("title");
     ctx.drawImage(img,10,10);
-    var bgm  = new Audio('sound/bkmusic.mp3');
-    bgm.loop = true;
-    bgm.play();
 }
 
 $(document).ready(function(){
@@ -12,17 +10,16 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#title").fadeOut();
-        $("#hud").fadeIn();
-        $("#clock").fadeIn();
+        $("#clock").show();
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
-        $("#options").fadeIn();
+        $("#options").show();
     });
     $("#backButton").click(function(){
-        $("#options").fadeOut();
+        $("#options").hide();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
     });
@@ -37,8 +34,6 @@ $(document).ready(function(){
       }
     });
 });
-<<<<<<< HEAD
-=======
 
 $(document).keydown(function(e) {
     //press up arrow key
@@ -69,10 +64,10 @@ function tick() {
 }
 
 
+startTimer(10);  // 10 seconds
 
 
 
 var bgm  = new Audio('bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
->>>>>>> 145925a5234c87146d7076335799c5fe4c150c9c
