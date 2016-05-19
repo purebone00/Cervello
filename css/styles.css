@@ -77,14 +77,21 @@
     width: 100px;
     margin: 4px;
 }
-
 #clock {
     position: absolute;
     color: black;
-    left: 200px;
-    top: -200px;
-    display:none;
-
+    left: 260px;
+    top: -245px;
+    display: none;
+}
+#timerUI {
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: 215px;
+    top: -245px;
+    color: black;
+    display: none;
 }
 #bgmButton {
     padding-top: 10px;
@@ -103,12 +110,43 @@
     margin-top: 15px;
 }
 #hud {
-    bottom: 90%;
-    margin-left: 5px;
+    bottom: 100%;
+    width: 100%;
     position: absolute;
     display: none;
+    border: 1px solid black;
 }
 .heart {
     height: 25px;
     width: 25px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+#score {
+    display: inline-flex;
+    font-weight: bold;
+    margin-left: 30px;
+    color: black;
+    font-size: 14px;
+    vertical-align: middle;
+}
+#pauseButton {
+    height: 25px;
+    width: 25px;
+    margin-left: 130px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+#target {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #c3c3c3;
+}
+#targetBox {
+    display: inline-flex;
+    margin-left: 55px;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    vertical-align: middle;
 }

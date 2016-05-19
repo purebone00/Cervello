@@ -188,11 +188,10 @@
 		<div id="container">
 			<canvas id="view">Something went wrong...</canvas>
 			<menu id="main">
-				<img id = "title"  src = "title.png" alt ="title.png" width="674px" height="232px" >
+				<img id = "title" src = "title.png" alt="title.png" width="674px" height="232px" >
+                <p id="timerUI">Timer:</p>
 				<span id="clock" style="font-weight: bold;">10</span>
-
-
-				<button id="playButton">Play</button>
+                <button id="playButton">Play</button>
 				<br>
 				<button id="optionButton">Options</button>
 			</menu>
@@ -218,6 +217,13 @@
 				<img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart">
 				<img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
 				<img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
+                <div id="score">Score:</div>
+				<span id="targetBox">
+                    <p>Target:</p>
+                    <br/>
+                    <canvas id="target"></canvas>
+				</span>
+                <input type="image" src="images/button/pause.png" id="pauseButton"/>
 			</div>
 		</div>
 	</body>

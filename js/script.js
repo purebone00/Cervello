@@ -12,6 +12,7 @@ $(document).ready(function(){
         $("#title").fadeOut();
         $("#hud").fadeIn();
         $("#clock").fadeIn();
+        $("#timerUI").fadeIn();
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
