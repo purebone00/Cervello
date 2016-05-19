@@ -182,6 +182,36 @@
 		}
 	}
 
+	//--------------------- target ---------------------
+	var targetColor = ColorEnum.fillColor[Math.floor(Math.random() * 16)];
+
+	function getNewTarget(){
+	 	targetColor = ColorEnum.fillColor[Math.floor(Math.random() * 16)];
+	}
+
+	function calculatePoints(){
+
+	}
+
+	function deductLife(){
+
+	}
+
+	//whenever a ball is clicked, call this function
+	function checkTarget(ball){
+		//check if the ball's fill color equals that of the target
+		if(ball.path.fillColor.localeCompare(targetColor) == 0){
+			calculatePoints();
+			createBall();
+			getNewTarget();
+		}else{
+			deductLife();
+		}
+	}
+
+
+
+
 		</script>
 	</head>
 	<body onload="mainMenu(); ">
