@@ -10,23 +10,21 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#title").fadeOut();
-<<<<<<< HEAD
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
-=======
-        $("#clock").show();
->>>>>>> a8be1186e777470becb52c6cf6279a00c1bcda5d
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
+        $("#title").fadeOut();
         $("#optionButton").fadeOut();
-        $("#options").show();
+        $("#options").fadeIn();
     });
     $("#backButton").click(function(){
-        $("#options").hide();
+        $("#options").fadeOut();
         $("#playButton").fadeIn();
+        $("#title").fadeIn();
         $("#optionButton").fadeIn();
     });
     $("#sfxButton").click(function(){
@@ -47,32 +45,6 @@ $(document).keydown(function(e) {
         alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
         }
 });
-
-var timeInSecs;
-var ticker;
-
-function startTimer(secs){
-    timeInSecs = parseInt(secs)-1;
-    ticker = setInterval("tick()",1000);   // every second
-}
-
-function tick() {
-    var secs = timeInSecs;
-    if (secs>0) {
-        timeInSecs--;
-    }
-    else {
-        clearInterval(ticker); // stop counting at zero
-        startTimer(10);  // remove forward slashes in front of startTimer to repeat if required
-    }
-
-    document.getElementById("clock").innerHTML = secs;
-}
-
-
-startTimer(10);  // 10 seconds
-
-
 
 var bgm  = new Audio('bkmusic.mp3');
 bgm.loop = true;
