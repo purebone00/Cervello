@@ -63,15 +63,30 @@ $(document).ready(function(){
         isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
+        $("#gameOver").fadeIn();
         $("#pause").fadeOut();
+        isPlaying = false;
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
+        score = 0;
+        document.getElementById("score").innerText = "Score: " + score;
+    });
+    $("#pause_retryButton").click(function(){
+        //retry function here
+    })
+    $("#go_exitButton").click(function(){
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
+        $("#gameOver").fadeOut();
         isPlaying = false;
         if(isPaused){
             isPaused = false;
