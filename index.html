@@ -154,7 +154,7 @@
 	var targetColor = new Color(color);
 	$("#target").css("background", color);
 	var lives = 3;
-	var score = 0;
+	//var score = 0;
 
 	function getNewTarget(){
 		color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
@@ -212,7 +212,7 @@
 	function onMouseDown(event) {
 		project.activeLayer.selected = false;
 		if (event.item) {
-			if (checkTarget(event.item) == 0) {
+			if (checkTarget(event.item) == 0 && isPlaying) {
 				calculatePoints();
 				getNewTarget();
 				timeInSecs += 10;
