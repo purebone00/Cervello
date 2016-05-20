@@ -1,4 +1,4 @@
-Group 6
+Group 6 
 Project Cervello
 Albert Chen - Albert.chen.97.00@gmail.com
 Kevin Fong - kevinfong117@gmail.com
@@ -24,7 +24,7 @@ images
 		retry_blue-yellow
 		retry_red-green
 		sfx
-	graphic
+	graphic 
 		heart_active				Graphics
 		heart_active_blue-yellow
 		heart_active_red-green
@@ -42,10 +42,10 @@ sound
 	bkmusic							Source file for background music.
 index.html							Within one of the script tags, we have included all of the behavior included in Paper.js due to
 									a problem of externally sourcing the file.
+									
 
-
-
-
+									
+									
 Goals
 	Working game with a scoring system, target system and life system.
 	Animations for everything
