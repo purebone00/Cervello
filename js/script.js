@@ -5,6 +5,8 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
+var isPaused = false;
+
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
@@ -37,6 +39,13 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+    $("#pauseButton").click(function(){
+        if(!isPaused){
+            isPaused = true;
+        }else{
+            isPaused = false;
+        }
+    })
 });
 
 $(document).keydown(function(e) {

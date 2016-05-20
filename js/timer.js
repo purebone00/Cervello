@@ -9,7 +9,9 @@ function startTimer(secs){
 function tick() {
     var secs = timeInSecs;
     if (secs>0) {
-        timeInSecs--;
+        if(!isPaused) {
+            timeInSecs--;
+        }
     }
     else {
         clearInterval(ticker); // stop counting at zero
@@ -20,4 +22,4 @@ function tick() {
 }
 
 
-startTimer(10);  // 10 seconds
+//startTimer(10);  // 10 seconds
