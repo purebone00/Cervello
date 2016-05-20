@@ -84,6 +84,6 @@ $(document).keydown(function(e) {
         }
 });
 
-var bgm  = new Audio('bkmusic.mp3');
+var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
