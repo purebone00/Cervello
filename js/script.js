@@ -60,6 +60,10 @@ $(document).ready(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
     });
 });
 
