@@ -37,6 +37,21 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+    $("#pauseButton").click(function(){
+        $("#pause").fadeIn();
+    });
+    $("#pause_playButton").click(function(){
+        $("#pause").fadeOut();
+    });
+    $("#pause_exitButton").click(function(){
+        $("#pause").fadeOut();
+        $("#playButton").fadeIn();
+        $("#optionButton").fadeIn();
+        $("#title").fadeIn();
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
+    });
 });
 
 $(document).keydown(function(e) {
