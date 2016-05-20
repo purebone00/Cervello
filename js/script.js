@@ -13,6 +13,8 @@ $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
+        $("#leaderBoardButton").fadeOut();
+        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#hud").fadeIn();
         $("#clock").fadeIn();
@@ -24,6 +26,8 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
+        $("#leaderBoardButton").fadeOut();
+        $("#tutorialButton").fadeOut();
         $("#options").fadeIn();
     });
     $("#backButton").click(function(){
@@ -31,6 +35,8 @@ $(document).ready(function(){
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
     });
     $("#sfxButton").click(function(){
         //SFX toggle function here
@@ -60,6 +66,8 @@ $(document).ready(function(){
         $("#pause").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
         $("#hud").fadeOut();
         $("#clock").fadeOut();
