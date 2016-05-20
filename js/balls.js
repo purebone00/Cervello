@@ -171,7 +171,4 @@ $(document).ready(function(){
       balls[i].iterate();
     }
   }
-
-
-
 });
