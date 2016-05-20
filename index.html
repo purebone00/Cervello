@@ -77,9 +77,9 @@
 		checkBorders: function() {
 			var size = view.size;
 			if (this.point.x < 0)
-				this.vector.angle = -this.vector.angle + 180;
+				this.vector.angle = (-this.vector.angle + 180)  % 360;
 			if (this.point.x > size.width)
-				this.vector.angle = -this.vector.angle + 180;
+				this.vector.angle = (-this.vector.angle + 180)  % 360;
 			if (this.point.y < 0)
 				this.vector.angle = -this.vector.angle;
 			if (this.point.y > size.height)
@@ -100,6 +100,7 @@
 				offset += (this.radius - offset) / 15;
 				offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
 				this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+				this.path.smooth();
 			}
 		},
 
@@ -186,7 +187,7 @@
 
 			alert('Correct target');
 			calculatePoints();
-			//createBall();
+			createBall();
 			getNewTarget();
 		}else{
 			return 1;
