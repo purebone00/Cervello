@@ -59,17 +59,17 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
     });
     $("#pause_retryButton").click(function(){
         //retry function here
     })
+        isPlaying = false;
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
     $("#go_exitButton").click(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
