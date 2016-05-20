@@ -244,10 +244,12 @@
 <body>
 <div id="container">
     <canvas id="view">Something went wrong...</canvas>
-    <menu id="main">
-        <img id="title" src="img/title.png" alt="title.png" width="674px" height="232px">
+    <menu id="timer">
         <p id="timerUI">Timer:</p>
         <span id="clock" style="font-weight: bold;">10</span>
+    </menu>
+    <menu id="main">
+        <img id="title" src="img/title.png" alt="title.png" width="674px" height="232px">
         <button id="playButton">Play</button>
         <br>
         <button id="optionButton">Options</button>
@@ -279,26 +281,26 @@
         <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
         <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
         <div id="score">Score: 0</div>
-				<span id="targetBox">
-                    <p>Target:</p>
-                    <br/>
-                    <canvas id="target"></canvas>
-				</span>
-                <input type="image" src="images/button/pause.png" id="pauseButton"/>
-			</div>
-			<div id="pause">
-                Paused
-                <br/>
-                <input type="image" src="images/button/play.png" id="pause_playButton"/>
-                <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
-                <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
-            </div>
-			<div id="gameOver">
-				Game Over
-				<br/>
-				<input type="image" src="images/button/retry.png" id="go_retryButton"/>
-				<input type="image" src="images/button/exit.png" id="go_exitButton"/>
-			</div>
-		</div>
-	</body>
-	</html>
+        <span id="targetBox">
+            <p>Target:</p>
+            <br/>
+            <canvas id="target"></canvas>
+        </span>
+        <input type="image" src="images/button/pause.png" id="pauseButton"/>
+    </div>
+    <div id="pause">
+        Paused
+        <br/>
+        <input type="image" src="images/button/play.png" id="pause_playButton"/>
+        <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
+        <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
+    </div>
+    <div id="gameOver">
+        Game Over
+        <br/>
+        <input type="image" src="images/button/retry.png" id="go_retryButton"/>
+        <input type="image" src="images/button/exit.png" id="go_exitButton"/>
+    </div>
+</div>
+</body>
+</html>

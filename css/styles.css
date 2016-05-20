@@ -24,6 +24,13 @@
     height: 70px;
 
 }
+#timer {
+    bottom: -16%;
+    left: 29%;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+}
 #main {
     bottom: 4%;
     left: 29%;
