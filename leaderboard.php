@@ -28,7 +28,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "INSERT INTO `players` (`id`, `name`, `score`) VALUES (1, 'Lebron James', 10)";
 
 
 
