@@ -149,3 +149,39 @@
     font-size: 14px;
     vertical-align: middle;
 }
+#pause_playButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#pause_retryButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#pause_exitButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#pause {
+    bottom: 30%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -5,6 +5,7 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
+
 var isPaused = false;
 
 $(document).ready(function(){
@@ -42,10 +43,24 @@ $(document).ready(function(){
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
-        }else{
+        }
+        $("#pause").fadeIn();
+    });
+    $("#pause_playButton").click(function(){
+        $("#pause").fadeOut();
+        if(isPaused){
             isPaused = false;
         }
-    })
+    });
+    $("#pause_exitButton").click(function(){
+        $("#pause").fadeOut();
+        $("#playButton").fadeIn();
+        $("#optionButton").fadeIn();
+        $("#title").fadeIn();
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
+    });
 });
 
 $(document).keydown(function(e) {
