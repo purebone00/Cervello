@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Cervello</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/styles.css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/paper.js"></script>
-	<script type="text/javascript" src="js/timer.js"></script>
-	<script type="text/javascript" src="js/easterEgg.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/paperscript" canvas="view">
+    <meta charset="UTF-8">
+    <title>Cervello</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/paper.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+    <script type="text/javascript" src="js/easterEgg.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/paperscript" canvas="view">
 	var ColorEnum = {
 						fillColor: {
 								1: '#F44336',
@@ -146,16 +146,26 @@
 	};
 
 	//--------------------- target ---------------------
-	var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
+	var balls = [];
+	var numBalls = 5;
+	var curBalls = 5;
+	var maxBalls = 16;
+	var color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
 	var targetColor = new Color(color);
+	$("#target").css("background", color);
+	var lives = 3;
+	//var score = 0;
 
 	function getNewTarget(){
-		var color = ColorEnum.fillColor[Math.floor((Math.random() * 16)) + 1];
-		var targetColor = new Color(color);
+		color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
+		targetColor = new Color(color);
+		$("#target").css("background", color);
 	}
 
 	function calculatePoints(){
 		//add some number of points to the score variable
+		score += timeInSecs;
+		document.getElementById("score").textContent = "Score: " + score;
 	}
 
 	function deductLife(){
@@ -165,42 +175,30 @@
 		* if lives == 1, fade out heartTwo
 		* if lives == 0, fade out heartOne and execute gameOver()
 		**/
+		lives--;
+		if(lives <=0){
+			gameOver();
+		}
 	}
 
 	function gameOver(){
 		//display game over screen
 	}
 
-	function pause(){
-		//display pause screen
-	}
-
 	//whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
 	function checkTarget(ball){
-		alert(color);
-		alert(targetColor);
-		alert(ball.path.fillColor);
 
 		//check if the ball's fill color equals that of the target
-		if(JSON.stringify(ball.path.fillColor) === JSON.stringify(targetColor)){
+		if(JSON.stringify(ball.fillColor) === JSON.stringify(targetColor)){
 			return 0;
 
-			alert('Correct target');
-			calculatePoints();
-			createBall();
-			getNewTarget();
 		}else{
 			return 1;
-			deductLife();
 		}
 	}
 
 
 
-	var balls = [];
-	var numBalls = 5;
-	var curBalls = 5;
-	var maxBalls = 16;
 
 	function createBall(givenPos) {
 		var radius = 30;
@@ -214,9 +212,14 @@
 	function onMouseDown(event) {
 		project.activeLayer.selected = false;
 		if (event.item) {
-			if (curBalls < maxBalls && checkTarget(event.item) == 0) {
-				curBalls++;
-				balls.push(createBall(event.point));
+			if (checkTarget(event.item) == 0 && isPlaying) {
+				calculatePoints();
+				getNewTarget();
+				timeInSecs += 10;
+				if(curBalls < maxBalls){
+					curBalls++;
+					balls.push(createBall(event.point));
+				}
 			}
 		}
 	}
@@ -228,65 +231,68 @@
 	}
 
 	function onFrame() {
-		for (var i = 0; i < balls.length - 1; i++) {
-			for (var j = i + 1; j < balls.length; j++) {
-				balls[i].react(balls[j]);
-			}
-		}
-		for (var i = 0, l = balls.length; i < l; i++) {
-			balls[i].iterate();
+		if(!isPaused){
+		    for (var i = 0; i < balls.length - 1; i++) {
+			    for (var j = i + 1; j < balls.length; j++) {
+				    balls[i].react(balls[j]);
+			    }
+		    }
+		    for (var i = 0, l = balls.length; i < l; i++) {
+			    balls[i].iterate();
+		    }
 		}
 	}
-	</script>
-	</head>
-	<body>
-		<div id="container">
-			<canvas id="view">Something went wrong...</canvas>
-			<menu id="main">
-				<img id="title" src="img/title.png" alt="title.png" width="674px" height="232px" >
-                <p id="timerUI">Timer:</p>
-				<span id="clock" style="font-weight: bold;">10</span>
-                <button id="playButton">Play</button>
-				<br>
-				<button id="optionButton">Options</button>
-			</menu>
-			<div id="options">
-				Options
-				<br/>
-				<p id="optionBox">
-					<label for="colorblind">Color Blindness</label>
-					<select id="colorblind">
-						<option value="Off">Off</option>
-						<option value="Protanopia">Protanopia</option>
-						<option value="Deuteranopia">Deuteranopia</option>
-						<option value="Tritanopia">Tritanopia</option>
-					</select>
-					<br/>
-					<input type="image" src="images/button/bgm.png" id="bgmButton"/>
-					<input type="image" src="images/button/sfx.png" id="sfxButton"/>
-					<br/>
-					<button id="backButton">Back</button>
-				</p>
-			</div>
-			<div id="hud">
-				<img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart">
-				<img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
-				<img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
-                <div id="score">Score:</div>
+
+    </script>
+</head>
+<body>
+<div id="container">
+    <canvas id="view">Something went wrong...</canvas>
+    <menu id="main">
+        <img id="title" src="img/title.png" alt="title.png" width="674px" height="232px">
+        <p id="timerUI">Timer:</p>
+        <span id="clock" style="font-weight: bold;">10</span>
+        <button id="playButton">Play</button>
+        <br>
+        <button id="optionButton">Options</button>
+    </menu>
+    <div id="options">
+        Options
+        <br/>
+        <p id="optionBox">
+            <label for="colorblind">Color Blindness</label>
+            <select id="colorblind">
+                <option value="Off">Off</option>
+                <option value="Protanopia">Protanopia</option>
+                <option value="Deuteranopia">Deuteranopia</option>
+                <option value="Tritanopia">Tritanopia</option>
+            </select>
+            <br/>
+            <input type="image" src="images/button/bgm.png" id="bgmButton"/>
+            <input type="image" src="images/button/sfx.png" id="sfxButton"/>
+            <br/>
+            <button id="backButton">Back</button>
+        </p>
+    </div>
+    <div id="hud">
+        <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart">
+        <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
+        <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
+        <div id="score">Score: 0</div>
 				<span id="targetBox">
                     <p>Target:</p>
                     <br/>
                     <canvas id="target"></canvas>
 				</span>
-                <input type="image" src="images/button/pause.png" id="pauseButton"/>
-			</div>
-			<div id="pause">
-                Paused
-                <br/>
-                <input type="image" src="images/button/play.png" id="pause_playButton"/>
-                <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
-                <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
-            </div>
-		</div>
-	</body>
-	</html>
+        <input type="image" src="images/button/pause.png" id="pauseButton"/>
+    </div>
+    <div id="pause">
+        Paused
+        <br/>
+        <input type="image" src="images/button/play.png" id="pause_playButton"/>
+        <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
+        <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
+    </div>
+</div>
+</body>
+</html>

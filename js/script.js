@@ -5,6 +5,10 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
+var isPlaying = false;
+var isPaused = false;
+var score = 0;
+
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
@@ -13,6 +17,7 @@ $(document).ready(function(){
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
+        isPlaying = true;
         startTimer(10);  // 10 seconds
     });
     $("#optionButton").click(function(){
@@ -38,10 +43,18 @@ $(document).ready(function(){
       }
     });
     $("#pauseButton").click(function(){
+        if(!isPaused){
+            isPaused = true;
+        }
+        isPlaying = false;
         $("#pause").fadeIn();
     });
     $("#pause_playButton").click(function(){
         $("#pause").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
         $("#pause").fadeOut();
@@ -51,7 +64,17 @@ $(document).ready(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
+        isPlaying = false;
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
+        score = 0;
+        document.getElementById("score").innerText = "Score: " + score;
     });
+    $("#pause_retryButton").click(function(){
+        //retry function here
+    })
 });
 
 $(document).keydown(function(e) {
