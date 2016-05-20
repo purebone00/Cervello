@@ -13,6 +13,8 @@ $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
+        $("#leaderBoardButton").fadeOut();
+        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#hud").fadeIn();
         $("#clock").fadeIn();
@@ -24,6 +26,8 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
+        $("#leaderBoardButton").fadeOut();
+        $("#tutorialButton").fadeOut();
         $("#options").fadeIn();
     });
     $("#backButton").click(function(){
@@ -31,6 +35,8 @@ $(document).ready(function(){
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
     });
     $("#sfxButton").click(function(){
         //SFX toggle function here
@@ -77,6 +83,9 @@ $(document).ready(function(){
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
         $("#title").fadeIn();
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
         isPlaying = false;
         if(isPaused){
@@ -86,6 +95,9 @@ $(document).ready(function(){
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
     });
+    $("#pause_retryButton").click(function(){
+        //retry function here
+    })
 });
 
 $(document).keydown(function(e) {
