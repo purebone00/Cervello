@@ -59,3 +59,4 @@ What We Finished
 Difficulties
 	Leaderboards was harder then expected to code.
 	We tried to do too much this week.
+    The leder board we used xampp. 

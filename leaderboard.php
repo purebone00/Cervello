@@ -28,9 +28,12 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
+$sql = "INSERT INTO `players` (`id`, `name`, `score`) VALUES (1, 'Lebron James', 10)";
+
+
 
 if ($conn->query($sql) == TRUE) {
-	echo " insert sucess \n";
+	echo " insert sucess";
 } else {
 	echo " error insert " . $conn->error;
 }
@@ -59,9 +62,13 @@ $conn->close();
 
 ?>
 <html>
+<head>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
 <body>
 <table>
-	
+	<div id="container">
+	<div id ="submitScreen">
 		<td>id: </td>
 		<td><?php echo $_POST["id"];?></td>
 	
@@ -72,7 +79,8 @@ $conn->close();
 	
 		<td>-Score </td>
 		<td><?php echo $_POST["score"]; ?></td>
-		
+		</div>
+		</div>
 </table>
 </body>
 </html>
