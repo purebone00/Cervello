@@ -28,6 +28,10 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
+<<<<<<< Updated upstream
+=======
+$sql = "INSERT INTO `players` (`id`, `name`, `score`) VALUES ('$_POST['id']', '$_POST['name']', '$_POST['score']')";
+>>>>>>> Stashed changes
 
 
 
