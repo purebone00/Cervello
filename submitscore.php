@@ -4,8 +4,6 @@ $username = 'cervello';
 $password = 'game';
 $dbname = 'leaderboardDB';
 
-$response = array();
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -27,19 +25,14 @@ if ($conn->query($sql) === TRUE) {
 	//echo "Error creating table: " . $conn->error;
 }
 
-$sql = "SELECT * FROM players ORDER BY players.score DESC";
-$result = $conn->query($sql);
+$sql = "INSERT INTO players (name,score)
+VALUES ('" . $_POST['name'] . "','" . $_POST['score'] . "');";
 
-if ($result->num_rows > 0) {
-	// output data of each row
-	while($row = $result->fetch_assoc()) {
-		$response[] = array("id"=>$row["id"], "name"=>$row["name"], "score"=>$row["score"]);
-	}
+if ($conn->query($sql) == TRUE) {
+	//echo " insert sucess";
 } else {
-	echo "0 results";
+	//echo " error insert " . $conn->error;
 }
 
 $conn->close();
-
-echo json_encode($response);
 ?>
