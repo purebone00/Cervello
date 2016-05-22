@@ -1,7 +1,7 @@
 window.onload = function() {
-    var c = document.getElementByID("view");
+    var c = document.getElementById("view");
     var ctx = c.getContext("2d");
-    var img = document.getElementByID("title");
+    var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
 
@@ -109,8 +109,16 @@ $(document).ready(function(){
       $.ajax({
         type: "POST",
         url: "leaderboard.php",
-        dataType:"json"
+        dataType:"json",
         success: function(response) {
+					$("#leaderboardTable").empty();
+
+					$('<tr>').append(
+						$('<th>').text("ID"),
+						$('<th>').text("Name"),
+						$('<th>').text("Score")
+					).appendTo('#leaderboardTable');
+
           $.each(response, function(i, item) {
             $('<tr>').append(
               $('<td>').text(item.id),
