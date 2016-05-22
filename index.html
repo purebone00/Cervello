@@ -300,7 +300,7 @@
 		<div id="gameOver">
 			Game Over
 			<br/>
-			<form id="scoreSubmitForm" action="leaderboard.php" method ="POST">
+			<form id="scoreSubmitForm" method ="POST">
 				<table>
 					<tr>
 						<td>Name</td>
@@ -315,6 +315,15 @@
 			</form>
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
+		</div>
+		<div id="leaderboard">
+			<table  id="leaderboardTable">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Score</th>
+				</tr>
+			</table>
 		</div>
 	</div>
 </body>

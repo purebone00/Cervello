@@ -4,6 +4,8 @@ $username = 'cervello';
 $password = 'game';
 $dbname = 'leaderboardDB';
 
+$response = array();
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -28,39 +30,16 @@ if ($conn->query($sql) === TRUE) {
 $sql = "SELECT * FROM players ORDER BY players.score DESC";
 $result = $conn->query($sql);
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="css/styles.css"/>
-</head>
-<body>
-<?php
-echo '<table id="leaderboardTable">
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Score</th>
-</tr>';
-
 if ($result->num_rows > 0) {
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
-		echo '<tr>';
-		echo '<td>' . $row["id"] . '</td>';
-		echo '<td>' . $row["name"] . '</td>';
-		echo '<td>' . $row["score"] . '</td>';
-		echo '</tr>';
+		$response[] = array("id"=>$row["id"], "name"=>$row["name"], "score"=>$row["score"]);
 	}
 } else {
 	echo "0 results";
 }
 
-echo '</table>';
-?>
-</body>
-</html>
-
-<?php
 $conn->close();
+
+echo json_encode($response);
 ?>

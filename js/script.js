@@ -105,21 +105,34 @@ $(document).ready(function(){
     $("#pause_retryButton").click(function(){
         //retry function here
     })
-    $("#scoreSubmitForm").submit(function(e) {
-
-      var url = "submitscore.php"; // the script where you handle the form input.
-
+    $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
-        url: url,
-        data: $(this).serialize(), // serializes the form's elements.
-        success: function(data) {
-          alert(data); // show response from the php script.
+        url: "leaderboard.php",
+        dataType:"json"
+        success: function(response) {
+          $.each(response, function(i, item) {
+            $('<tr>').append(
+              $('<td>').text(item.id),
+              $('<td>').text(item.name),
+              $('<td>').text(item.score)
+            ).appendTo('#leaderboardTable');
+          });
         }
       });
-
+			$("#leaderboard").fadeIn();
+    })
+    $("#scoreSubmitForm").submit(function(e) {
+      $.ajax({
+        type: "POST",
+        url: "submitscore.php",
+        data: $(this).serialize(), // serializes the form's elements.
+        success: function(data) {
+        }
+      });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
+
 });
 
 $(document).keydown(function(e) {

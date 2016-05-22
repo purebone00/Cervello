@@ -35,6 +35,4 @@ if ($conn->query($sql) == TRUE) {
 }
 
 $conn->close();
-$data = "yay";
-echo $data;
 ?>
