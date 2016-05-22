@@ -111,13 +111,13 @@ $(document).ready(function(){
         url: "leaderboard.php",
         dataType:"json",
         success: function(response) {
-					$("#leaderboardTable").empty();
+          $("#leaderboardTable").empty();
 
-					$('<tr>').append(
-						$('<th>').text("ID"),
-						$('<th>').text("Name"),
-						$('<th>').text("Score")
-					).appendTo('#leaderboardTable');
+          $('<tr>').append(
+            $('<th>').text("ID"),
+            $('<th>').text("Name"),
+            $('<th>').text("Score")
+          ).appendTo('#leaderboardTable');
 
           $.each(response, function(i, item) {
             $('<tr>').append(
@@ -128,7 +128,7 @@ $(document).ready(function(){
           });
         }
       });
-			$("#leaderboard").fadeIn();
+      $("#leaderboard").fadeIn();
     })
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({
