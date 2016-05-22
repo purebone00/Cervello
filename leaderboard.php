@@ -1,19 +1,16 @@
 <?php
 $servername = 'localhost';
-$username = 'root';
-$password = '';
+$username = 'cervello';
+$password = 'game';
 $dbname = 'leaderboardDB';
-
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
+	die('Connection failed: ' . $conn->connect_error);
 }
-echo 'Connected successfully';
-
-
+//echo 'Connected successfully';
 
 // sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS players (
@@ -23,63 +20,56 @@ score INT(5) NOT NULL
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo " record added successfully";
+	//echo " record added successfully";
 } else {
-    echo "Error creating table: " . $conn->error;
+	//echo "Error creating table: " . $conn->error;
 }
 
 $sql = "INSERT INTO players (id, name,score)
 VALUES ('" . $_POST['id'] . "','" . $_POST['name'] . "','" . $_POST['score'] . "');";
 
 if ($conn->query($sql) == TRUE) {
-	echo " insert sucess";
+	//echo " insert sucess";
 } else {
-	echo " error insert " . $conn->error;
+	//echo " error insert " . $conn->error;
 }
 
-
-
-
-$sql = "SELECT * FROM `players` ORDER BY `players`.`score` DESC";
+$sql = "SELECT * FROM players ORDER BY players.score DESC";
 $result = $conn->query($sql);
 
-
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "\n id: " . $row["id"]. " - Name: " . $row["name"]. " - Score: " . $row["score"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-
-
-$conn->close();
-
-
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/styles.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-<table>
-	<div id="container">
-	<div id ="submitScreen">
-		<td>id: </td>
-		<td><?php echo $_POST["id"];?></td>
+<?php
+echo '<table id="leaderboardTable">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Score</th>
+</tr>';
 
+if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+		echo "<tr>";
+		echo "<td>" . $row["id"] . "</td>";
+		echo "<td>" . $row["name"] . "</td>";
+		echo "<td>" . $row["score"] . "</td>";
+		echo "</tr>";
+	}
+} else {
+	echo "0 results";
+}
 
-		<td>-Name</td>
-		<td><?php echo $_POST["name"]; ?></td>
-
-
-		<td>-Score </td>
-		<td><?php echo $_POST["score"]; ?></td>
-		</div>
-		</div>
-</table>
+echo "</table>";
+?>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
