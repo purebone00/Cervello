@@ -25,8 +25,8 @@ if ($conn->query($sql) === TRUE) {
 	//echo "Error creating table: " . $conn->error;
 }
 
-$sql = "INSERT INTO players (id, name,score)
-VALUES ('" . $_POST['id'] . "','" . $_POST['name'] . "','" . $_POST['score'] . "');";
+$sql = "INSERT INTO players (name,score)
+VALUES ('" . $_POST['name'] . "','" . $_POST['score'] . "');";
 
 if ($conn->query($sql) == TRUE) {
 	//echo " insert sucess";
