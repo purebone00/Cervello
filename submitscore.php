@@ -25,42 +25,16 @@ if ($conn->query($sql) === TRUE) {
 	//echo "Error creating table: " . $conn->error;
 }
 
-$sql = "SELECT * FROM players ORDER BY players.score DESC";
-$result = $conn->query($sql);
+$sql = "INSERT INTO players (name,score)
+VALUES ('" . $_POST['name'] . "','" . $_POST['score'] . "');";
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="css/styles.css"/>
-</head>
-<body>
-<?php
-echo '<table id="leaderboardTable">
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Score</th>
-</tr>';
-
-if ($result->num_rows > 0) {
-	// output data of each row
-	while($row = $result->fetch_assoc()) {
-		echo '<tr>';
-		echo '<td>' . $row["id"] . '</td>';
-		echo '<td>' . $row["name"] . '</td>';
-		echo '<td>' . $row["score"] . '</td>';
-		echo '</tr>';
-	}
+if ($conn->query($sql) == TRUE) {
+	//echo " insert sucess";
 } else {
-	echo "0 results";
+	//echo " error insert " . $conn->error;
 }
 
-echo '</table>';
-?>
-</body>
-</html>
-
-<?php
 $conn->close();
+$data = "yay";
+echo $data;
 ?>
