@@ -65,9 +65,13 @@ $conn->close();
 
 ?>
 <html>
+<head>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
 <body>
 <table>
-	
+	<div id="container">
+	<div id ="submitScreen">
 		<td>id: </td>
 		<td><?php echo $_POST["id"];?></td>
 	
@@ -78,7 +82,8 @@ $conn->close();
 	
 		<td>-Score </td>
 		<td><?php echo $_POST["score"]; ?></td>
-		
+		</div>
+		</div>
 </table>
 </body>
 </html>
