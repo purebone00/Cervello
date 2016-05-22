@@ -1,5 +1,5 @@
 window.onload = function() {
-    var c = document.getElemetByID("view");
+    var c = document.getElementByID("view");
     var ctx = c.getContext("2d");
     var img = document.getElementByID("title");
     ctx.drawImage(img,10,10);
@@ -65,6 +65,10 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
+        var scoreStr = document.getElementById("score").innerText.split(" ");
+        var gameScore = scoreStr[1];
+        document.getElementById("formScore").value = gameScore;
+
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
     });
