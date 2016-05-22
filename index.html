@@ -196,6 +196,8 @@
 			return 1;
 		}
 	}
+
+
 	function createBall(givenPos) {
 		var radius = 30;
 			var vector = new Point({
@@ -250,6 +252,8 @@
     </menu>
     <menu id="main">
         <img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px">
+        <p id="timerUI">Timer:</p>
+        <span id="clock" style="font-weight: bold;">10</span>
         <button id="playButton">Play</button>
         <br>
         <button id="optionButton">Options</button>
@@ -282,25 +286,43 @@
         <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
         <div id="score">Score: 0</div>
         <span id="targetBox">
-            <p>Target:</p>
-            <br/>
-            <canvas id="target"></canvas>
-        </span>
-        <input type="image" src="images/button/pause.png" id="pauseButton"/>
+          <p>Target:</p>
+                  <br/>
+                  <canvas id="target"></canvas>
+      </span>
+              <input type="image" src="images/button/pause.png" id="pauseButton"/>
     </div>
     <div id="pause">
-        Paused
-        <br/>
-        <input type="image" src="images/button/play.png" id="pause_playButton"/>
-        <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
-        <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
-    </div>
+              Paused
+              <br/>
+              <input type="image" src="images/button/play.png" id="pause_playButton"/>
+              <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
+              <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
+          </div>
     <div id="gameOver">
-        Game Over
-        <br/>
-        <input type="image" src="images/button/retry.png" id="go_retryButton"/>
-        <input type="image" src="images/button/exit.png" id="go_exitButton"/>
+      Game Over
+      <br/>
+              <form action = "leaderboard.php" method ="POST">
+                  <table>
+                      <tr>
+                          <td>id</td>
+                          <td><input type = "text" name = "id" id = "id" value = " " type = "hidden"></td>
+                      </tr>
+                      <tr>
+                          <td>Name</td>
+                          <td><input type = "text" name = "name" id = "name" value = " "></td>
+                      </tr>
+                      <tr>
+                          <td>Score</td>
+                          <td><input type = "text" name = "score" id = "formScore" value = " " type = "hidden"></td>
+                      </tr>
+                      <input type="submit">
+
+                  </table>
+              </form>
+      <input type="image" src="images/button/retry.png" id="go_retryButton"/>
+      <input type="image" src="images/button/exit.png" id="go_exitButton"/>
     </div>
-</div>
+  </div>
 </body>
 </html>

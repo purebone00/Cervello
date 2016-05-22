@@ -10,14 +10,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
-} 
+}
 echo 'Connected successfully';
 
 
 
 // sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS players (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 score INT(5) NOT NULL
 )";
@@ -28,12 +28,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-<<<<<<< Updated upstream
-=======
-$sql = "INSERT INTO `players` (`id`, `name`, `score`) VALUES ('$_POST['id']', '$_POST['name']', '$_POST['score']')";
->>>>>>> Stashed changes
-
-
+$sql = "INSERT INTO players (id, name,score)
+VALUES ('" . $_POST['id'] . "','" . $_POST['name'] . "','" . $_POST['score'] . "');";
 
 if ($conn->query($sql) == TRUE) {
 	echo " insert sucess";
@@ -44,7 +40,7 @@ if ($conn->query($sql) == TRUE) {
 
 
 
-$sql = "SELECT * FROM players";
+$sql = "SELECT * FROM `players` ORDER BY `players`.`score` DESC";
 $result = $conn->query($sql);
 
 
@@ -74,12 +70,12 @@ $conn->close();
 	<div id ="submitScreen">
 		<td>id: </td>
 		<td><?php echo $_POST["id"];?></td>
-	
-	
+
+
 		<td>-Name</td>
 		<td><?php echo $_POST["name"]; ?></td>
-	
-	
+
+
 		<td>-Score </td>
 		<td><?php echo $_POST["score"]; ?></td>
 		</div>
