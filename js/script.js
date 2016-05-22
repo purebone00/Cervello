@@ -66,8 +66,9 @@ $(document).ready(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
         var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameScore = scoreStr[1];
-        document.getElementById("formScore").value = gameScore;
+        var gameOverScore = scoreStr[1];
+        document.getElementById("formScore").value = gameOverScore;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;

@@ -300,21 +300,17 @@
 		<div id="gameOver">
 			Game Over
 			<br/>
-			<form action = "leaderboard.php" method ="POST">
+			<form action="leaderboard.php" method ="POST">
 				<table>
 					<tr>
-						<td>id</td>
-						<td><input type = "text" name = "id" id = "id" value = "" type = "hidden"></td>
-					</tr>
-					<tr>
 						<td>Name</td>
-						<td><input type = "text" name = "name" id = "name" value = ""></td>
+						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>
 					<tr>
-						<td>Score</td>
-						<td><input type = "hidden" name = "score" id = "formScore" value = ""></td>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
 					</tr>
-					<input type="submit">
+					<input type="submit" value="Submit">
 				</table>
 			</form>
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>

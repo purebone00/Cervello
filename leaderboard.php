@@ -55,17 +55,17 @@ echo '<table id="leaderboardTable">
 if ($result->num_rows > 0) {
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
-		echo "<tr>";
-		echo "<td>" . $row["id"] . "</td>";
-		echo "<td>" . $row["name"] . "</td>";
-		echo "<td>" . $row["score"] . "</td>";
-		echo "</tr>";
+		echo '<tr>';
+		echo '<td>' . $row["id"] . '</td>';
+		echo '<td>' . $row["name"] . '</td>';
+		echo '<td>' . $row["score"] . '</td>';
+		echo '</tr>';
 	}
 } else {
 	echo "0 results";
 }
 
-echo "</table>";
+echo '</table>';
 ?>
 </body>
 </html>
