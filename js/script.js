@@ -81,7 +81,9 @@ $(document).ready(function(){
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
         $("#playButton").fadeIn();
-        $("#optionButton").fadeIn();
+        $("#optionButton").fadeIn();        
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
         $("#hud").fadeOut();
         $("#clock").fadeOut();
