@@ -1,7 +1,7 @@
 window.onload = function() {
-    var c = document.getElemetByID("view");
+    var c = document.getElementById("view");
     var ctx = c.getContext("2d");
-    var img = document.getElementByID("title");
+    var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
 
@@ -65,17 +65,22 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
+        var scoreStr = document.getElementById("score").innerText.split(" ");
+        var gameOverScore = scoreStr[1];
+        document.getElementById("formScore").value = gameOverScore;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
     });
     $("#pause_retryButton").click(function(){
         //retry function here
     })
+        isPlaying = false;
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
     $("#go_exitButton").click(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
@@ -85,6 +90,8 @@ $(document).ready(function(){
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
@@ -100,6 +107,42 @@ $(document).ready(function(){
     $("#pause_retryButton").click(function(){
         //retry function here
     })
+    $("#leaderBoardButton").click(function(){
+      $.ajax({
+        type: "POST",
+        url: "leaderboard.php",
+        dataType:"json",
+        success: function(response) {
+          $("#leaderboardTable").empty();
+
+          $('<tr>').append(
+            $('<th>').text("ID"),
+            $('<th>').text("Name"),
+            $('<th>').text("Score")
+          ).appendTo('#leaderboardTable');
+
+          $.each(response, function(i, item) {
+            $('<tr>').append(
+              $('<td>').text(item.id),
+              $('<td>').text(item.name),
+              $('<td>').text(item.score)
+            ).appendTo('#leaderboardTable');
+          });
+        }
+      });
+      $("#leaderboard").fadeIn();
+    })
+    $("#scoreSubmitForm").submit(function(e) {
+      $.ajax({
+        type: "POST",
+        url: "submitscore.php",
+        data: $(this).serialize(), // serializes the form's elements.
+        success: function(data) {
+        }
+      });
+      e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
+
 });
 
 $(document).keydown(function(e) {

@@ -1,308 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cervello</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/styles.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/paper.js"></script>
-    <script type="text/javascript" src="js/timer.js"></script>
-    <script type="text/javascript" src="js/easterEgg.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/paperscript" canvas="view">
-	var ColorEnum = {
-						fillColor: {
-								1: '#F44336',
-								2: '#E91E63',
-								3: '#9C27B0',
-								4: '#673AB7',
-								5: '#3F51B5',
-								6: '#2196F3',
-								7: '#03A9F4',
-								8: '#00BCD4',
-								9: '#009688',
-								10: '#4CAF50',
-								11: '#74D108',
-								12: '#CDDC39',
-								13: '#FFEB3B',
-								14: '#FFC107',
-								15: '#FF9800',
-								16: '#FF5722'
-						}
+	<meta charset="UTF-8">
+	<title>Cervello</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/paper.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/easterEgg.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/paperscript" canvas="view">
+		var ColorEnum = {
+			fillColor: {
+				1: '#F44336',
+				2: '#E91E63',
+				3: '#9C27B0',
+				4: '#673AB7',
+				5: '#3F51B5',
+				6: '#2196F3',
+				7: '#03A9F4',
+				8: '#00BCD4',
+				9: '#009688',
+				10: '#4CAF50',
+				11: '#74D108',
+				12: '#CDDC39',
+				13: '#FFEB3B',
+				14: '#FFC107',
+				15: '#FF9800',
+				16: '#FF5722'
+			}
 		};
 
 		var counter = 1;
 
-			<!-- Constructor for our ball object -->
-
-	function Ball(r, p, v) {
-		this.radius = r;
-		this.point = p;
-		this.vector = v;
-		this.maxVec = 15;
-		this.numSegment = Math.floor(r / 3 + 2);
-		this.boundOffset = [];
-		this.boundOffsetBuff = [];
-		this.sidePoints = [];
-		if(counter > 16){
+		<!-- Constructor for our ball object -->
+		function Ball(r, p, v) {
+			this.radius = r;
+			this.point = p;
+			this.vector = v;
+			this.maxVec = 15;
+			this.numSegment = Math.floor(r / 3 + 2);
+			this.boundOffset = [];
+			this.boundOffsetBuff = [];
+			this.sidePoints = [];
+			if(counter > 16){
 				counter = 1;
-		}
-
-		this.path = new Path({
-			fillColor: ColorEnum.fillColor[counter++],
-			blendMode: 'screen'
-		});
-
-		for (var i = 0; i < this.numSegment; i ++) {
-			this.boundOffset.push(this.radius);
-			this.boundOffsetBuff.push(this.radius);
-			this.path.add(new Point());
-			this.sidePoints.push(new Point({
-				angle: 360 / this.numSegment * i,
-				length: 1
-			}));
-		}
-	}
-
-	Ball.prototype = {
-		iterate: function() {
-			this.checkBorders();
-			if (this.vector.length > this.maxVec)
-				this.vector.length = this.maxVec;
-			this.point += this.vector;
-			this.updateShape();
-		},
-
-		checkBorders: function() {
-			var size = view.size;
-			if (this.point.x < 0)
-				this.vector.angle = (-this.vector.angle + 180)  % 360;
-			if (this.point.x > size.width)
-				this.vector.angle = (-this.vector.angle + 180)  % 360;
-			if (this.point.y < 0)
-				this.vector.angle = -this.vector.angle;
-			if (this.point.y > size.height)
-				this.vector.angle = -this.vector.angle;
-		},
-
-		updateShape: function() {
-			var segments = this.path.segments;
-			for (var i = 0; i < this.numSegment; i ++)
-				segments[i].point = this.getSidePoint(i);
-				this.path.smooth();
-			for (var i = 0; i < this.numSegment; i ++) {
-				if (this.boundOffset[i] < this.radius / 4)
-					this.boundOffset[i] = this.radius / 4;
-				var next = (i + 1) % this.numSegment;
-				var prev = (i > 0) ? i - 1 : this.numSegment - 1;
-				var offset = this.boundOffset[i];
-				offset += (this.radius - offset) / 15;
-				offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
-				this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
-				this.path.smooth();
 			}
-		},
 
-		react: function(b) {
-			var dist = this.point.getDistance(b.point);
-			if (dist < this.radius + b.radius && dist != 0) {
-				var overlap = this.radius + b.radius - dist;
-				var direc = (this.point - b.point).normalize(overlap * 0.015);
-				this.vector += direc;
-				b.vector -= direc;
-					this.calcBounds(b);
-				b.calcBounds(this);
-				this.updateBounds();
-				b.updateBounds();
-			}
-		},
-
-		getBoundOffset: function(b) {
-			var diff = this.point - b;
-			var angle = (diff.angle + 180) % 360;
-			return this.boundOffset[Math.floor(angle / 360 * this.boundOffset.length)];
-		},
-
-		calcBounds: function(b) {
-			for (var i = 0; i < this.numSegment; i ++) {
-				var tp = this.getSidePoint(i);
-				var bLen = b.getBoundOffset(tp);
-				var td = tp.getDistance(b.point);
-				if (td < bLen) {
-					this.boundOffsetBuff[i] -= (bLen  - td) / 2;
-				}
-			}
-		},
-
-		getSidePoint: function(index) {
-			return this.point + this.sidePoints[index] * this.boundOffset[index];
-		},
-
-		updateBounds: function() {
-			for (var i = 0; i < this.numSegment; i ++)
-				this.boundOffset[i] = this.boundOffsetBuff[i];
-		}
-	};
-
-	//--------------------- target ---------------------
-	var balls = [];
-	var numBalls = 5;
-	var curBalls = 5;
-	var maxBalls = 16;
-	var color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
-	var targetColor = new Color(color);
-	$("#target").css("background", color);
-	var lives = 3;
-	//var score = 0;
-
-	function getNewTarget(){
-		color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
-		targetColor = new Color(color);
-		$("#target").css("background", color);
-	}
-
-	function calculatePoints(){
-		//add some number of points to the score variable
-		score += timeInSecs;
-		document.getElementById("score").textContent = "Score: " + score;
-	}
-
-	function deductLife(){
-		/**
-		* decrement the lives variable, and fade out the hearts graphic;
-		* if lives == 2, fade out heartThree
-		* if lives == 1, fade out heartTwo
-		* if lives == 0, fade out heartOne and execute gameOver()
-		**/
-		lives--;
-		if(lives <=0){
-			gameOver();
-		}
-	}
-
-	function gameOver(){
-		//display game over screen
-	}
-
-	//whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
-	function checkTarget(ball){
-
-		//check if the ball's fill color equals that of the target
-		if(JSON.stringify(ball.fillColor) === JSON.stringify(targetColor)){
-			return 0;
-
-		}else{
-			return 1;
-		}
-	}
-
-
-
-
-	function createBall(givenPos) {
-		var radius = 30;
-			var vector = new Point({
-				angle: 360 * Math.random(),
-				length: Math.random() * 10
+			this.path = new Path({
+				fillColor: ColorEnum.fillColor[counter++],
+				blendMode: 'screen'
 			});
-			return new Ball(radius, givenPos, vector);
-	}
 
-	function onMouseDown(event) {
-		project.activeLayer.selected = false;
-		if (event.item) {
-			if (checkTarget(event.item) == 0 && isPlaying) {
-				calculatePoints();
-				getNewTarget();
-				timeInSecs += 10;
-				if(curBalls < maxBalls){
-					curBalls++;
-					balls.push(createBall(event.point));
+			for (var i = 0; i < this.numSegment; i ++) {
+				this.boundOffset.push(this.radius);
+				this.boundOffsetBuff.push(this.radius);
+				this.path.add(new Point());
+				this.sidePoints.push(new Point({
+					angle: 360 / this.numSegment * i,
+					length: 1
+				}));
+			}
+		}
+
+		Ball.prototype = {
+			iterate: function() {
+				this.checkBorders();
+				if (this.vector.length > this.maxVec)
+					this.vector.length = this.maxVec;
+				this.point += this.vector;
+				this.updateShape();
+			},
+
+			checkBorders: function() {
+				var size = view.size;
+				if (this.point.x < 0)
+					this.vector.angle = (-this.vector.angle + 180)  % 360;
+				if (this.point.x > size.width)
+					this.vector.angle = (-this.vector.angle + 180)  % 360;
+				if (this.point.y < 0)
+					this.vector.angle = -this.vector.angle;
+				if (this.point.y > size.height)
+					this.vector.angle = -this.vector.angle;
+			},
+
+			updateShape: function() {
+				var segments = this.path.segments;
+				for (var i = 0; i < this.numSegment; i ++)
+					segments[i].point = this.getSidePoint(i);
+					this.path.smooth();
+				for (var i = 0; i < this.numSegment; i ++) {
+					if (this.boundOffset[i] < this.radius / 4)
+						this.boundOffset[i] = this.radius / 4;
+					var next = (i + 1) % this.numSegment;
+					var prev = (i > 0) ? i - 1 : this.numSegment - 1;
+					var offset = this.boundOffset[i];
+					offset += (this.radius - offset) / 15;
+					offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
+					this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+					this.path.smooth();
+				}
+			},
+
+			react: function(b) {
+				var dist = this.point.getDistance(b.point);
+				if (dist < this.radius + b.radius && dist != 0) {
+					var overlap = this.radius + b.radius - dist;
+					var direc = (this.point - b.point).normalize(overlap * 0.015);
+					this.vector += direc;
+					b.vector -= direc;
+						this.calcBounds(b);
+					b.calcBounds(this);
+					this.updateBounds();
+					b.updateBounds();
+				}
+			},
+
+			getBoundOffset: function(b) {
+				var diff = this.point - b;
+				var angle = (diff.angle + 180) % 360;
+				return this.boundOffset[Math.floor(angle / 360 * this.boundOffset.length)];
+			},
+
+			calcBounds: function(b) {
+				for (var i = 0; i < this.numSegment; i ++) {
+					var tp = this.getSidePoint(i);
+					var bLen = b.getBoundOffset(tp);
+					var td = tp.getDistance(b.point);
+					if (td < bLen) {
+						this.boundOffsetBuff[i] -= (bLen  - td) / 2;
+					}
+				}
+			},
+
+			getSidePoint: function(index) {
+				return this.point + this.sidePoints[index] * this.boundOffset[index];
+			},
+
+			updateBounds: function() {
+				for (var i = 0; i < this.numSegment; i ++)
+					this.boundOffset[i] = this.boundOffsetBuff[i];
+			}
+		};
+
+		//--------------------- target ---------------------
+		var balls = [];
+		var numBalls = 5;
+		var curBalls = 5;
+		var maxBalls = 16;
+		var color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
+		var targetColor = new Color(color);
+		$("#target").css("background", color);
+		var lives = 3;
+		//var score = 0;
+
+		function getNewTarget(){
+			color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
+			targetColor = new Color(color);
+			$("#target").css("background", color);
+		}
+
+		function calculatePoints(){
+			//add some number of points to the score variable
+			score += timeInSecs;
+			document.getElementById("score").textContent = "Score: " + score;
+		}
+
+		function deductLife(){
+			/**
+			* decrement the lives variable, and fade out the hearts graphic;
+			* if lives == 2, fade out heartThree
+			* if lives == 1, fade out heartTwo
+			* if lives == 0, fade out heartOne and execute gameOver()
+			**/
+			lives--;
+			if(lives <=0){
+				gameOver();
+			}
+		}
+
+		function gameOver(){
+			//display game over screen
+		}
+
+		//whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
+		function checkTarget(ball){
+
+			//check if the ball's fill color equals that of the target
+			if(JSON.stringify(ball.fillColor) === JSON.stringify(targetColor)){
+				return 0;
+
+			}else{
+				return 1;
+			}
+		}
+
+
+		function createBall(givenPos) {
+			var radius = 30;
+				var vector = new Point({
+					angle: 360 * Math.random(),
+					length: Math.random() * 10
+				});
+				return new Ball(radius, givenPos, vector);
+		}
+
+		function onMouseDown(event) {
+			project.activeLayer.selected = false;
+			if (event.item) {
+				if (checkTarget(event.item) == 0 && isPlaying) {
+					calculatePoints();
+					getNewTarget();
+					timeInSecs += 10;
+					if(curBalls < maxBalls){
+						curBalls++;
+						balls.push(createBall(event.point));
+					}
 				}
 			}
 		}
-	}
 
-
-	for (var i = 0; i < numBalls; i++) {
-		var position = Point.random() * view.size;
-		balls.push(createBall(position));
-	}
-
-	function onFrame() {
-		if(!isPaused){
-		    for (var i = 0; i < balls.length - 1; i++) {
-			    for (var j = i + 1; j < balls.length; j++) {
-				    balls[i].react(balls[j]);
-			    }
-		    }
-		    for (var i = 0, l = balls.length; i < l; i++) {
-			    balls[i].iterate();
-		    }
+		for (var i = 0; i < numBalls; i++) {
+			var position = Point.random() * view.size;
+			balls.push(createBall(position));
 		}
-	}
 
-    </script>
+		function onFrame() {
+			if(!isPaused){
+				for (var i = 0; i < balls.length - 1; i++) {
+					for (var j = i + 1; j < balls.length; j++) {
+						balls[i].react(balls[j]);
+					}
+				}
+				for (var i = 0, l = balls.length; i < l; i++) {
+					balls[i].iterate();
+				}
+			}
+		}
+
+	</script>
 </head>
 <body>
-<div id="container">
-    <canvas id="view">Something went wrong...</canvas>
-    <menu id="main">
-        <img id="title" src="img/title.png" alt="title.png" width="674px" height="232px">
-        <p id="timerUI">Timer:</p>
-        <span id="clock" style="font-weight: bold;">10</span>
-        <button id="playButton">Play</button>
-        <br>
-        <button id="optionButton">Options</button>
-        <br>
-        <button id="leaderBoardButton">Highscore</button>
-        <br>
-        <button id="tutorialButton">Tutorial</button>
-    </menu>
-    <div id="options">
-        Options
-        <br/>
-        <p id="optionBox">
-            <label for="colorblind">Color Blindness</label>
-            <select id="colorblind">
-                <option value="Off">Off</option>
-                <option value="Protanopia">Protanopia</option>
-                <option value="Deuteranopia">Deuteranopia</option>
-                <option value="Tritanopia">Tritanopia</option>
-            </select>
-            <br/>
-            <input type="image" src="images/button/bgm.png" id="bgmButton"/>
-            <input type="image" src="images/button/sfx.png" id="sfxButton"/>
-            <br/>
-            <button id="backButton">Back</button>
-        </p>
-    </div>
-    <div id="hud">
-        <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart">
-        <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart">
-        <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart">
-        <div id="score">Score: 0</div>
-				<span id="targetBox">
-                    <p>Target:</p>
-                    <br/>
-                    <canvas id="target"></canvas>
-				</span>
-                <input type="image" src="images/button/pause.png" id="pauseButton"/>
-			</div>
-			<div id="pause">
-                Paused
-                <br/>
-                <input type="image" src="images/button/play.png" id="pause_playButton"/>
-                <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
-                <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
-            </div>
-			<div id="gameOver">
-				Game Over
+	<div id="container">
+		<canvas id="view">Something went wrong...</canvas>
+		<menu id="timer">
+			<p id="timerUI">Timer:</p>
+			<span id="clock" style="font-weight: bold;">10</span>
+		</menu>
+		<menu id="main">
+			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
+			<p id="timerUI">Timer:</p>
+			<span id="clock" style="font-weight: bold;">10</span>
+			<button id="playButton">Play</button>
+			<br/>
+			<button id="optionButton">Options</button>
+			<br/>
+			<button id="leaderBoardButton">Highscore</button>
+			<br/>
+			<button id="tutorialButton">Tutorial</button>
+		</menu>
+		<div id="options">
+			Options
+			<br/>
+			<p id="optionBox">
+				<label for="colorblind">Color Blindness</label>
+				<select id="colorblind">
+					<option value="Off">Off</option>
+					<option value="Protanopia">Protanopia</option>
+					<option value="Deuteranopia">Deuteranopia</option>
+					<option value="Tritanopia">Tritanopia</option>
+				</select>
 				<br/>
-				<input type="image" src="images/button/retry.png" id="go_retryButton"/>
-				<input type="image" src="images/button/exit.png" id="go_exitButton"/>
-			</div>
+				<input type="image" src="images/button/bgm.png" id="bgmButton"/>
+				<input type="image" src="images/button/sfx.png" id="sfxButton"/>
+				<br/>
+				<button id="backButton">Back</button>
+			</p>
 		</div>
-	</body>
-	</html>
+		<div id="hud">
+			<img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
+			<img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
+			<img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
+			<div id="score">Score: 0</div>
+			<span id="targetBox">
+				<p>Target:</p>
+				<br/>
+				<canvas id="target"></canvas>
+			</span>
+			<input type="image" src="images/button/pause.png" id="pauseButton"/>
+		</div>
+		<div id="pause">
+			Paused
+			<br/>
+			<input type="image" src="images/button/play.png" id="pause_playButton"/>
+			<input type="image" src="images/button/retry.png" id="pause_retryButton"/>
+			<input type="image" src="images/button/exit.png" id="pause_exitButton"/>
+		</div>
+		<div id="gameOver">
+			Game Over
+			<br/>
+			<form id="scoreSubmitForm" method ="POST">
+				<table>
+					<tr>
+						<td>Name</td>
+						<td><input type="text" name="name" id="name" value=""></td>
+					</tr>
+					<tr>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
+					</tr>
+					<input type="submit" value="Submit">
+				</table>
+			</form>
+			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
+			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
+		</div>
+		<div id="leaderboard">
+			<table  id="leaderboardTable">
+			</table>
+		</div>
+	</div>
+</body>
+</html>
