@@ -1,0 +1,229 @@
+#container {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 480px;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#view {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c3c3c3;
+}
+
+#title {
+    position: absolute;
+    left: -10px;
+    top: -125px;
+    width: 200px;
+    height: 70px;
+
+}
+#timer {
+    bottom: -16%;
+    left: 29%;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+}
+#main {
+    bottom: 4%;
+    left: 29%;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+}
+#options {
+    bottom: 15%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+#playButton, #optionButton, #leaderBoardButton, #tutorialButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: white;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
+}
+#playButton:hover, #optionButton:hover, #backButton:hover, #leaderBoardButton:hover, #tutorialButton:hover  {
+    color: black;
+    background-color: white;
+}
+#backButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: #87CEFA;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    margin: 4px;
+}
+#clock {
+    position: absolute;
+    color: black;
+    left: 260px;
+    top: -245px;
+    display: none;
+}
+#timerUI {
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: 215px;
+    top: -245px;
+    color: black;
+    display: none;
+}
+#bgmButton {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 12px;
+}
+#sfxButton {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 12px;
+}
+#colorblind {
+    margin-bottom: 12px;
+}
+#optionBox {
+    margin-top: 15px;
+}
+#hud {
+    bottom: 100%;
+    width: 100%;
+    position: absolute;
+    display: none;
+    border: 1px solid black;
+}
+.heart {
+    height: 25px;
+    width: 25px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+#score {
+    display: inline-flex;
+    font-weight: bold;
+    margin-left: 30px;
+    color: black;
+    font-size: 14px;
+    vertical-align: middle;
+}
+#pauseButton {
+    height: 25px;
+    width: 25px;
+    margin-left: 110px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+#target {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #c3c3c3;
+}
+#targetBox {
+    display: inline-flex;
+    margin-left: 55px;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    vertical-align: middle;
+}
+#pause_playButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#pause_retryButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#pause_exitButton {
+     margin-left: 10px;
+     margin-right: 10px;
+     margin-top: 20px;
+     width: 40px;
+     height: 40px;
+}
+#pause {
+    bottom: 30%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+#gameOver {
+    bottom: 30%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+#go_retryButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#go_exitButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+#leaderboard {
+    display: none;
+}
+#submitScreen {
+
+}
