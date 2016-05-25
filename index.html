@@ -32,6 +32,7 @@
 			}
 		};
 
+    var variableMaxVelocity = 5;
 		var counter = 1;
 
 		<!-- Constructor for our ball object -->
@@ -39,7 +40,7 @@
 			this.radius = r;
 			this.point = p;
 			this.vector = v;
-			this.maxVec = 15;
+			this.maxVec = variableMaxVelocity;
 			this.numSegment = Math.floor(r / 3 + 2);
 			this.boundOffset = [];
 			this.boundOffsetBuff = [];
@@ -153,7 +154,8 @@
 		var targetColor = new Color(color);
 		$("#target").css("background", color);
 		var lives = 3;
-		//var score = 0;
+		var tmpscore = 0;
+    var pointsThreshold = 50;
 
 		function getNewTarget(){
 			color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
@@ -164,6 +166,7 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
+      tmpscore += timeInSecs;
 			document.getElementById("score").textContent = "Score: " + score;
 		}
 
@@ -206,20 +209,33 @@
 				return new Ball(radius, givenPos, vector);
 		}
 
-		function onMouseDown(event) {
-			project.activeLayer.selected = false;
+    function targetCheck(event) {
+      project.activeLayer.selected = false;
 			if (event.item) {
 				if (checkTarget(event.item) == 0 && isPlaying) {
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 10;
-					if(curBalls < maxBalls){
+					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
 					}
+          if (tmpscore > pointsThreshold) {
+            tmpscore = 0;
+            variableMaxVelocity *= 1.5;
+            pointsThreshold += 25;
+          }
 				}
 			}
+    }
+
+		function onMouseDown(event) {
+			targetCheck(event);
 		}
+
+    function onMouseDrag(event) {
+      targetCheck(event);
+    }
 
 		for (var i = 0; i < numBalls; i++) {
 			var position = Point.random() * view.size;
