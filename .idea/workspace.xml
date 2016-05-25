@@ -2,54 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
-    <list default="true" id="733ba8bc-5653-49fe-b929-3308da4033bd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml.orig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/.idea/Cervello-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/bkmusic.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/bgm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/exit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/exit_blue-yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/exit_red-green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/pause.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/pause_blue-yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/pause_red-green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/play.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/play_blue-yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/play_red-green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/retry.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/retry_blue-yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/retry_red-green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/button/sfx.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/graphic/heart_active.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/graphic/heart_active_blue-yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/graphic/heart_active_red-green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/images/graphic/heart_disactive.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/js/paper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/js/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/js/script.js.orig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cervello-master/title.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bkmusic.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/paper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/script.js.orig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/title.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Cervello.iml" afterPath="$PROJECT_DIR$/.idea/Cervello.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
-    <ignored path="cervello.iws" />
-=======
-<<<<<<< HEAD
     <list default="true" id="2b13a816-f796-4e3a-9bf7-beb14862f4db" name="Default" comment="" />
 =======
     <list default="true" id="2b13a816-f796-4e3a-9bf7-beb14862f4db" name="Default" comment="">
@@ -57,7 +9,6 @@
     </list>
 >>>>>>> leaderboards
     <ignored path="Cervello.iws" />
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,17 +23,9 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="cervello" />
+    <favorites_list name="Cervello" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Cervello/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4199">
-              <caret line="259" column="15" selection-start-line="259" selection-start-column="15" selection-end-line="259" selection-end-column="15" />
-=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
@@ -200,7 +143,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1190">
               <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
               <folding />
             </state>
           </provider>
@@ -210,20 +152,21 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/Cervello/index.html" />
-=======
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/js/script.js" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/leaderboardTable.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/ReadMe.txt" />
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
       </list>
     </option>
   </component>
@@ -245,7 +188,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -267,20 +210,27 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cervello" />
+              <option name="myItemId" value="Cervello" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cervello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cervello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
 <<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cervello" />
+              <option name="myItemId" value="Cervello" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-<<<<<<< HEAD
-              <option name="myItemId" value="cervello" />
-=======
               <option name="myItemId" value="Cervello" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -318,11 +268,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cervello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Cervello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,13 +294,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-<<<<<<< HEAD
-=======
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -428,26 +383,19 @@
         <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="733ba8bc-5653-49fe-b929-3308da4033bd" name="Default" comment="" />
-      <created>1464112980202</created>
+      <changelist id="2b13a816-f796-4e3a-9bf7-beb14862f4db" name="Default" comment="" />
+      <created>1462903338297</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1464112980202</updated>
-      <workItem from="1464112982195" duration="578000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578000" />
-=======
       <updated>1462903338297</updated>
       <workItem from="1462903339423" duration="1090000" />
       <workItem from="1462904534083" duration="486000" />
@@ -514,25 +462,11 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="29298000" />
 >>>>>>> leaderboards
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-=======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29648608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
@@ -554,15 +488,10 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-<<<<<<< HEAD
-=======
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -591,13 +520,10 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented easter egg" />
     <MESSAGE value="testing var colorEnum" />
@@ -609,18 +535,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="leaderboards" />
 >>>>>>> leaderboards
   </component>
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/Cervello/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4199">
-          <caret line="259" column="15" selection-start-line="259" selection-start-column="15" selection-end-line="259" selection-end-column="15" />
-=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1020,7 +939,6 @@
         <state relative-caret-position="572">
           <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
 >>>>>>> leaderboards
->>>>>>> ad1587f6b7e8da86ec8220a5397f1aa4000e8fc6
           <folding />
         </state>
       </provider>
