@@ -9,6 +9,17 @@ var isPlaying = false;
 var isPaused = false;
 var score = 0;
 
+function gameOver(){
+    $("#gameOver").fadeIn();
+    var scoreStr = document.getElementById("score").innerText.split(" ");
+    var gameOverScore = scoreStr[1];
+    document.getElementById("formScore").value = gameOverScore;
+    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+}
+
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
@@ -66,15 +77,8 @@ $(document).ready(function(){
         isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
-        $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameOverScore = scoreStr[1];
-        document.getElementById("formScore").value = gameOverScore;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
-
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
+        gameOver();
     });
     $("#pause_retryButton").click(function(){
         //retry function here
@@ -85,6 +89,9 @@ $(document).ready(function(){
         }
         clearInterval(ticker);
     $("#go_exitButton").click(function(){
+        $("#heartOne").attr("src", "images/graphic/heart_active.png");
+        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+        $("#heartThree").attr("src", "images/graphic/heart_active.png");
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
@@ -100,6 +107,7 @@ $(document).ready(function(){
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
+        lives = 3;
         isPlaying = false;
         if(isPaused){
             isPaused = false;

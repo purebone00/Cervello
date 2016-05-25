@@ -153,9 +153,9 @@
 		var color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
 		var targetColor = new Color(color);
 		$("#target").css("background", color);
-		var lives = 3;
+		//var lives = 3;
 		var tmpscore = 0;
-    var pointsThreshold = 50;
+    		var pointsThreshold = 50;
 
 		function getNewTarget(){
 			color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
@@ -166,7 +166,7 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-      tmpscore += timeInSecs;
+      			tmpscore += timeInSecs;
 			document.getElementById("score").textContent = "Score: " + score;
 		}
 
@@ -215,7 +215,7 @@
 				if (checkTarget(event.item) == 0 && isPlaying) {
 					calculatePoints();
 					getNewTarget();
-					timeInSecs += 10;
+					timeInSecs += 2;
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
@@ -266,8 +266,6 @@
 		</menu>
 		<menu id="main">
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
-			<p id="timerUI">Timer:</p>
-			<span id="clock" style="font-weight: bold;">10</span>
 			<button id="playButton">Play</button>
 			<br/>
 			<button id="optionButton">Options</button>
