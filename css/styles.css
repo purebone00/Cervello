@@ -50,8 +50,14 @@
     background-color: #87CEFA;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 #playButton, #optionButton, #leaderBoardButton, #tutorialButton {
     border: 2px solid #87CEFA;
@@ -66,14 +72,17 @@
     width: 100px;
     margin: 4px;
 }
-#playButton:hover, #optionButton:hover, #backButton:hover, #leaderBoardButton:hover, #tutorialButton:hover  {
+#playButton:hover, #optionButton:hover, #leaderBoardButton:hover, #tutorialButton:hover {
     color: black;
     background-color: white;
+}
+#backButton:hover, #submitButton:hover {
+    color: #87CEFA;
 }
 #backButton {
     border: 2px solid #87CEFA;
     border-radius: 4px;
-    color: #87CEFA;
+    color: black;
     background-color: #FFFFFF;
     text-align: center;
     text-decoration: none;
@@ -114,6 +123,9 @@
 }
 #optionBox {
     margin-top: 15px;
+    font-size: 15px;
+    color: black;
+    text-shadow: none;
 }
 #hud {
     bottom: 100%;
@@ -128,10 +140,15 @@
     display: inline-flex;
     vertical-align: middle;
 }
+#lives {
+    margin: 10px;
+    display: inline-flex;
+    vertical-align: middle;
+}
 #score {
     display: inline-flex;
     font-weight: bold;
-    margin-left: 30px;
+    margin: 10px;
     color: black;
     font-size: 14px;
     vertical-align: middle;
@@ -139,7 +156,7 @@
 #pauseButton {
     height: 25px;
     width: 25px;
-    margin-left: 110px;
+    margin: 10px;
     display: inline-flex;
     vertical-align: middle;
 }
@@ -150,32 +167,18 @@
 }
 #targetBox {
     display: inline-flex;
-    margin-left: 55px;
+    margin: 10px;
     font-weight: bold;
     color: black;
     font-size: 14px;
     vertical-align: middle;
 }
-#pause_playButton {
+#pause_playButton, #pause_retryButton, #pause_exitButton {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
     width: 40px;
     height: 40px;
-}
-#pause_retryButton {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 40px;
-    height: 40px;
-}
-#pause_exitButton {
-     margin-left: 10px;
-     margin-right: 10px;
-     margin-top: 20px;
-     width: 40px;
-     height: 40px;
 }
 #pause {
     bottom: 30%;
@@ -189,40 +192,65 @@
     background-color: #87CEFA;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 #gameOver {
-    bottom: 30%;
+    bottom: 25%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 40%;
+    height: 60%;
     display: none;
     border: 2px solid #87CEFA;
     border-radius: 4px;
     background-color: #87CEFA;
     text-align: center;
     text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+#go_retryButton, #go_exitButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 16px;
+    width: 40px;
+    height: 40px;
+}
+#leaderBoard {
+    display: none;
+}
+#scoreSubmitForm {
+    margin-top: 12px;
+    margin-left: 1px;
+    font-size: 15px;
+    text-shadow: none;
+    color: black;
+}
+#submitButton {
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    color: black;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
-}
-#go_retryButton {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 40px;
-    height: 40px;
-}
-#go_exitButton {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 40px;
-    height: 40px;
-}
-#leaderboard {
-    display: none;
+    width: 100px;
+    margin: 4px;
 }
 #submitScreen {
 
