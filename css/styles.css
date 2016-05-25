@@ -56,6 +56,7 @@
     font-size: 18px;
     font-weight: bold;
     color: white;
+    font-family: "San Francisco";
     text-shadow:
             -1px -1px 0 #000,
             1px -1px 0 #000,
@@ -260,4 +261,9 @@
 }
 #submitScreen {
 
+}
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
