@@ -29,14 +29,14 @@ function deductLife(){
 
 function startTimer(secs){
     timeInSecs = parseInt(secs)-1;
-    ticker = setInterval("tick()",1000);   // every second
+    ticker = setInterval("tick()", 10);   // every second
 }
 
 function tick() {
     var secs = timeInSecs;
     if (secs>0) {
         if(!isPaused) {
-            timeInSecs--;
+            timeInSecs = timeInSecs - .01;
         }
     }
     else {
@@ -47,7 +47,7 @@ function tick() {
         }
     }
 
-    document.getElementById("clock").innerHTML = secs;
+    document.getElementById("clock").innerHTML = secs.toFixed(2);;
 }
 
 
