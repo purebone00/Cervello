@@ -9,13 +9,7 @@ var isPlaying = false;
 var isPaused = false;
 var score = 0;
 
-function resetGame() {
-	$(document).ready();
-	setTimer(10);
-	isPlaying = true;
 
-x
-}
 $(document).ready(function(){
 
     $("#playButton").click(function(){
