@@ -35,6 +35,7 @@
     var variableMaxVelocity = 5;
 		var counter = 1;
 
+
 		<!-- Constructor for our ball object -->
 		function Ball(r, p, v) {
 			this.radius = r;
@@ -219,6 +220,8 @@
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
+						sfx.play();	
+
 					}
           if (tmpscore > pointsThreshold) {
             tmpscore = 0;
@@ -260,10 +263,11 @@
 <body>
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
-        <menu id="timer">
-            <p id="timerUI">Timer:</p>
-            <span id="clock" style="font-weight: bold;">10</span>
-        </menu>
+		<audio id = "soundEfx" src="sound/coin.wav" style="display: none;"></audio>
+		<menu id="timer">
+			<p id="timerUI">Timer:</p>
+			<span id="clock" style="font-weight: bold;">10</span>
+		</menu>
 		<menu id="main">
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>

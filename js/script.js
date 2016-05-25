@@ -52,9 +52,15 @@ $(document).ready(function(){
         $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
     });
-    $("#sfxButton").click(function(){
+    $("#sfxButton").bind("click", function(){
         //SFX toggle function here
-    });
+	  if(sfx.paused) {
+		sfx.pause();
+	  } else {
+		sfx.play();
+    }
+	});
+
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -77,8 +83,15 @@ $(document).ready(function(){
         isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
+        $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        gameOver();
+        var scoreStr = document.getElementById("score").innerText.split(" ");
+        var gameOverScore = scoreStr[1];
+        document.getElementById("formScore").value = gameOverScore;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+
+        score = 0;
+        document.getElementById("score").innerText = "Score: " + score;
     });
     $("#pause_retryButton").click(function(){
         //retry function here
@@ -115,10 +128,16 @@ $(document).ready(function(){
         clearInterval(ticker);
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
+		location.reload();
     });
-    $("#pause_retryButton").click(function(){
-        //retry function here
-    })
+
+
+    $("#go_retryButton").click(function(){
+		location.reload();
+
+    });
+	
+
     $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
