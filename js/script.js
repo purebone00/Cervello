@@ -9,15 +9,25 @@ var isPlaying = false;
 var isPaused = false;
 var score = 0;
 
+function gameOver(){
+    $("#gameOver").fadeIn();
+    var scoreStr = document.getElementById("score").innerText.split(" ");
+    var gameOverScore = scoreStr[1];
+    document.getElementById("formScore").value = gameOverScore;
+    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+}
 
 $(document).ready(function(){
-
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
         $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
+        $("#main").fadeOut();
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
@@ -30,6 +40,7 @@ $(document).ready(function(){
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
         $("#tutorialButton").fadeOut();
+        $("#main").fadeOut();
         $("#options").fadeIn();
     });
     $("#backButton").click(function(){
@@ -39,6 +50,7 @@ $(document).ready(function(){
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
+        $("#main").fadeIn();
     });
     $("#sfxButton").bind("click", function(){
         //SFX toggle function here
@@ -80,26 +92,35 @@ $(document).ready(function(){
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
-		
     });
     $("#pause_retryButton").click(function(){
-		location.reload();
-		
-    });
-
+        //retry function here
+    })
+        isPlaying = false;
+        if(isPaused){
+            isPaused = false;
+        }
+        clearInterval(ticker);
     $("#go_exitButton").click(function(){
+        $("#heartOne").attr("src", "images/graphic/heart_active.png");
+        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+        $("#heartThree").attr("src", "images/graphic/heart_active.png");
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
+        $("#main").fadeIn();
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
+        lives = 3;
         isPlaying = false;
         if(isPaused){
             isPaused = false;
@@ -165,6 +186,3 @@ $(document).keydown(function(e) {
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
-
-var sfx  = new Audio('sound/coin.wav');
-
