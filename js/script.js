@@ -9,7 +9,15 @@ var isPlaying = false;
 var isPaused = false;
 var score = 0;
 
+function resetGame() {
+	$(document).ready();
+	setTimer(10);
+	isPlaying = true;
+
+x
+}
 $(document).ready(function(){
+
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -38,9 +46,15 @@ $(document).ready(function(){
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
     });
-    $("#sfxButton").click(function(){
+    $("#sfxButton").bind("click", function(){
         //SFX toggle function here
-    });
+	  if(sfx.paused) {
+		sfx.pause();
+	  } else {
+		sfx.play();
+    }
+	});
+
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -72,15 +86,13 @@ $(document).ready(function(){
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
+		
     });
     $("#pause_retryButton").click(function(){
-        //retry function here
-    })
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
+		location.reload();
+		
+    });
+
     $("#go_exitButton").click(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
@@ -101,10 +113,16 @@ $(document).ready(function(){
         clearInterval(ticker);
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
+		location.reload();
     });
-    $("#pause_retryButton").click(function(){
-        //retry function here
-    })
+
+
+    $("#go_retryButton").click(function(){
+		location.reload();
+
+    });
+	
+
     $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
@@ -153,3 +171,6 @@ $(document).keydown(function(e) {
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
+
+var sfx  = new Audio('sound/coin.wav');
+

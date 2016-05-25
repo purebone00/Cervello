@@ -34,6 +34,7 @@
 
 		var counter = 1;
 
+
 		<!-- Constructor for our ball object -->
 		function Ball(r, p, v) {
 			this.radius = r;
@@ -216,6 +217,8 @@
 					if(curBalls < maxBalls){
 						curBalls++;
 						balls.push(createBall(event.point));
+						sfx.play();	
+
 					}
 				}
 			}
@@ -244,6 +247,9 @@
 <body>
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
+		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
+		
+
 		<menu id="timer">
 			<p id="timerUI">Timer:</p>
 			<span id="clock" style="font-weight: bold;">10</span>
@@ -305,10 +311,10 @@
 					<tr>
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
-					</tr>
+					</tr>	
 					<tr>
 						<td id="gameOverScore" colspan="2"></td>
-						<td><input type="hidden" name="score" id="formScore" value=""></td>
+						<td><input type="hidden" name="score" id="	formScore" value=""></td>
 					</tr>
 					<input type="submit" value="Submit">
 				</table>
