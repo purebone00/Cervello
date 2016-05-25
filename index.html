@@ -301,10 +301,11 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
+					sfx.play();	
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-						sfx.play();	
+						
 
 					}
           if (tmpscore > pointsThreshold) {
