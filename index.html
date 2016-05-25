@@ -11,6 +11,10 @@
 	<script type="text/javascript" src="js/easterEgg.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
+
+	/**
+	* Enumerated type variable for the colors of our circle.
+	*/
 		var ColorEnum = {
 			fillColor: {
 				1: '#F44336',
@@ -19,7 +23,7 @@
 				4: '#673AB7',
 				5: '#3F51B5',
 				6: '#2196F3',
-				7: '#03A9F4',
+				7: '#111111',
 				8: '#00BCD4',
 				9: '#009688',
 				10: '#4CAF50',
@@ -32,11 +36,23 @@
 			}
 		};
 
+		/**
+		* MaxVelocity for the current game state. initialized to 5 at the start of a game.
+		*/
     var variableMaxVelocity = 5;
+		/**
+		* Colour counter to determine what that shapes colour is.
+		*/
 		var counter = 1;
 
-
-		<!-- Constructor for our ball object -->
+		/**
+		* Contructor for our Ball ObjectExpression.
+		* Credits for most of the behaviour: http://paperjs.org/examples/candy-crash/
+		*
+		* @param r - radius
+		* @param p - point to be generated on
+		* @param v - velocity consisting of Direction and Speed
+		*/
 		function Ball(r, p, v) {
 			this.radius = r;
 			this.point = p;
@@ -66,7 +82,15 @@
 			}
 		}
 
+		/**
+		* prototype behaviour for the balls.
+		*/
 		Ball.prototype = {
+
+			/**
+			* function thats is constantly run checked on with every frame. Runs borderCheck and updates the
+			* shape visual.
+			*/
 			iterate: function() {
 				this.checkBorders();
 				if (this.vector.length > this.maxVec)
@@ -75,6 +99,9 @@
 				this.updateShape();
 			},
 
+			/**
+			* BorderCheck on the border of the canvas.
+			*/
 			checkBorders: function() {
 				var size = view.size;
 				if (this.point.x < 0)
@@ -87,6 +114,11 @@
 					this.vector.angle = -this.vector.angle;
 			},
 
+			/**
+			* The function that redraws the shapes giving them the "jelly" feel when calculating
+			* the points to be drawn.
+			* Credit: http://paperjs.org/examples/candy-crash/
+			*/
 			updateShape: function() {
 				var segments = this.path.segments;
 				for (var i = 0; i < this.numSegment; i ++)
@@ -104,7 +136,11 @@
 					this.path.smooth();
 				}
 			},
-
+			/**
+			* Collision between the balls.
+			*
+			*	Overlaping Credit: http://paperjs.org/examples/candy-crash/
+			*/
 			react: function(b) {
 				var dist = this.point.getDistance(b.point);
 				if (dist < this.radius + b.radius && dist != 0) {
@@ -119,12 +155,18 @@
 				}
 			},
 
+			/**
+			* Jelly animation code. Determines where a point is meant to be and where it is.
+			*/
 			getBoundOffset: function(b) {
 				var diff = this.point - b;
 				var angle = (diff.angle + 180) % 360;
 				return this.boundOffset[Math.floor(angle / 360 * this.boundOffset.length)];
 			},
 
+			/**
+			* Bound calcutions.
+			*/
 			calcBounds: function(b) {
 				for (var i = 0; i < this.numSegment; i ++) {
 					var tp = this.getSidePoint(i);
@@ -136,10 +178,16 @@
 				}
 			},
 
+			/**
+			* Retrieves where a point is suppose to be.
+			*/
 			getSidePoint: function(index) {
 				return this.point + this.sidePoints[index] * this.boundOffset[index];
 			},
 
+			/**
+			* Re-updates all the bounds.
+			*/
 			updateBounds: function() {
 				for (var i = 0; i < this.numSegment; i ++)
 					this.boundOffset[i] = this.boundOffsetBuff[i];
@@ -147,28 +195,64 @@
 		};
 
 		//--------------------- target ---------------------
+		/**
+		* An array of all ball objects
+		*/
 		var balls = [];
+
+		/**
+		* Number of balls to be initialized at the beginning.
+		*/
 		var numBalls = 5;
-		var curBalls = 5;
+
+		/**
+		* Current number of balls on screen.
+		*/
+		var curBalls = numBalls;
+
+		/**
+		*	Max number of balls we've allowed.
+		*/
 		var maxBalls = 16;
+
+		/**
+		* A randomly chosen colour of the balls thats currently exist.
+		*/
 		var color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
+
+		/**
+		* The target Color.
+		*/
 		var targetColor = new Color(color);
 		$("#target").css("background", color);
-		//var lives = 3;
-		var tmpscore = 0;
-    		var pointsThreshold = 50;
 
+		/**
+		* A score counter to determine if the player is ready to move onto the next level.
+		*/
+		var tmpscore = 0;
+
+		/**
+		* The points threshold needed to advance into the next calculated difficulty.
+		*/
+    var pointsThreshold = 50;
+
+		/**
+		* Chooses a new color as the target.
+		*/
 		function getNewTarget(){
 			color = ColorEnum.fillColor[Math.floor((Math.random() * curBalls)) + 1];
 			targetColor = new Color(color);
 			$("#target").css("background", color);
 		}
 
+		/**
+		*
+		*/
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-      			tmpscore += timeInSecs;
-			document.getElementById("score").textContent = "Score: " + score;
+    	tmpscore += timeInSecs;
+			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
 		function deductLife(){
@@ -216,7 +300,7 @@
 				if (checkTarget(event.item) == 0 && isPlaying) {
 					calculatePoints();
 					getNewTarget();
-					timeInSecs += 2;
+					timeInSecs += 1.25;
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
