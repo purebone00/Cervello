@@ -33,8 +33,7 @@ var score = 0;
 */
 function gameOver(){
     $("#gameOver").fadeIn();
-    var scoreStr = document.getElementById("score").innerText.split(" ");
-    var gameOverScore = scoreStr[1];
+    var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
 
