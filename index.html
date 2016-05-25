@@ -217,10 +217,11 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 2;
+					sfx.play();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-						sfx.play();	
+						
 
 					}
           if (tmpscore > pointsThreshold) {
@@ -234,6 +235,7 @@
 
 		function onMouseDown(event) {
 			targetCheck(event);
+					
 		}
 
     function onMouseDrag(event) {
@@ -257,6 +259,7 @@
 				}
 			}
 		}
+
 
 	</script>
 </head>

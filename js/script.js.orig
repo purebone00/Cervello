@@ -4,11 +4,13 @@ window.onload = function() {
     var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
-var canvas = $('canvas')[0];
+
 var isPlaying = false;
 var isPaused = false;
 var score = 0;
 
+<<<<<<< HEAD
+=======
 function gameOver(){
     $("#gameOver").fadeIn();
     var scoreStr = document.getElementById("score").innerText.split(" ");
@@ -19,30 +21,10 @@ function gameOver(){
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
 }
-		function resetGame() {
-			alert('hello');	
-		getnewTarget();
-		score = 0;
-		$("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-		clearInterval(ticker);
-		startTimer(10);
-		
-		for (var i = 5; i < balls.length; i++) {
-			if(balls[i] != null) {
-				balls[i] = null;
-			}
-		}
-		curBalls = 5;
-		counter = 1;
-		variableMaxVelocity = 5;
-		document.getElementById("score").innerText = "score: " + score;
-		
-		}
-
+>>>>>>> 3a3e903ba547180b16a1df0ff5050e32ba34c2d7
 
 $(document).ready(function(){
+
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -105,8 +87,8 @@ $(document).ready(function(){
         isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
-        $("#gameOver").fadeIn();
         $("#pause").fadeOut();
+<<<<<<< HEAD
         var scoreStr = document.getElementById("score").innerText.split(" ");
         var gameOverScore = scoreStr[1];
         document.getElementById("formScore").value = gameOverScore;
@@ -114,13 +96,16 @@ $(document).ready(function(){
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
+		
+=======
+        gameOver();
+>>>>>>> 3a3e903ba547180b16a1df0ff5050e32ba34c2d7
     });
     $("#pause_retryButton").click(function(){
-		resetGame();
+		location.reload();
 		
-    })
-        
-        
+    });
+
     $("#go_exitButton").click(function(){
         $("#heartOne").attr("src", "images/graphic/heart_active.png");
         $("#heartTwo").attr("src", "images/graphic/heart_active.png");
@@ -207,4 +192,5 @@ var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
 
-var sfx = new Audio('sound/coin.wav');
+var sfx  = new Audio('sound/coin.wav');
+
