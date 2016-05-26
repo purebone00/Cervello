@@ -253,7 +253,13 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-    	tmpscore += timeInSecs;
+    		tmpscore += timeInSecs;
+
+    		if(score >= firstAchievement){
+    			//make first achievement badge visible
+    		}
+
+
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
@@ -404,11 +410,11 @@
 	        if(isPaused){
 	            isPaused = false;
 	        }
-	        clearInterval(ticker);
 	        score = 0;
 	        document.getElementById("score").innerText = "Score: " + score;
 					resetGame();
 	        resetBalls();
+	        clearInterval(ticker);
 	    });
 
 	function moveBalls(){
