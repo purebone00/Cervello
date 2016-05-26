@@ -1,3 +1,4 @@
+//$(window).load();
 window.onload = function() {
     var c = document.getElementById("view");
     var ctx = c.getContext("2d");
@@ -10,6 +11,9 @@ var isPaused = false;
 var score = 0;
 
 function gameOver(){
+
+    //isPaused = false;
+    isPlaying = false;
     $("#gameOver").fadeIn();
     var scoreStr = document.getElementById("score").innerText.split(" ");
     var gameOverScore = scoreStr[1];
@@ -19,27 +23,25 @@ function gameOver(){
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
 }
-		function resetGame() {
-			alert('hello');	
-		getnewTarget();
-		score = 0;
-		$("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-		clearInterval(ticker);
-		startTimer(10);
-		
-		for (var i = 5; i < balls.length; i++) {
-			if(balls[i] != null) {
-				balls[i] = null;
-			}
-		}
-		curBalls = 5;
-		counter = 1;
-		variableMaxVelocity = 5;
-		document.getElementById("score").innerText = "score: " + score;
-		
-		}
+
+
+
+function resetGame() {
+    lives = 3;
+    $("#heartOne").attr("src", "images/graphic/heart_active.png");
+    $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+    $("#heartThree").attr("src", "images/graphic/heart_active.png");
+
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+
+    clearInterval(ticker);
+    startTimer(10);
+
+
+    
+}
+
 
 
 $(document).ready(function(){
@@ -91,11 +93,13 @@ $(document).ready(function(){
       }
     });
     $("#pauseButton").click(function(){
-        if(!isPaused){
-            isPaused = true;
+        if(isPlaying) {
+            if (!isPaused) {
+                isPaused = true;
+            }
+            $("#pause").fadeIn();
+            isPlaying = false;
         }
-        isPlaying = false;
-        $("#pause").fadeIn();
     });
     $("#pause_playButton").click(function(){
         $("#pause").fadeOut();
@@ -115,10 +119,14 @@ $(document).ready(function(){
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
     });
-    $("#pause_retryButton").click(function(){
-		resetGame();
-		
-    })
+    /*$("#pause_retryButton").click(function(){
+        resetGame();
+        $("#pause").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        isPlaying = true;
+    });*/
         
         
     $("#go_exitButton").click(function(){
@@ -148,13 +156,17 @@ $(document).ready(function(){
         clearInterval(ticker);
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
-		location.reload();
+		//location.reload();
     });
 
 
     $("#go_retryButton").click(function(){
-		location.reload();
-
+        resetGame();
+        $("#gameOver").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        isPlaying = true;
     });
 	
 

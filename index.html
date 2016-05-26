@@ -9,7 +9,6 @@
 	<script type="text/javascript" src="js/paper.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/easterEgg.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
 
 	/**
@@ -329,20 +328,63 @@
 			balls.push(createBall(position));
 		}
 
+		$("#pause_retryButton").click(function(){
+        resetGame();
+
+
+    	curBalls = 5;
+		numBalls = 5;
+    	counter = 1;
+    	variableMaxVelocity = 5;
+    	var size = 5;
+        for (var i = 0; i < balls.length; i++) {
+        	alert('removed' + i);
+        	if(balls[i] != null) {
+        		if(i < curBalls){
+        			//var temp = balls[i];
+					var position = Point.random() * view.size;
+	        	    balls[i].replaceWith(createBall(position));
+	        	    //temp.remove();
+	        	}else{
+	        		//balls[i] = null;
+	        	}
+        	}
+    	}
+    	//alert(balls.length);
+    	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    	getNewTarget();
+        $("#pause").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        isPlaying = true;
+        //moveBalls();
+    });
+
+	function moveBalls(){
+		for (var i = 0; i < balls.length - 1; i++) {
+			for (var j = i + 1; j < balls.length; j++) {
+				balls[i].react(balls[j]);
+			}
+		}
+		for (var i = 0, l = balls.length; i < l; i++) {
+			balls[i].iterate();
+		}
+	}
+
 		function onFrame() {
 			if(!isPaused){
-				for (var i = 0; i < balls.length - 1; i++) {
-					for (var j = i + 1; j < balls.length; j++) {
-						balls[i].react(balls[j]);
-					}
-				}
-				for (var i = 0, l = balls.length; i < l; i++) {
-					balls[i].iterate();
-				}
+				moveBalls();
 			}
 		}
 
+
+
+
+
 	</script>
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -412,7 +454,7 @@
 					</tr>	
 					<tr>
 						<td id="gameOverScore" colspan="2"></td>
-						<td><input type="hidden" name="score" id="	formScore" value=""></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
 					</tr>
 					<input type="submit" value="Submit">
 				</table>
