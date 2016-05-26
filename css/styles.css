@@ -260,7 +260,10 @@
     font-family: "San Francisco";
     font-size: 15px;
     text-shadow: none;
-    color: black;
+    color: white;
+}
+#leaderboardTable {
+    margin: auto;
 }
 #leaderboardTable tr:nth-child(n + 11){
     display: none;
