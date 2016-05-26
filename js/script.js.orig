@@ -65,7 +65,7 @@ function gameOver(){
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-		
+
 function resetGame() {
     lives = 3;
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -77,7 +77,6 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-    
 }
 
 
@@ -108,7 +107,6 @@ $(document).ready(function(){
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
-
     $("#leaderboardButton").click(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
@@ -118,9 +116,9 @@ $(document).ready(function(){
         $("#main").fadeOut();
         $("#leaderboard").fadeIn();
     });
-
     $(".backButton").click(function(){
         $("#options").fadeOut();
+        $("#leaderboard").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
@@ -130,10 +128,13 @@ $(document).ready(function(){
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
+<<<<<<< HEAD
+=======
     playCoin();
     playWrong();
     playgameOver();
 
+>>>>>>> 37f400f8a6fcd590edf5a57163a2f9c50810f35d
 	});
 
     $("#bgmButton").click(function(){
@@ -158,6 +159,7 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
+
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
