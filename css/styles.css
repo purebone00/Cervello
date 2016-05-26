@@ -267,10 +267,11 @@
             1px 1px 0 #000;
 }
 #leaderboardTable {
+    text-shadow: none;
     margin: auto;
     font-size: 15px;
 }
-#leaderboardTable tr:nth-child(n + 11){
+#leaderboardTable tr:nth-child(n + 7){
     display: none;
 }
 #scoreSubmitForm {
