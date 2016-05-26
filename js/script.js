@@ -62,34 +62,9 @@ function gameOver(){
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
-    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
-
-    score = 0;
-    document.getElementById("score").innerText = "Score: " + score;
+    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
+    document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-		function resetGame() {
-			alert('hello');
-		getnewTarget();
-		score = 0;
-		$("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-		clearInterval(ticker);
-		startTimer(10);
-
-		for (var i = 5; i < balls.length; i++) {
-			if(balls[i] != null) {
-				balls[i] = null;
-			}
-		}
-		curBalls = 5;
-		counter = 1;
-		variableMaxVelocity = 5;
-		document.getElementById("score").innerText = "score: " + score;
-
-		}
-
-
 
 function resetGame() {
     lives = 3;
@@ -102,7 +77,6 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-
 }
 
 
@@ -157,7 +131,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
-    
+
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -172,6 +146,7 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
+
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
@@ -181,43 +156,9 @@ $(document).ready(function(){
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score.toFixed(0);
+        resetGame();
     });
-    $("#pause_retryButton").click(function(){
-		resetGame();
 
-    })
-
-
-    $("#go_exitButton").click(function(){
-        $("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#playButton").fadeIn();
-        $("#optionButton").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#title").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#main").fadeIn();
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#gameOver").fadeOut();
-        $("#score").fadeOut();
-        lives = 3;
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
-
-    });
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
