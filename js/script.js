@@ -218,11 +218,12 @@ bgm.play();
 */
 var sfx = new Audio('sound/coin.wav');
 
-function changeImage() {
-    if (document.getElementById("bgmButton").src == "images/button/bgm.png") {
-        document.getElementById("bgmButton").src = "images/button/sfx.png";
-    }
-    else {
-        document.getElementById("bgmButton").src = "images/button/bgm.png";
-    }
+function changeImage_BGM(element) {
+    element.src = element.bln ? "images/button/bgm.png" : "images/button/bgm_mute.png";
+    element.bln = !element.bln;
+}
+
+function changeImage_SFX(element) {
+    element.src = element.bln ? "images/button/sfx.png" : "images/button/sfx_mute.png";
+    element.bln = !element.bln;
 }
