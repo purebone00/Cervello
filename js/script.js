@@ -133,10 +133,9 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameOverScore = scoreStr[1];
-        document.getElementById("formScore").value = gameOverScore;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+        var gameOverSubmit = score;
+        document.getElementById("formScore").value = gameOverSubmit;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit;
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
