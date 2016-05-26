@@ -316,11 +316,11 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-					sfx.play();	
+					sfx.play();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-						
+
 
 					}
           if (tmpscore > pointsThreshold) {
@@ -440,9 +440,11 @@
 					</tr>
 					<tr>
 						<td>Name</td>
-						<td>
-                            <input type="text" name="name" id="name" value="">
-                        </td>
+						<td><input type="text" name="name" id="name" value=""></td>
+					</tr>
+					<tr>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
 					</tr>
 				</table>
                 <input type="submit" value="Submit" id="submitButton"/>
