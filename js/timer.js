@@ -24,6 +24,7 @@ function deductLife(){
      * if lives == 0, fade out heartOne and execute gameOver()
      **/
     lives--;
+	
     switch (lives){
         case 2:
             $("#heartThree").attr("src", "images/graphic/heart_disactive.png");
@@ -61,6 +62,8 @@ function tick() {
     }
     else {
         deductLife();
+		playWrong();
+		
             clearInterval(ticker); // stop counting at zero
         if(lives > 0) {
             startTimer(10);  // remove forward slashes in front of startTimer to repeat if required

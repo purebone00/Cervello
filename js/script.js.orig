@@ -1,30 +1,114 @@
+/**
+* Static initialize when the window is loaded.
+*/
 window.onload = function() {
     var c = document.getElementById("view");
     var ctx = c.getContext("2d");
     var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
-
-var isPlaying = false;
-var isPaused = false;
-var score = 0;
-
 <<<<<<< HEAD
 =======
+
+/**
+* The first canvas avaliable.
+*/
+var canvas = $('canvas')[0];
+
+/**
+* Boolean on if the player is currently in game.
+*/
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
+var isPlaying = false;
+
+/**
+* Boolean on if the player is currently paused.
+*/
+var isPaused = false;
+<<<<<<< HEAD
+var score = 0
+var sfxOnOff = true;
+
+var gameOverSound = new Audio('sound/gameOver.mp3');
+var coin = new Audio('sound/coin.wav');
+var wrong = new Audio('sound/wrong.mp3');
+
+
+
+function playCoin() {
+	if(sfxOnOff) {
+		coin.play();
+	} 
+}
+
+function playWrong() {
+	if(sfxOnOff) {
+		wrong.play();
+	} 
+}
+
+function endSound() {
+	if(sfxOnOff) {
+		gameOverSound.play();
+	}
+}
+=======
+
+/**
+* Score variable.
+*/
+var score = 0;
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
+
+/**
+* Displays gameover screen.
+*/
 function gameOver(){
+	endSound();
     $("#gameOver").fadeIn();
+<<<<<<< HEAD
+
     var scoreStr = document.getElementById("score").innerText.split(" ");
     var gameOverScore = scoreStr[1];
+=======
+    var gameOverScore = score;
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
 
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
+	
+	
 }
->>>>>>> 3a3e903ba547180b16a1df0ff5050e32ba34c2d7
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
+
+
+
+function resetGame() {
+    lives = 3;
+    $("#heartOne").attr("src", "images/graphic/heart_active.png");
+    $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+    $("#heartThree").attr("src", "images/graphic/heart_active.png");
+
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+
+    clearInterval(ticker);
+    startTimer(10);
+
+
+    
+}
+
+
+/**
+* Our entire menu system.
+*/
 $(document).ready(function(){
-
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -35,6 +119,7 @@ $(document).ready(function(){
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
+        $("#score").fadeIn();
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
@@ -56,15 +141,14 @@ $(document).ready(function(){
         $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
     });
-    $("#sfxButton").bind("click", function(){
-        //SFX toggle function here
-	  if(sfx.paused) {
-		sfx.pause();
-	  } else {
-		sfx.play();
-    }
-	});
+    $("#sfxButton").click(function(){
+		sfxOnOff = !sfxOnOff;
+		playCoin();
+		playWrong();
+		playgameOver();
 
+	});
+	
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -72,6 +156,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+	
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -87,60 +172,29 @@ $(document).ready(function(){
         isPlaying = true;
     });
     $("#pause_exitButton").click(function(){
+        $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-<<<<<<< HEAD
-        var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameOverScore = scoreStr[1];
-        document.getElementById("formScore").value = gameOverScore;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+        var gameOverSubmit = score;
+        document.getElementById("formScore").value = gameOverSubmit;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit.toFixed(0);
 
         score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
-		
-=======
-        gameOver();
->>>>>>> 3a3e903ba547180b16a1df0ff5050e32ba34c2d7
+        document.getElementById("score").innerText = "Score: " + score.toFixed(0);
     });
-    $("#pause_retryButton").click(function(){
-		location.reload();
-		
-    });
-
-    $("#go_exitButton").click(function(){
-        $("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#playButton").fadeIn();
-        $("#optionButton").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#title").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#main").fadeIn();
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#gameOver").fadeOut();
-        lives = 3;
-        isPlaying = false;
+    /*$("#pause_retryButton").click(function(){
+        resetGame();
+        $("#pause").fadeOut();
         if(isPaused){
             isPaused = false;
         }
-        clearInterval(ticker);
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
-		location.reload();
-    });
+        isPlaying = true;
+    });*/
+        
+        
+    
 
 
-    $("#go_retryButton").click(function(){
-		location.reload();
-
-    });
+    
 	
 
     $("#leaderBoardButton").click(function(){
@@ -188,9 +242,17 @@ $(document).keydown(function(e) {
         }
 });
 
+/**
+* Background music.
+*/
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
+<<<<<<< HEAD
+=======
 
-var sfx  = new Audio('sound/coin.wav');
-
+/**
+* SFX for clicking the correct ball.
+*/
+var sfx = new Audio('sound/coin.wav');
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4

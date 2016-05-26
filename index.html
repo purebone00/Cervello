@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/paper.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/easterEgg.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
 
 	/**
@@ -271,6 +272,9 @@
 			}
 		}
 
+		function gameOver(){
+			//display game over screen
+		}
 
 
 		/**
@@ -313,6 +317,8 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
+					
+					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
@@ -328,9 +334,6 @@
 			}
     }
 
-		/**
-		* MouseDownListener.
-		*/
 		function onMouseDown(event) {
 			targetCheck(event);
 		}
@@ -442,7 +445,7 @@
 	</script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
-<body>
+<body onload="makeTableScroll();">
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
@@ -510,13 +513,14 @@
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>
+					<input type="submit" value="Submit">
 				</table>
                 <input type="submit" value="Submit" id="submitButton">
 			</form>
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
 		</div>
-		<div id="leaderboard">
+		<div id="leaderboard" class="scrollingTable">
 			<table  id="leaderboardTable">
 			</table>
 		</div>
