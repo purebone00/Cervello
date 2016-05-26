@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/paper.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/easterEgg.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
 
 	/**
@@ -349,106 +350,43 @@
 			balls.push(createBall(position));
 		}
 
-		function resetBalls(){
-			curBalls = 5;
-			numBalls = 5;
-    		counter = 1;
-    		variableMaxVelocity = 5;
-    		var size = 5;
-    		var newBalls = [];
-        	for (var i = 0; i <= balls.length; i++) {
-        		if(balls[i] != null) {
-						balls[i].path.fillColor = "#123456"; //unused color value
-						balls[i].path.opacity = 0; //remove from display
-        			if(i < curBalls){
-						var position = Point.random() * view.size;
-	    	    	    newBalls[i] = createBall(position);
-	    	    	}
-        		}
-    		}
-    		balls = newBalls;
-    		getNewTarget();
-        }
-
-		$("#pause_retryButton").click(function(){
-        resetGame();
-		resetBalls();
-
-
-        $("#pause").fadeOut();
-        if(isPaused){
-            isPaused = false;
-        }
-        	isPlaying = true;
-    	});
-
-    	$("#go_retryButton").click(function(){
-        resetGame();
-        resetBalls();
-
-        $("#gameOver").fadeOut();
-        if(isPaused){
-            isPaused = false;
-        }
-        isPlaying = true;
-    	});
-
-    	$("#go_exitButton").click(function(){
-    		resetGame();
-    		resetBalls();
-        	$("#hud").fadeOut();
-        	$("#clock").fadeOut();
-        	$("#timerUI").fadeOut();
-        	$("#playButton").fadeIn();
-        	$("#optionButton").fadeIn();
-        	$("#leaderBoardButton").fadeIn();
-        	$("#tutorialButton").fadeIn();
-        	$("#title").fadeIn();
-        	$("#leaderBoardButton").fadeIn();
-        	$("#tutorialButton").fadeIn();
-        	$("#main").fadeIn();
-        	$("#hud").fadeOut();
-       		$("#clock").fadeOut();
-        	$("#timerUI").fadeOut();
-       		$("#gameOver").fadeOut();
-
-          	isPlaying = false;
-          	if(isPaused){
-          		isPaused = false;
-            }
-            clearInterval(ticker);
-    	});
-
-	function moveBalls(){
-		for (var i = 0; i < balls.length - 1; i++) {
-			for (var j = i + 1; j < balls.length; j++) {
-				balls[i].react(balls[j]);
-			}
-		}
-		for (var i = 0, l = balls.length; i < l; i++) {
-			balls[i].iterate();
-		}
-	}
-        /**
+		/**
 		* When we are onframe of the canvas we constantly check each balls behaviour.
 		*/
 		function onFrame() {
 			if(!isPaused){
-				moveBalls();
+				for (var i = 0; i < balls.length - 1; i++) {
+					for (var j = i + 1; j < balls.length; j++) {
+						balls[i].react(balls[j]);
+					}
+				}
+				for (var i = 0, l = balls.length; i < l; i++) {
+					balls[i].iterate();
+				}
 			}
 		}
 
 	</script>
-	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
-		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
-		<p id="timerUI">Timer:</p>
+<<<<<<< HEAD
+		<audio id = "soundEfx" src="sound/coin.wav" style="display: none;"></audio>
+        <p id="timerUI">Timer:</p>
 		<span id="clock" style="font-weight: bold;">10</span>
-        <div id="score">Score: 0</div>
+		<div id="score">Score: 0</div>
+        <menu id="main">
+=======
+		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
+
+
+		<menu id="timer">
+			<p id="timerUI">Timer:</p>
+			<span id="clock" style="font-weight: bold;">10</span>
+		</menu>
 		<menu id="main">
+>>>>>>> cd40c7d8e89598f898fce82d9028aae1929295de
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
 			<br/>
@@ -476,7 +414,7 @@
 				<button id="backButton">Back</button>
 			</p>
 		</div>
-        <div id="hud">
+		<div id="hud">
             <span id="lives">
                 <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
                 <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
@@ -488,35 +426,48 @@
                 <canvas id="target"></canvas>
             </span>
             <input type="image" src="images/button/pause.png" id="pauseButton"/>
-        </div>
-        <div id="pause">
-            Paused
-            <br/>
-            <input type="image" src="images/button/play.png" id="pause_playButton"/>
-            <input type="image" src="images/button/retry.png" id="pause_retryButton"/>
-            <input type="image" src="images/button/exit.png" id="pause_exitButton"/>
-        </div>
+		</div>
+		<div id="pause">
+			Paused
+			<br/>
+			<input type="image" src="images/button/play.png" id="pause_playButton"/>
+			<input type="image" src="images/button/retry.png" id="pause_retryButton"/>
+			<input type="image" src="images/button/exit.png" id="pause_exitButton"/>
+		</div>
 		<div id="gameOver">
 			Game Over
 			<br/>
-			<form id="scoreSubmitForm" method="POST">
+			<form id="scoreSubmitForm" method ="POST">
 				<table>
-                    <tr>
-                        <td id="gameOverScore" colspan="2"></td>
-                        <td><input type="hidden" name="score" id="formScore" value=""></td>
-                    </tr>
 					<tr>
+<<<<<<< HEAD
+						<td id="gameOverScore" colspan="2"></td>
+						<td>
+                            <input type="hidden" name="score" id="formScore" value="">
+                        </td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td>
+                            <input type="text" name="name" id="name" value="">
+                        </td>
+=======
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>
+					<tr>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
+>>>>>>> cd40c7d8e89598f898fce82d9028aae1929295de
+					</tr>
 				</table>
-                <input type="submit" value="Submit" id="submitButton">
+                <input type="submit" value="Submit" id="submitButton"/>
 			</form>
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
 		</div>
-		<div id="leaderboard">
-			<table  id="leaderboardTable">
+		<div id="leaderBoard">
+			<table  id="leaderBoardTable">
 			</table>
 		</div>
 	</div>

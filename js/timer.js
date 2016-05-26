@@ -1,7 +1,21 @@
+/**
+* Current Time.
+*/
 var timeInSecs;
+
+/**
+* Ticker object
+*/
 var ticker;
+
+/**
+* Number of lives our player has.
+*/
 var lives = 3;
 
+/**
+* Function to deduct the life variable.
+*/
 function deductLife(){
     /**
      * decrement the lives variable, and fade out the hearts graphic;
@@ -27,11 +41,17 @@ function deductLife(){
     }
 }
 
+/**
+* Starts the timer.
+*/
 function startTimer(secs){
     timeInSecs = parseInt(secs);
     ticker = setInterval("tick()", 10);   // every second
 }
 
+/**
+* Timer tick function.
+*/
 function tick() {
     var secs = timeInSecs;
     if (secs>0) {
@@ -49,6 +69,3 @@ function tick() {
 
     document.getElementById("clock").innerHTML = secs.toFixed(2);;
 }
-
-
-//startTimer(10);  // 10 seconds

@@ -1,22 +1,39 @@
-//$(window).load();
+/**
+* Static initialize when the window is loaded.
+*/
 window.onload = function() {
     var c = document.getElementById("view");
     var ctx = c.getContext("2d");
     var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
+
+/**
+* The first canvas avaliable.
+*/
 var canvas = $('canvas')[0];
+
+/**
+* Boolean on if the player is currently in game.
+*/
 var isPlaying = false;
+
+/**
+* Boolean on if the player is currently paused.
+*/
 var isPaused = false;
+
+/**
+* Score variable.
+*/
 var score = 0;
 
+/**
+* Displays gameover screen.
+*/
 function gameOver(){
-
-    //isPaused = false;
-    isPlaying = false;
     $("#gameOver").fadeIn();
-    var scoreStr = document.getElementById("score").innerText.split(" ");
-    var gameOverScore = scoreStr[1];
+    var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
 
@@ -43,7 +60,9 @@ function resetGame() {
 }
 
 
-
+/**
+* Our entire menu system.
+*/
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
@@ -55,6 +74,7 @@ $(document).ready(function(){
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
+        $("#score").fadeIn();
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
@@ -93,13 +113,11 @@ $(document).ready(function(){
       }
     });
     $("#pauseButton").click(function(){
-        if(isPlaying) {
-            if (!isPaused) {
-                isPaused = true;
-            }
-            $("#pause").fadeIn();
-            isPlaying = false;
+        if(!isPaused){
+            isPaused = true;
         }
+        isPlaying = false;
+        $("#pause").fadeIn();
     });
     $("#pause_playButton").click(function(){
         $("#pause").fadeOut();
@@ -111,13 +129,12 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameOverScore = scoreStr[1];
-        document.getElementById("formScore").value = gameOverScore;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+        var gameOverSubmit = score;
+        document.getElementById("formScore").value = gameOverSubmit;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit.toFixed(0);
 
         score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
+        document.getElementById("score").innerText = "Score: " + score.toFixed(0);
     });
     /*$("#pause_retryButton").click(function(){
         resetGame();
@@ -180,8 +197,14 @@ $(document).keydown(function(e) {
         }
 });
 
+/**
+* Background music.
+*/
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
 
+/**
+* SFX for clicking the correct ball.
+*/
 var sfx = new Audio('sound/coin.wav');
