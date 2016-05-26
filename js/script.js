@@ -1,26 +1,51 @@
+/**
+* Static initialize when the window is loaded.
+*/
 window.onload = function() {
     var c = document.getElementById("view");
     var ctx = c.getContext("2d");
     var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
+
+/**
+* The first canvas avaliable.
+*/
 var canvas = $('canvas')[0];
+
+/**
+* Boolean on if the player is currently in game.
+*/
 var isPlaying = false;
+
+/**
+* Boolean on if the player is currently paused.
+*/
 var isPaused = false;
+
+/**
+* Score variable.
+*/
 var score = 0;
 
+/**
+* Displays gameover screen.
+*/
 function gameOver(){
     $("#gameOver").fadeIn();
-    var scoreStr = document.getElementById("score").innerText.split(" ");
-    var gameOverScore = scoreStr[1];
+    var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
 
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
 }
-		function resetGame() {
-			alert('hello');	
+
+/**
+* Resets the game UI.
+*/
+function resetGame() {
+  	alert('hello');
 		getnewTarget();
 		score = 0;
 		$("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -28,7 +53,7 @@ function gameOver(){
         $("#heartThree").attr("src", "images/graphic/heart_active.png");
 		clearInterval(ticker);
 		startTimer(10);
-		
+
 		for (var i = 5; i < balls.length; i++) {
 			if(balls[i] != null) {
 				balls[i] = null;
@@ -38,10 +63,11 @@ function gameOver(){
 		counter = 1;
 		variableMaxVelocity = 5;
 		document.getElementById("score").innerText = "score: " + score;
-		
-		}
+}
 
-
+/**
+* Our entire menu system.
+*/
 $(document).ready(function(){
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
@@ -108,20 +134,19 @@ $(document).ready(function(){
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
-        var scoreStr = document.getElementById("score").innerText.split(" ");
-        var gameOverScore = scoreStr[1];
-        document.getElementById("formScore").value = gameOverScore;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+        var gameOverSubmit = score;
+        document.getElementById("formScore").value = gameOverSubmit;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit.toFixed(0);
 
         score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
+        document.getElementById("score").innerText = "Score: " + score.toFixed(0);
     });
     $("#pause_retryButton").click(function(){
 		resetGame();
-		
+
     })
-        
-        
+
+
     $("#go_exitButton").click(function(){
         $("#heartOne").attr("src", "images/graphic/heart_active.png");
         $("#heartTwo").attr("src", "images/graphic/heart_active.png");
@@ -152,7 +177,7 @@ $(document).ready(function(){
     $("#go_retryButton").click(function(){
 		location.reload();
     });
-	
+
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -192,15 +217,15 @@ $(document).ready(function(){
 
 });
 
-$(document).keydown(function(e) {
-    //press up arrow key
-    if (e.keyCode == '38') {
-        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
-        }
-});
 
+/**
+* Background music.
+*/
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
 
+/**
+* SFX for clicking the correct ball.
+*/
 var sfx = new Audio('sound/coin.wav');

@@ -271,9 +271,6 @@
 			}
 		}
 
-		function gameOver(){
-			//display game over screen
-		}
 
 
 		/**
@@ -316,11 +313,10 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-					sfx.play();	
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-						
+
 
 					}
           if (tmpscore > pointsThreshold) {
@@ -375,11 +371,22 @@
 <body>
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
+<<<<<<< HEAD
 		<audio id = "soundEfx" src="sound/coin.wav" style="display: none;"></audio>
         <p id="timerUI">Timer:</p>
 		<span id="clock" style="font-weight: bold;">10</span>
 		<div id="score">Score: 0</div>
         <menu id="main">
+=======
+		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
+
+
+		<menu id="timer">
+			<p id="timerUI">Timer:</p>
+			<span id="clock" style="font-weight: bold;">10</span>
+		</menu>
+		<menu id="main">
+>>>>>>> cd40c7d8e89598f898fce82d9028aae1929295de
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
 			<br/>
@@ -432,7 +439,8 @@
 			<br/>
 			<form id="scoreSubmitForm" method ="POST">
 				<table>
-				<tr>
+					<tr>
+<<<<<<< HEAD
 						<td id="gameOverScore" colspan="2"></td>
 						<td>
                             <input type="hidden" name="score" id="formScore" value="">
@@ -443,6 +451,14 @@
 						<td>
                             <input type="text" name="name" id="name" value="">
                         </td>
+=======
+						<td>Name</td>
+						<td><input type="text" name="name" id="name" value=""></td>
+					</tr>
+					<tr>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
+>>>>>>> cd40c7d8e89598f898fce82d9028aae1929295de
 					</tr>
 				</table>
                 <input type="submit" value="Submit" id="submitButton"/>

@@ -1,3 +1,6 @@
+/**
+* Easter Egg.
+*/
 $(document).keydown(function(e) {
     //press up arrow key
     if (e.keyCode == '38') {
