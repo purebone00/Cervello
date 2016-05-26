@@ -245,11 +245,11 @@
     height: 40px;
 }
 #leaderboard {
-    bottom: 10%;
+    bottom: 18%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 80%;
+    height: 70%;
     display: none;
     border: 2px solid #87CEFA;
     border-radius: 4px;
