@@ -8,6 +8,8 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
+
+
 /**
 * The first canvas avaliable.
 */
@@ -84,12 +86,21 @@ function resetGame() {
 
     
 }
+window.addEventListener("resize", onResizeCalled, false);
 
+function onResizeCalled() {
+	view.style.width = window,innerWidth + 'px';
+	view.style.height = window.innerHeight + 'px';
+}
 
 /**
 * Our entire menu system.
 */
 $(document).ready(function(){
+
+    
+	
+	
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -203,6 +214,8 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
+	
+	//respondCanvas();
 
 });
 

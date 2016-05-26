@@ -40,7 +40,7 @@
 		/**
 		* MaxVelocity for the current game state. initialized to 5 at the start of a game.
 		*/
-    var variableMaxVelocity = 5;
+		var variableMaxVelocity = 5;
 		/**
 		* Colour counter to determine what that shapes colour is.
 		*/
@@ -419,6 +419,7 @@
 		}
 		for (var i = 0, l = balls.length; i < l; i++) {
 			balls[i].iterate();
+			//balls[i].checkBorders();
 		}
 	}
         /**
@@ -434,14 +435,14 @@
 	<script type="test/javascript" src="js/resize.js"></script>
 </head>
 <body>
-	<div id="container" role = "container">
-		<canvas id="view">Something went wrong...</canvas>
+	<div id="container">
+		<canvas id="view" width = "480" height = "320">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
 		<p id="timerUI">Timer:</p>
 		<span id="clock" style="font-weight: bold;">10</span>
         <div id="score">Score: 0</div>
 		<menu id="main">
-			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
+		 	<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
 			<br/>
 			<button id="optionButton">Options</button>
