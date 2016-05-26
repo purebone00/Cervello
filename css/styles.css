@@ -256,20 +256,11 @@
     background-color: #87CEFA;
     text-align: center;
     text-decoration: none;
-    font-size: 20px;
     font-weight: bold;
-    color: white;
     font-family: "San Francisco";
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
-}
-#leaderboardTable tr {
     font-size: 15px;
-    margin: auto;
     text-shadow: none;
+    color: black;
 }
 #leaderboardTable tr:nth-child(n + 11){
     display: none;
