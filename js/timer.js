@@ -45,7 +45,7 @@ function deductLife(){
 * Starts the timer.
 */
 function startTimer(secs){
-    timeInSecs = parseInt(secs)-1;
+    timeInSecs = parseInt(secs);
     ticker = setInterval("tick()", 10);   // every second
 }
 
