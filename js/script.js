@@ -8,8 +8,6 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
-
-
 /**
 * The first canvas avaliable.
 */
@@ -52,7 +50,6 @@ function playWrong() {
 
 function endSound() {
 	if(sfxOnOff) {
-		gameOverSound.loop = false;
 		gameOverSound.play();
 	}
 }
@@ -61,10 +58,9 @@ function endSound() {
 * Displays gameover screen.
 */
 function gameOver(){
-	
+    endSound();
+    isPlaying = false;
     $("#gameOver").fadeIn();
-	endSound();
-	gameOverSound.loop = false;
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
@@ -82,30 +78,18 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-
-
-    
 }
-window.addEventListener("resize", onResizeCalled, false);
 
-function onResizeCalled() {
-	view.style.width = window,innerWidth + 'px';
-	view.style.height = window.innerHeight + 'px';
-}
 
 /**
 * Our entire menu system.
 */
 $(document).ready(function(){
-
-    
-	
-	
+  
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#main").fadeOut();
         $("#hud").fadeIn();
@@ -120,7 +104,6 @@ $(document).ready(function(){
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
@@ -130,16 +113,13 @@ $(document).ready(function(){
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
+        $("#leaderboard").fadeOut();
     });
-    $("#sfxButton").click(function(){
-		sfxOnOff = !sfxOnOff;
-    playCoin();
-    playWrong();
-    playgameOver();
 
-	});
+    $("#sfxButton").click(function(){
+		    sfxOnOff = !sfxOnOff;
+	  });
 
     $("#bgmButton").click(function(){
       if (bgm.paused) {
@@ -163,6 +143,7 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
+
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
@@ -175,9 +156,6 @@ $(document).ready(function(){
         resetGame();
     });
 
-
-    
-	
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -204,6 +182,7 @@ $(document).ready(function(){
       });
       $("#leaderboard").fadeIn();
     })
+
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({
         type: "POST",
@@ -214,11 +193,8 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-	
-	//respondCanvas();
 
 });
-
 
 /**
 * Background music.
@@ -231,3 +207,13 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
+
+function changeImage_BGM(element) {
+    element.src = element.bln ? "images/button/bgm.png" : "images/button/bgm_mute.png";
+    element.bln = !element.bln;
+}
+
+function changeImage_SFX(element) {
+    element.src = element.bln ? "images/button/sfx.png" : "images/button/sfx_mute.png";
+    element.bln = !element.bln;
+}

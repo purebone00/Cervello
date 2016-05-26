@@ -299,13 +299,10 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-
 					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-
-
 					}
           if (tmpscore > pointsThreshold) {
             tmpscore = 0;
@@ -389,10 +386,7 @@
 	        $("#playButton").fadeIn();
 	        $("#optionButton").fadeIn();
 	        $("#leaderBoardButton").fadeIn();
-	        $("#tutorialButton").fadeIn();
 	        $("#title").fadeIn();
-	        $("#leaderBoardButton").fadeIn();
-	        $("#tutorialButton").fadeIn();
 	        $("#main").fadeIn();
 	        $("#hud").fadeOut();
 	        $("#clock").fadeOut();
@@ -404,10 +398,10 @@
 	        if(isPaused){
 	            isPaused = false;
 	        }
-	        clearInterval(ticker);
 	        score = 0;
 	        document.getElementById("score").innerText = "Score: " + score;
 					resetGame();
+					clearInterval(ticker);
 	        resetBalls();
 	    });
 
@@ -422,7 +416,7 @@
 			//balls[i].checkBorders();
 		}
 	}
-        /**
+  /**
 		* When we are onframe of the canvas we constantly check each balls behaviour.
 		*/
 		function onFrame() {
@@ -448,25 +442,18 @@
 			<button id="optionButton">Options</button>
 			<br/>
 			<button id="leaderBoardButton">Highscore</button>
-			<br/>
-			<button id="tutorialButton">Tutorial</button>
 		</menu>
 		<div id="options">
 			Options
 			<br/>
 			<p id="optionBox">
-				<label for="colorblind">Color Blindness</label>
-				<select id="colorblind">
-					<option value="Off">Off</option>
-					<option value="Protanopia">Protanopia</option>
-					<option value="Deuteranopia">Deuteranopia</option>
-					<option value="Tritanopia">Tritanopia</option>
-				</select>
+				<label for="bgmButton">Music</label>
+				<label for="sfxButton">SFX</label>
 				<br/>
-				<input type="image" src="images/button/bgm.png" id="bgmButton"/>
-				<input type="image" src="images/button/sfx.png" id="sfxButton"/>
+				<input type="image" src="images/button/bgm.png" onclick="changeImage_BGM(this)" id="bgmButton"/>
+				<input type="image" src="images/button/sfx.png" onclick="changeImage_SFX(this)" id="sfxButton"/>
 				<br/>
-				<button id="backButton">Back</button>
+				<button class="backButton">Back</button>
 			</p>
 		</div>
         <div id="hud">
@@ -494,23 +481,27 @@
 			<br/>
 			<form id="scoreSubmitForm" method="POST">
 				<table>
-                    <tr>
-                        <td id="gameOverScore" colspan="2"></td>
-                        <td><input type="hidden" name="score" id="formScore" value=""></td>
-                    </tr>
+          <tr>
+            <td id="gameOverScore" colspan="2"></td>
+            <td><input type="hidden" name="score" id="formScore" value=""></td>
+          </tr>
 					<tr>
-						<td>Name</td>
+						<td id="nameLabel" >Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>
 				</table>
-                <input type="submit" value="Submit" id="submitButton">
+        <input type="submit" value="Submit" id="submitButton">
 			</form>
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
 		</div>
 		<div id="leaderboard">
+			Leaderboard
+            <br/>
 			<table id="leaderboardTable">
 			</table>
+            <br/>
+            <button class="backButton">Back</button>
 		</div>
 	</div>
 </body>

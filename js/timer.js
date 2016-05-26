@@ -24,21 +24,20 @@ function deductLife(){
      * if lives == 0, fade out heartOne and execute gameOver()
      **/
     lives--;
-	
+
     switch (lives){
         case 2:
             $("#heartThree").attr("src", "images/graphic/heart_disactive.png");
-			playWrong();
-            break;
+	    playWrong();
+        break;
         case 1:
             $("#heartTwo").attr("src", "images/graphic/heart_disactive.png");
             playWrong();
-			break;
+	break;
         case 0:
             $("#heartOne").attr("src", "images/graphic/heart_disactive.png");
-			playWrong();
-			playWrong();
-            break;
+	    playWrong();
+        break;
     }
 
     if(lives <=0){
@@ -63,8 +62,7 @@ function tick() {
         if(!isPaused) {
             timeInSecs = timeInSecs - .01;
         }
-    }
-    else {
+    } else {
         deductLife();
 
 		

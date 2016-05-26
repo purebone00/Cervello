@@ -58,7 +58,7 @@
             -1px 1px 0 #000,
             1px 1px 0 #000;
 }
-#playButton, #optionButton, #leaderBoardButton, #tutorialButton {
+#playButton, #optionButton, #leaderBoardButton {
     border: 2px solid #87CEFA;
     border-radius: 4px;
     color: white;
@@ -71,14 +71,14 @@
     width: 100px;
     margin: 4px;
 }
-#playButton:hover, #optionButton:hover, #leaderBoardButton:hover, #tutorialButton:hover {
+#playButton:hover, #optionButton:hover, #leaderBoardButton:hover {
     color: black;
     background-color: white;
 }
 #backButton:hover, #submitButton:hover {
     color: #87CEFA;
 }
-#backButton {
+.backButton {
     border: 2px solid #87CEFA;
     border-radius: 4px;
     color: black;
@@ -246,7 +246,7 @@
     height: 40px;
 }
 #leaderboard {
-    bottom: 15%;
+    bottom: 18%;
     left: 25%;
     position: absolute;
     width: 50%;
@@ -259,14 +259,26 @@
     text-decoration: none;
     font-weight: bold;
     font-family: "San Francisco";
-    font-size: 15px;
-    text-shadow: none;
+    font-size: 18px;
     color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 #leaderboardTable {
+    text-shadow: none;
     margin: auto;
+    font-size: 15px;
 }
-#leaderboardTable tr:nth-child(n + 11){
+#leaderboardTable td{
+    width: 75px;
+}
+#leaderboardTable tr td:nth-child(1), th:nth-child(1) {
+    display: none;
+}
+#leaderboardTable tr:nth-child(n + 7){
     display: none;
 }
 #scoreSubmitForm {
@@ -292,6 +304,28 @@
 #submitScreen {
 
 }
+
+#gameOverScore, #nameLabel {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "San Francisco";
+  font-size: 15px;
+}
+
+
+label {
+  margin-left: 8%;
+  margin-right: 8%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "San Francisco";
+  font-size: 15px;
+}
+
 @font-face {
     font-family: "San Francisco";
     font-weight: 400;
