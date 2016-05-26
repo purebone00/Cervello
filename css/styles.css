@@ -266,6 +266,9 @@
             -1px 1px 0 #000,
             1px 1px 0 #000;
 }
+#leaderboardTable tr:nth-child(n + 11){
+    display: none;
+}
 #scoreSubmitForm {
     margin-top: 12px;
     margin-left: 16px;

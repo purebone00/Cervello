@@ -78,9 +78,7 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-
-
-
+    
 }
 
 
