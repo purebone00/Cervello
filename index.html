@@ -255,9 +255,6 @@
 			score += timeInSecs;
     		tmpscore += timeInSecs;
 
-    		if(score >= firstAchievement){
-    			//make first achievement badge visible
-    		}
 
 
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
@@ -490,6 +487,9 @@
           <tr>
             <td id="gameOverScore" colspan="2"></td>
             <td><input type="hidden" name="score" id="formScore" value=""></td>
+			  <img src="images/graphic/achieve1.png" id="achieveOne">
+			  <img src="images/graphic/achieve2.png" id="achieveTwo">
+			  <img src="images/graphic/achieve3.png" id="achieveThree">
           </tr>
 					<tr>
 						<td id="nameLabel" >Name</td>
