@@ -280,18 +280,3 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
-
-function makeTableScroll() {
-    // Constant retrieved from server-side via JSP
-    var maxRows = 10;
-    var table = document.getElementById('leaderboardTable');
-    var wrapper = table.parentNode;
-    var rowsInTable = table.rows.length;
-    var height = 0;
-    if (rowsInTable > maxRows) {
-        for (var i = 0; i < maxRows; i++) {
-            height += table.rows[i].clientHeight;
-        }
-        wrapper.style.height = height + "px";
-    }
-}
