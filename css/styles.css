@@ -245,8 +245,26 @@
     height: 40px;
 }
 #leaderBoard {
+    bottom: 15%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 70%;
     display: none;
-    overflow-y: auto;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-family: "San Francisco";
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 #scoreSubmitForm {
     margin-top: 12px;
