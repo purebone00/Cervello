@@ -22,16 +22,42 @@ var isPlaying = false;
 * Boolean on if the player is currently paused.
 */
 var isPaused = false;
+var score = 0
+var sfxOnOff = true;
 
 /**
 * Score variable.
 */
 var score = 0;
+var gameOverSound = new Audio('sound/gameOver.mp3');
+var coin = new Audio('sound/coin.wav');
+var wrong = new Audio('sound/wrong.mp3');
+
+
+
+function playCoin() {
+	if(sfxOnOff) {
+		coin.play();
+	} 
+}
+
+function playWrong() {
+	if(sfxOnOff) {
+		wrong.play();
+	} 
+}
+
+function endSound() {
+	if(sfxOnOff) {
+		gameOverSound.play();
+	}
+}
 
 /**
 * Displays gameover screen.
 */
 function gameOver(){
+	endSound();
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
@@ -40,12 +66,8 @@ function gameOver(){
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
 }
-
-/**
-* Resets the game UI.
-*/
-function resetGame() {
-  	alert('hello');
+		function resetGame() {
+			alert('hello');	
 		getnewTarget();
 		score = 0;
 		$("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -53,7 +75,7 @@ function resetGame() {
         $("#heartThree").attr("src", "images/graphic/heart_active.png");
 		clearInterval(ticker);
 		startTimer(10);
-
+		
 		for (var i = 5; i < balls.length; i++) {
 			if(balls[i] != null) {
 				balls[i] = null;
@@ -63,7 +85,27 @@ function resetGame() {
 		counter = 1;
 		variableMaxVelocity = 5;
 		document.getElementById("score").innerText = "score: " + score;
+		
+		}
+
+
+
+function resetGame() {
+    lives = 3;
+    $("#heartOne").attr("src", "images/graphic/heart_active.png");
+    $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+    $("#heartThree").attr("src", "images/graphic/heart_active.png");
+
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+
+    clearInterval(ticker);
+    startTimer(10);
+
+
+    
 }
+
 
 /**
 * Our entire menu system.
@@ -101,15 +143,14 @@ $(document).ready(function(){
         $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
     });
-    $("#sfxButton").bind("click", function(){
-        //SFX toggle function here
-	  if(sfx.paused) {
-		sfx.pause();
-	  } else {
-		sfx.play();
-    }
-	});
+    $("#sfxButton").click(function(){
+		sfxOnOff = !sfxOnOff;
+		playCoin();
+		playWrong();
+		playgameOver();
 
+	});
+	
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -117,6 +158,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+	
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -143,10 +185,10 @@ $(document).ready(function(){
     });
     $("#pause_retryButton").click(function(){
 		resetGame();
-
+		
     })
-
-
+        
+        
     $("#go_exitButton").click(function(){
         $("#heartOne").attr("src", "images/graphic/heart_active.png");
         $("#heartTwo").attr("src", "images/graphic/heart_active.png");
@@ -154,13 +196,17 @@ $(document).ready(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
-        $("#score").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
         lives = 3;
         isPlaying = false;
@@ -174,10 +220,8 @@ $(document).ready(function(){
     });
 
 
-    $("#go_retryButton").click(function(){
-		location.reload();
-    });
-
+    
+	
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -218,6 +262,12 @@ $(document).ready(function(){
 
 });
 
+$(document).keydown(function(e) {
+    //press up arrow key
+    if (e.keyCode == '38') {
+        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
+        }
+});
 
 /**
 * Background music.

@@ -195,6 +195,7 @@
 		};
 
 		//--------------------- target ---------------------
+		
 		/**
 		* An array of all ball objects
 		*/
@@ -271,6 +272,9 @@
 			}
 		}
 
+		function gameOver(){
+			//display game over screen
+		}
 
 
 		/**
@@ -313,6 +317,8 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
+					
+					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
@@ -328,9 +334,6 @@
 			}
     }
 
-		/**
-		* MouseDownListener.
-		*/
 		function onMouseDown(event) {
 			targetCheck(event);
 		}
@@ -350,23 +353,97 @@
 			balls.push(createBall(position));
 		}
 
-		/**
+		function resetBalls(){
+			curBalls = 5;
+			numBalls = 5;
+    		counter = 1;
+    		variableMaxVelocity = 5;
+    		var size = 5;
+    		var newBalls = [];
+        	for (var i = 0; i <= balls.length; i++) {
+        		if(balls[i] != null) {
+						balls[i].path.fillColor = "#123456"; //unused color value
+						balls[i].path.opacity = 0; //remove from display
+        			if(i < curBalls){
+						var position = Point.random() * view.size;
+	    	    	    newBalls[i] = createBall(position);
+	    	    	}
+        		}
+    		}
+    		balls = newBalls;
+    		getNewTarget();
+        }
+
+		$("#pause_retryButton").click(function(){
+        resetGame();
+		resetBalls();
+
+
+        $("#pause").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        	isPlaying = true;
+    	});
+
+    	$("#go_retryButton").click(function(){
+        resetGame();
+        resetBalls();
+
+        $("#gameOver").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
+        isPlaying = true;
+    	});
+
+    	$("#go_exitButton").click(function(){
+    		resetGame();
+    		resetBalls();
+        	$("#hud").fadeOut();
+        	$("#clock").fadeOut();
+        	$("#timerUI").fadeOut();
+        	$("#playButton").fadeIn();
+        	$("#optionButton").fadeIn();
+        	$("#leaderBoardButton").fadeIn();
+        	$("#tutorialButton").fadeIn();
+        	$("#title").fadeIn();
+        	$("#leaderBoardButton").fadeIn();
+        	$("#tutorialButton").fadeIn();
+        	$("#main").fadeIn();
+        	$("#hud").fadeOut();
+       		$("#clock").fadeOut();
+        	$("#timerUI").fadeOut();
+       		$("#gameOver").fadeOut();
+
+          	isPlaying = false;
+          	if(isPaused){
+          		isPaused = false;
+            }
+            clearInterval(ticker);
+    	});
+
+	function moveBalls(){
+		for (var i = 0; i < balls.length - 1; i++) {
+			for (var j = i + 1; j < balls.length; j++) {
+				balls[i].react(balls[j]);
+			}
+		}
+		for (var i = 0, l = balls.length; i < l; i++) {
+			balls[i].iterate();
+		}
+	}
+        /**
 		* When we are onframe of the canvas we constantly check each balls behaviour.
 		*/
 		function onFrame() {
 			if(!isPaused){
-				for (var i = 0; i < balls.length - 1; i++) {
-					for (var j = i + 1; j < balls.length; j++) {
-						balls[i].react(balls[j]);
-					}
-				}
-				for (var i = 0, l = balls.length; i < l; i++) {
-					balls[i].iterate();
-				}
+				moveBalls();
 			}
 		}
 
 	</script>
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body onload="makeTableScroll();">
 	<div id="container">
@@ -435,7 +512,12 @@
 					<tr>
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
+					</tr>	
+					<tr>
+						<td id="gameOverScore" colspan="2"></td>
+						<td><input type="hidden" name="score" id="	formScore" value=""></td>
 					</tr>
+					<input type="submit" value="Submit">
 				</table>
                 <input type="submit" value="Submit" id="submitButton">
 			</form>
