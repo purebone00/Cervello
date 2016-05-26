@@ -59,13 +59,14 @@ function endSound() {
 */
 function gameOver(){
     endSound();
+    isPlaying = false;
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-		
+
 function resetGame() {
     lives = 3;
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -77,7 +78,6 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-    
 }
 
 
@@ -85,11 +85,11 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
+  
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#main").fadeOut();
         $("#hud").fadeIn();
@@ -99,33 +99,29 @@ $(document).ready(function(){
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
+
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
 
-    $(".backButton").click(function(){
+    $("#backButton").click(function(){
         $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
         $("#leaderboard").fadeOut();
     });
-    $("#sfxButton").click(function(){
-		sfxOnOff = !sfxOnOff;
-    playCoin();
-    playWrong();
-    playgameOver();
 
-	});
+    $("#sfxButton").click(function(){
+		    sfxOnOff = !sfxOnOff;
+	  });
 
     $("#bgmButton").click(function(){
       if (bgm.paused) {
@@ -149,6 +145,7 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
+
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
@@ -186,13 +183,8 @@ $(document).ready(function(){
         }
       });
       $("#leaderboard").fadeIn();
-      $("#playButton").fadeOut();
-      $("#title").fadeOut();
-      $("#optionButton").fadeOut();
-      $("#leaderBoardButton").fadeOut();
-      $("#tutorialButton").fadeOut();
-      $("#main").fadeOut();
     })
+
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({
         type: "POST",
@@ -217,13 +209,3 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
-
-function changeImage_BGM(element) {
-    element.src = element.bln ? "images/button/bgm.png" : "images/button/bgm_mute.png";
-    element.bln = !element.bln;
-}
-
-function changeImage_SFX(element) {
-    element.src = element.bln ? "images/button/sfx.png" : "images/button/sfx_mute.png";
-    element.bln = !element.bln;
-}

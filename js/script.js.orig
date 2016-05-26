@@ -59,13 +59,14 @@ function endSound() {
 */
 function gameOver(){
     endSound();
+    isPlaying = false;
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-
+		
 function resetGame() {
     lives = 3;
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -77,6 +78,7 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
+    
 }
 
 
@@ -84,11 +86,11 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
+  
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#main").fadeOut();
         $("#hud").fadeIn();
@@ -98,44 +100,33 @@ $(document).ready(function(){
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
+
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
-    $("#leaderboardButton").click(function(){
-        $("#playButton").fadeOut();
-        $("#title").fadeOut();
-        $("#optionButton").fadeOut();
-        $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
-        $("#main").fadeOut();
-        $("#leaderboard").fadeIn();
-    });
+
+<<<<<<< HEAD
     $(".backButton").click(function(){
+=======
+    $("#backButton").click(function(){
+>>>>>>> 41830d7059f7eb296aa126317b230c4e4f3f839c
         $("#options").fadeOut();
-        $("#leaderboard").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
+        $("#leaderboard").fadeOut();
     });
-    $("#sfxButton").click(function(){
-		sfxOnOff = !sfxOnOff;
-<<<<<<< HEAD
-=======
-    playCoin();
-    playWrong();
-    playgameOver();
 
->>>>>>> 37f400f8a6fcd590edf5a57163a2f9c50810f35d
-	});
+    $("#sfxButton").click(function(){
+		    sfxOnOff = !sfxOnOff;
+	  });
 
     $("#bgmButton").click(function(){
       if (bgm.paused) {
@@ -159,7 +150,6 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
-
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
@@ -171,7 +161,6 @@ $(document).ready(function(){
         document.getElementById("score").innerText = "Score: " + score.toFixed(0);
         resetGame();
     });
-
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -197,7 +186,14 @@ $(document).ready(function(){
         }
       });
       $("#leaderboard").fadeIn();
+      $("#playButton").fadeOut();
+      $("#title").fadeOut();
+      $("#optionButton").fadeOut();
+      $("#leaderBoardButton").fadeOut();
+      $("#tutorialButton").fadeOut();
+      $("#main").fadeOut();
     })
+
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({
         type: "POST",
@@ -208,7 +204,6 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 });
 
 /**
@@ -222,3 +217,13 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
+
+function changeImage_BGM(element) {
+    element.src = element.bln ? "images/button/bgm.png" : "images/button/bgm_mute.png";
+    element.bln = !element.bln;
+}
+
+function changeImage_SFX(element) {
+    element.src = element.bln ? "images/button/sfx.png" : "images/button/sfx_mute.png";
+    element.bln = !element.bln;
+}
