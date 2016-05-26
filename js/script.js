@@ -4,13 +4,39 @@ window.onload = function() {
     var img = document.getElementById("title");
     ctx.drawImage(img,10,10);
 }
-var canvas = $('canvas')[0];
 var isPlaying = false;
 var isPaused = false;
-var score = 0;
+var score = 0
+var sfxOnOff = true;
+
+var gameOverSound = new Audio('sound/gameOver.mp3');
+var coin = new Audio('sound/coin.wav');
+var wrong = new Audio('sound/wrong.mp3');
+
+
+
+function playCoin() {
+	if(sfxOnOff) {
+		coin.play();
+	} 
+}
+
+function playWrong() {
+	if(sfxOnOff) {
+		wrong.play();
+	} 
+}
+
+function endSound() {
+	if(sfxOnOff) {
+		gameOverSound.play();
+	}
+}
 
 function gameOver(){
+	endSound();
     $("#gameOver").fadeIn();
+
     var scoreStr = document.getElementById("score").innerText.split(" ");
     var gameOverScore = scoreStr[1];
     document.getElementById("formScore").value = gameOverScore;
@@ -18,28 +44,10 @@ function gameOver(){
 
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
+	
+	
 }
-		function resetGame() {
-			alert('hello');	
-		getnewTarget();
-		score = 0;
-		$("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-		clearInterval(ticker);
-		startTimer(10);
-		
-		for (var i = 5; i < balls.length; i++) {
-			if(balls[i] != null) {
-				balls[i] = null;
-			}
-		}
-		curBalls = 5;
-		counter = 1;
-		variableMaxVelocity = 5;
-		document.getElementById("score").innerText = "score: " + score;
-		
-		}
+
 
 
 $(document).ready(function(){
@@ -74,15 +82,14 @@ $(document).ready(function(){
         $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
     });
-    $("#sfxButton").bind("click", function(){
-        //SFX toggle function here
-	  if(sfx.paused) {
-		sfx.pause();
-	  } else {
-		sfx.play();
-    }
-	});
+    $("#sfxButton").click(function(){
+		sfxOnOff = !sfxOnOff;
+		playCoin();
+		playWrong();
+		playgameOver();
 
+	});
+	
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -90,6 +97,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+	
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -206,5 +214,3 @@ $(document).keydown(function(e) {
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
-
-var sfx = new Audio('sound/coin.wav');

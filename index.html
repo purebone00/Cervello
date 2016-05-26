@@ -251,7 +251,7 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-    	tmpscore += timeInSecs;
+			tmpscore += timeInSecs;
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
@@ -263,6 +263,7 @@
 			* if lives == 0, fade out heartOne and execute gameOver()
 			**/
 			lives--;
+			
 			if(lives <=0){
 				gameOver();
 			}
@@ -301,7 +302,8 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-					sfx.play();	
+					
+					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
@@ -413,7 +415,7 @@
 					</tr>	
 					<tr>
 						<td id="gameOverScore" colspan="2"></td>
-						<td><input type="hidden" name="score" id="	formScore" value=""></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
 					</tr>
 					<input type="submit" value="Submit">
 				</table>
