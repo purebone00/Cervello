@@ -271,6 +271,9 @@
     margin: auto;
     font-size: 15px;
 }
+#leaderboardTable td{
+    width: 75px;
+}
 #leaderboardTable tr td:nth-child(1), th:nth-child(1) {
     display: none;
 }
