@@ -35,7 +35,7 @@ function gameOver(){
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
-    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
+    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
 
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
@@ -56,7 +56,7 @@ function resetGame() {
     startTimer(10);
 
 
-    
+
 }
 
 
@@ -144,13 +144,12 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });*/
-        
-        
-    
 
 
-    
-	
+
+
+
+
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
