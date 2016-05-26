@@ -368,7 +368,7 @@
 
 	</script>
 </head>
-<body>
+<body onload="makeTableScroll();">
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
@@ -442,7 +442,7 @@
 			<input type="image" src="images/button/retry.png" id="go_retryButton"/>
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
 		</div>
-		<div id="leaderboard">
+		<div id="leaderboard" class="scrollingTable">
 			<table  id="leaderboardTable">
 			</table>
 		</div>
