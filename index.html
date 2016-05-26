@@ -349,11 +349,10 @@
 	<div id="container">
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src="sound/coin.wav" style="display: none;"></audio>
-		<menu id="timer">
-			<p id="timerUI">Timer:</p>
-			<span id="clock" style="font-weight: bold;">10</span>
-		</menu>
-		<menu id="main">
+        <p id="timerUI">Timer:</p>
+		<span id="clock" style="font-weight: bold;">10</span>
+		<div id="score">Score: 0</div>
+        <menu id="main">
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
 			<br/>
@@ -382,20 +381,17 @@
 			</p>
 		</div>
 		<div id="hud">
-            <span>
-                <div id="lives">
-			        <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
-			        <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
-			        <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
-                </div>
-			    <div id="score">Score: 0</div>
-			    <span id="targetBox">
-				    <p>Target:&nbsp;</p>
-				    <br/>
-				    <canvas id="target"></canvas>
-			    </span>
-			    <input type="image" src="images/button/pause.png" id="pauseButton"/>
+            <span id="lives">
+                <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
             </span>
+            <span id="targetBox">
+                <p>Target:&nbsp;</p>
+                <br/>
+                <canvas id="target"></canvas>
+            </span>
+            <input type="image" src="images/button/pause.png" id="pauseButton"/>
 		</div>
 		<div id="pause">
 			Paused

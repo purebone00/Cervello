@@ -53,6 +53,7 @@ $(document).ready(function(){
         $("#hud").fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
+        $("#score").fadeIn();
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
@@ -128,17 +129,13 @@ $(document).ready(function(){
         $("#hud").fadeOut();
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
+        $("#score").fadeOut();
         $("#playButton").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
         $("#title").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
         lives = 3;
         isPlaying = false;
@@ -154,7 +151,6 @@ $(document).ready(function(){
 
     $("#go_retryButton").click(function(){
 		location.reload();
-
     });
 	
 
