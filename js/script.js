@@ -109,7 +109,7 @@ $(document).ready(function(){
         $("#options").fadeIn();
     });
 
-    $("#backButton").click(function(){
+    $(".backButton").click(function(){
         $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
@@ -209,3 +209,13 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
+
+function changeImage_BGM(element) {
+    element.src = element.bln ? "images/button/bgm.png" : "images/button/bgm_mute.png";
+    element.bln = !element.bln;
+}
+
+function changeImage_SFX(element) {
+    element.src = element.bln ? "images/button/sfx.png" : "images/button/sfx_mute.png";
+    element.bln = !element.bln;
+}
