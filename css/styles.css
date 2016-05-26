@@ -266,6 +266,11 @@
             -1px 1px 0 #000,
             1px 1px 0 #000;
 }
+#leaderboardTable tr {
+    font-size: 15px;
+    margin: auto;
+    text-shadow: none;
+}
 #leaderboardTable tr:nth-child(n + 11){
     display: none;
 }
