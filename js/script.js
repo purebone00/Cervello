@@ -135,10 +135,10 @@ $(document).ready(function(){
         $("#pause").fadeOut();
         var gameOverSubmit = score;
         document.getElementById("formScore").value = gameOverSubmit;
-        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit;
+        document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit.toFixed(0);
 
         score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
+        document.getElementById("score").innerText = "Score: " + score.toFixed(0);
     });
     $("#pause_retryButton").click(function(){
 		resetGame();
