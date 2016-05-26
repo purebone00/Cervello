@@ -66,7 +66,7 @@ function gameOver(){
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-
+		
 function resetGame() {
     lives = 3;
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -78,6 +78,7 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
+    
 }
 
 
@@ -109,7 +110,11 @@ $(document).ready(function(){
         $("#options").fadeIn();
     });
 
+<<<<<<< HEAD
     $(".backButton").click(function(){
+=======
+    $("#backButton").click(function(){
+>>>>>>> 41830d7059f7eb296aa126317b230c4e4f3f839c
         $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
@@ -145,7 +150,6 @@ $(document).ready(function(){
         }
         isPlaying = true;
     });
-
     $("#pause_exitButton").click(function(){
         $("#gameOver").fadeIn();
         $("#pause").fadeOut();
@@ -157,7 +161,6 @@ $(document).ready(function(){
         document.getElementById("score").innerText = "Score: " + score.toFixed(0);
         resetGame();
     });
-
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -183,6 +186,12 @@ $(document).ready(function(){
         }
       });
       $("#leaderboard").fadeIn();
+      $("#playButton").fadeOut();
+      $("#title").fadeOut();
+      $("#optionButton").fadeOut();
+      $("#leaderBoardButton").fadeOut();
+      $("#tutorialButton").fadeOut();
+      $("#main").fadeOut();
     })
 
     $("#scoreSubmitForm").submit(function(e) {
@@ -195,7 +204,6 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 });
 
 /**
