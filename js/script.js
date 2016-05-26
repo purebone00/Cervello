@@ -59,6 +59,7 @@ function endSound() {
 */
 function gameOver(){
     endSound();
+    isPlaying = false;
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
@@ -88,7 +89,6 @@ $(document).ready(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#title").fadeOut();
         $("#main").fadeOut();
         $("#hud").fadeIn();
@@ -103,7 +103,6 @@ $(document).ready(function(){
         $("#title").fadeOut();
         $("#optionButton").fadeOut();
         $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
@@ -113,16 +112,12 @@ $(document).ready(function(){
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
         $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
     });
-    $("#sfxButton").click(function(){
-		sfxOnOff = !sfxOnOff;
-    playCoin();
-    playWrong();
-    playgameOver();
 
-	});
+    $("#sfxButton").click(function(){
+		    sfxOnOff = !sfxOnOff;
+	  });
 
     $("#bgmButton").click(function(){
       if (bgm.paused) {

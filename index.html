@@ -299,13 +299,10 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-
 					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
-
-
 					}
           if (tmpscore > pointsThreshold) {
             tmpscore = 0;
@@ -389,10 +386,7 @@
 	        $("#playButton").fadeIn();
 	        $("#optionButton").fadeIn();
 	        $("#leaderBoardButton").fadeIn();
-	        $("#tutorialButton").fadeIn();
 	        $("#title").fadeIn();
-	        $("#leaderBoardButton").fadeIn();
-	        $("#tutorialButton").fadeIn();
 	        $("#main").fadeIn();
 	        $("#hud").fadeOut();
 	        $("#clock").fadeOut();
@@ -404,10 +398,10 @@
 	        if(isPaused){
 	            isPaused = false;
 	        }
-	        clearInterval(ticker);
 	        score = 0;
 	        document.getElementById("score").innerText = "Score: " + score;
 					resetGame();
+					clearInterval(ticker);
 	        resetBalls();
 	    });
 
@@ -421,7 +415,7 @@
 			balls[i].iterate();
 		}
 	}
-        /**
+  /**
 		* When we are onframe of the canvas we constantly check each balls behaviour.
 		*/
 		function onFrame() {
@@ -447,20 +441,13 @@
 			<button id="optionButton">Options</button>
 			<br/>
 			<button id="leaderBoardButton">Highscore</button>
-			<br/>
-			<button id="tutorialButton">Tutorial</button>
 		</menu>
 		<div id="options">
 			Options
 			<br/>
 			<p id="optionBox">
-				<label for="colorblind">Color Blindness</label>
-				<select id="colorblind">
-					<option value="Off">Off</option>
-					<option value="Protanopia">Protanopia</option>
-					<option value="Deuteranopia">Deuteranopia</option>
-					<option value="Tritanopia">Tritanopia</option>
-				</select>
+				<label for="bgmButton">Music</label>
+				<label for="sfxButton">SFX</label>
 				<br/>
 				<input type="image" src="images/button/bgm.png" id="bgmButton"/>
 				<input type="image" src="images/button/sfx.png" id="sfxButton"/>
