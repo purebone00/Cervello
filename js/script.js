@@ -44,7 +44,7 @@ function gameOver(){
     document.getElementById("score").innerText = "Score: " + score;
 }
 		function resetGame() {
-			alert('hello');	
+			alert('hello');
 		getnewTarget();
 		score = 0;
 		$("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -52,7 +52,7 @@ function gameOver(){
         $("#heartThree").attr("src", "images/graphic/heart_active.png");
 		clearInterval(ticker);
 		startTimer(10);
-		
+
 		for (var i = 5; i < balls.length; i++) {
 			if(balls[i] != null) {
 				balls[i] = null;
@@ -62,7 +62,7 @@ function gameOver(){
 		counter = 1;
 		variableMaxVelocity = 5;
 		document.getElementById("score").innerText = "score: " + score;
-		
+
 		}
 
 
@@ -80,7 +80,7 @@ function resetGame() {
     startTimer(10);
 
 
-    
+
 }
 
 
@@ -158,10 +158,10 @@ $(document).ready(function(){
     });
     $("#pause_retryButton").click(function(){
 		resetGame();
-		
+
     })
-        
-        
+
+
     $("#go_exitButton").click(function(){
         $("#heartOne").attr("src", "images/graphic/heart_active.png");
         $("#heartTwo").attr("src", "images/graphic/heart_active.png");
@@ -192,10 +192,6 @@ $(document).ready(function(){
         document.getElementById("score").innerText = "Score: " + score;
 
     });
-
-
-    
-	
 
     $("#leaderBoardButton").click(function(){
       $.ajax({
@@ -233,13 +229,6 @@ $(document).ready(function(){
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
 
-});
-
-$(document).keydown(function(e) {
-    //press up arrow key
-    if (e.keyCode == '38') {
-        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
-        }
 });
 
 /**
