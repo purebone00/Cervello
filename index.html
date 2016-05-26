@@ -253,7 +253,10 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-    	tmpscore += timeInSecs;
+    		tmpscore += timeInSecs;
+
+
+
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
@@ -403,6 +406,7 @@
 					resetGame();
 					clearInterval(ticker);
 	        resetBalls();
+	        clearInterval(ticker);
 	    });
 
 	function moveBalls(){
@@ -484,6 +488,9 @@
           <tr>
             <td id="gameOverScore" colspan="2"></td>
             <td><input type="hidden" name="score" id="formScore" value=""></td>
+			  <img src="images/graphic/achieve1.png" id="achieveOne">
+			  <img src="images/graphic/achieve2.png" id="achieveTwo">
+			  <img src="images/graphic/achieve3.png" id="achieveThree">
           </tr>
 					<tr>
 						<td id="nameLabel" >Name</td>

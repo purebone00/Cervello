@@ -217,11 +217,11 @@
             1px 1px 0 #000;
 }
 #gameOver {
-    bottom: 25%;
+    bottom: 15%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 60%;
+    height: 75%;
     display: none;
     font-family: "San Francisco";
     border: 2px solid #87CEFA;
@@ -245,6 +245,11 @@
     width: 40px;
     height: 40px;
 }
+
+#achieveOne, #achieveTwo, #achieveThree {
+    display: none;
+}
+
 #leaderboard {
     bottom: 18%;
     left: 25%;

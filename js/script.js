@@ -54,6 +54,27 @@ function endSound() {
 	}
 }
 
+function checkAchievements(){
+    if(score >= 25){
+        //make first achievement badge visible; 500
+        $("#achieveOne").fadeIn();
+    }
+
+    if(score >= 50){
+        //make second chievement badge visible; 1000
+        setTimeout(function() {
+            $("#achieveTwo").fadeIn();
+        }, 1500);
+    }
+
+    if(score >= 100){
+        //make third achievement badge visible; 100 000
+        setTimeout(function() {
+            $("#achieveThree").fadeIn();
+        }, 3000);
+    }
+}
+
 /**
 * Displays gameover screen.
 */
@@ -65,6 +86,8 @@ function gameOver(){
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
+
+    checkAchievements();
 }
 
 function resetGame() {
@@ -72,6 +95,10 @@ function resetGame() {
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
     $("#heartTwo").attr("src", "images/graphic/heart_active.png");
     $("#heartThree").attr("src", "images/graphic/heart_active.png");
+
+    $("#achieveOne").fadeOut();
+    $("#achieveTwo").fadeOut();
+    $("#achieveThree").fadeOut();
 
     score = 0;
     document.getElementById("score").innerText = "Score: " + score;
@@ -151,9 +178,7 @@ $(document).ready(function(){
         document.getElementById("formScore").value = gameOverSubmit;
         document.getElementById("gameOverScore").innerText = "Score: " + gameOverSubmit.toFixed(0);
 
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score.toFixed(0);
-        resetGame();
+        checkAchievements();
     });
 
 
