@@ -22,18 +22,29 @@ var isPlaying = false;
 * Boolean on if the player is currently paused.
 */
 var isPaused = false;
-var score = 0
+
+
+/**
+* Boolean on sfx is currently on.
+*/
 var sfxOnOff = true;
 
 /**
 * Score variable.
 */
 var score = 0;
+
+/**
+* SFX for clicking the correct ball, game over sound and lose life sound.
+*/
+
 var gameOverSound = new Audio('sound/gameOver.mp3');
 var coin = new Audio('sound/coin.wav');
-var wrong = new Audio('sound/wrong.mp3');
+var wrong = new Audio('sound/wrong.wav');
 
-
+/** 
+* sound effect control connected to sfxOnOff
+*/
 
 function playCoin() {
 	if(sfxOnOff) {
@@ -49,6 +60,7 @@ function playWrong() {
 
 function endSound() {
 	if(sfxOnOff) {
+		gameOverSound.loop = false;
 		gameOverSound.play();
 	}
 }
@@ -57,8 +69,10 @@ function endSound() {
 * Displays gameover screen.
 */
 function gameOver(){
-	endSound();
+	
     $("#gameOver").fadeIn();
+	endSound();
+	gameOverSound.loop = false;
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
@@ -111,6 +125,20 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
+	var c =$('#view');
+	var ct = c.get(0).getContext('2d');
+	var containerTwo = $(c).parent();
+	
+	$(window).resize( respondCanvas );
+	
+	function respondCanvas() {
+		c.attr('width', $(containerTwo).width());
+		c.attr('height', $(containerTwo).height());
+	}
+	
+	respondCanvas();
+	
+	
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -275,7 +303,3 @@ var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
 
-/**
-* SFX for clicking the correct ball.
-*/
-var sfx = new Audio('sound/coin.wav');

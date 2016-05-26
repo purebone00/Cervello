@@ -1,8 +1,8 @@
 #container {
-    padding: 0;
+    padding: 50px 10%;
     margin: auto;
     display: block;
-    width: 480px;
+    width: 80%;
     height: 320px;
     position: absolute;
     top: 0;

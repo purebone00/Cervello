@@ -271,12 +271,7 @@
 				gameOver();
 			}
 		}
-
-		function gameOver(){
-			//display game over screen
-		}
-
-
+		
 		/**
 		* A secondary check whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
 		*/
@@ -431,6 +426,7 @@
 		}
 		for (var i = 0, l = balls.length; i < l; i++) {
 			balls[i].iterate();
+			//balls[i].checkBorders();
 		}
 	}
         /**
@@ -446,7 +442,7 @@
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-	<div id="container">
+	<div id="container" role = "container">
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
 		<p id="timerUI">Timer:</p>
@@ -513,7 +509,7 @@
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>	
-					<tr>
+				<tr>
 						<td id="gameOverScore" colspan="2"></td>
 						<td><input type="hidden" name="score" id="	formScore" value=""></td>
 					</tr>
