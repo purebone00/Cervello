@@ -372,6 +372,32 @@
         isPlaying = true;
     	});
 
+    	$("#go_exitButton").click(function(){
+    	resetGame();
+    	resetBalls();
+        $("#hud").fadeOut();
+        $("#clock").fadeOut();
+        $("#timerUI").fadeOut();
+        $("#playButton").fadeIn();
+        $("#optionButton").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
+        $("#title").fadeIn();
+        $("#leaderBoardButton").fadeIn();
+        $("#tutorialButton").fadeIn();
+        $("#main").fadeIn();
+        $("#hud").fadeOut();
+       	 $("#clock").fadeOut();
+         $("#timerUI").fadeOut();
+       	 $("#gameOver").fadeOut();
+
+          isPlaying = false;
+          if(isPaused){
+          	isPaused = false;
+           }
+           clearInterval(ticker);
+    	});
+
 	function moveBalls(){
 		for (var i = 0; i < balls.length - 1; i++) {
 			for (var j = i + 1; j < balls.length; j++) {

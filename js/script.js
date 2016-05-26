@@ -129,35 +129,7 @@ $(document).ready(function(){
     });*/
         
         
-    $("#go_exitButton").click(function(){
-        $("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#playButton").fadeIn();
-        $("#optionButton").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#title").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#main").fadeIn();
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#gameOver").fadeOut();
-        lives = 3;
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
-		//location.reload();
-    });
+    
 
 
     
