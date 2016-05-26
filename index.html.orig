@@ -9,7 +9,6 @@
 	<script type="text/javascript" src="js/paper.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/easterEgg.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/paperscript" canvas="view">
 
 	/**
@@ -252,7 +251,7 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-    	tmpscore += timeInSecs;
+			tmpscore += timeInSecs;
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
@@ -267,14 +266,12 @@
 			* if lives == 0, fade out heartOne and execute gameOver()
 			**/
 			lives--;
+			
 			if(lives <=0){
 				gameOver();
 			}
 		}
 
-		function gameOver(){
-			//display game over screen
-		}
 
 
 		/**
@@ -317,8 +314,11 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
+<<<<<<< HEAD
 					
 					playCoin();
+=======
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
 						balls.push(createBall(event.point));
@@ -334,6 +334,9 @@
 			}
     }
 
+		/**
+		* MouseDownListener.
+		*/
 		function onMouseDown(event) {
 			targetCheck(event);
 		}
@@ -512,12 +515,14 @@
 					<tr>
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
+<<<<<<< HEAD
 					</tr>	
 					<tr>
 						<td id="gameOverScore" colspan="2"></td>
-						<td><input type="hidden" name="score" id="	formScore" value=""></td>
+						<td><input type="hidden" name="score" id="formScore" value=""></td>
+=======
+>>>>>>> 95ad8fe2f8c31ef3718f13d10475ff0b981c82b4
 					</tr>
-					<input type="submit" value="Submit">
 				</table>
                 <input type="submit" value="Submit" id="submitButton">
 			</form>
