@@ -30,6 +30,30 @@ var sfxOnOff = true;
 */
 var score = 0;
 
+var gameOverSound = new Audio('sound/gameOver.mp3');
+var coin = new Audio('sound/coin.wav');
+var wrong = new Audio('sound/wrong.mp3');
+
+
+
+function playCoin() {
+	if(sfxOnOff) {
+		coin.play();
+	}
+}
+
+function playWrong() {
+	if(sfxOnOff) {
+		wrong.play();
+	}
+}
+
+function endSound() {
+	if(sfxOnOff) {
+		gameOverSound.play();
+	}
+}
+
 /**
 * Displays gameover screen.
 */
@@ -78,7 +102,7 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
-    
+
 }
 
 
@@ -120,6 +144,9 @@ $(document).ready(function(){
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
+    playCoin();
+    playWrong();
+    playgameOver();
 
 	});
 
@@ -130,6 +157,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
+    
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
