@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cervello</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
@@ -195,7 +196,7 @@
 		};
 
 		//--------------------- target ---------------------
-		
+
 		/**
 		* An array of all ball objects
 		*/
@@ -317,7 +318,7 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-					
+
 					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
@@ -444,6 +445,7 @@
 
 	</script>
 	<script type="text/javascript" src="js/script.js"></script>
+	<script type="test/javascript" src="js/resize.js"></script>
 </head>
 <body>
 	<div id="container">
