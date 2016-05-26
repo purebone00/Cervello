@@ -109,16 +109,6 @@ $(document).ready(function(){
         $("#options").fadeIn();
     });
 
-    $("#leaderboardButton").click(function(){
-        $("#playButton").fadeOut();
-        $("#title").fadeOut();
-        $("#optionButton").fadeOut();
-        $("#leaderBoardButton").fadeOut();
-        $("#tutorialButton").fadeOut();
-        $("#main").fadeOut();
-        $("#leaderboard").fadeIn();
-    });
-
     $(".backButton").click(function(){
         $("#options").fadeOut();
         $("#playButton").fadeIn();
@@ -127,6 +117,7 @@ $(document).ready(function(){
         $("#leaderBoardButton").fadeIn();
         $("#tutorialButton").fadeIn();
         $("#main").fadeIn();
+        $("#leaderboard").fadeOut();
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
@@ -195,6 +186,12 @@ $(document).ready(function(){
         }
       });
       $("#leaderboard").fadeIn();
+      $("#playButton").fadeOut();
+      $("#title").fadeOut();
+      $("#optionButton").fadeOut();
+      $("#leaderBoardButton").fadeOut();
+      $("#tutorialButton").fadeOut();
+      $("#main").fadeOut();
     })
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({

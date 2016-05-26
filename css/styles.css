@@ -245,11 +245,11 @@
     height: 40px;
 }
 #leaderboard {
-    bottom: 20%;
+    bottom: 10%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 75%;
+    height: 80%;
     display: none;
     border: 2px solid #87CEFA;
     border-radius: 4px;
@@ -258,12 +258,17 @@
     text-decoration: none;
     font-weight: bold;
     font-family: "San Francisco";
-    font-size: 15px;
-    text-shadow: none;
+    font-size: 18px;
     color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 #leaderboardTable {
     margin: auto;
+    font-size: 15px;
 }
 #leaderboardTable tr:nth-child(n + 11){
     display: none;
