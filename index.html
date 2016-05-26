@@ -328,39 +328,49 @@
 			balls.push(createBall(position));
 		}
 
+		function resetBalls(){
+			curBalls = 5;
+			numBalls = 5;
+    		counter = 1;
+    		variableMaxVelocity = 5;
+    		var size = 5;
+    		var newBalls = [];
+        	for (var i = 0; i <= balls.length; i++) {
+        		if(balls[i] != null) {
+						balls[i].path.fillColor = "#123456"; //unused color value
+						balls[i].path.opacity = 0; //remove from display
+        			if(i < curBalls){
+						var position = Point.random() * view.size;
+	    	    	    newBalls[i] = createBall(position);
+	    	    	}
+        		}
+    		}
+    		balls = newBalls;
+    		getNewTarget();
+        }
+
 		$("#pause_retryButton").click(function(){
         resetGame();
+		resetBalls();
 
 
-    	curBalls = 5;
-		numBalls = 5;
-    	counter = 1;
-    	variableMaxVelocity = 5;
-    	var size = 5;
-        for (var i = 0; i < balls.length; i++) {
-        	alert('removed' + i);
-        	if(balls[i] != null) {
-        		if(i < curBalls){
-        			//var temp = balls[i];
-					var position = Point.random() * view.size;
-	        	    balls[i].replaceWith(createBall(position));
-	        	    //temp.remove();
-	        	}else{
-	        		//balls[i] = null;
-	        	}
-        	}
-    	}
-    	//alert(balls.length);
-    	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    	getNewTarget();
         $("#pause").fadeOut();
         if(isPaused){
             isPaused = false;
         }
+        	isPlaying = true;
+    	});
+
+    	$("#go_retryButton").click(function(){
+        resetGame();
+        resetBalls();
+
+        $("#gameOver").fadeOut();
+        if(isPaused){
+            isPaused = false;
+        }
         isPlaying = true;
-        //moveBalls();
-    });
+    	});
 
 	function moveBalls(){
 		for (var i = 0; i < balls.length - 1; i++) {

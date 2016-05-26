@@ -160,14 +160,7 @@ $(document).ready(function(){
     });
 
 
-    $("#go_retryButton").click(function(){
-        resetGame();
-        $("#gameOver").fadeOut();
-        if(isPaused){
-            isPaused = false;
-        }
-        isPlaying = true;
-    });
+    
 	
 
     $("#leaderBoardButton").click(function(){
