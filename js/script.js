@@ -22,42 +22,19 @@ var isPlaying = false;
 * Boolean on if the player is currently paused.
 */
 var isPaused = false;
-var score = 0
+
 var sfxOnOff = true;
 
 /**
 * Score variable.
 */
 var score = 0;
-var gameOverSound = new Audio('sound/gameOver.mp3');
-var coin = new Audio('sound/coin.wav');
-var wrong = new Audio('sound/wrong.mp3');
-
-
-
-function playCoin() {
-	if(sfxOnOff) {
-		coin.play();
-	} 
-}
-
-function playWrong() {
-	if(sfxOnOff) {
-		wrong.play();
-	} 
-}
-
-function endSound() {
-	if(sfxOnOff) {
-		gameOverSound.play();
-	}
-}
 
 /**
 * Displays gameover screen.
 */
 function gameOver(){
-	endSound();
+    endSound();
     $("#gameOver").fadeIn();
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
@@ -145,12 +122,9 @@ $(document).ready(function(){
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
-		playCoin();
-		playWrong();
-		playgameOver();
 
 	});
-	
+
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -158,7 +132,6 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
-	
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -216,7 +189,7 @@ $(document).ready(function(){
         clearInterval(ticker);
         score = 0;
         document.getElementById("score").innerText = "Score: " + score;
-		location.reload();
+
     });
 
 
@@ -258,7 +231,6 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 
 });
 
