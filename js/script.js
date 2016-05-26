@@ -85,6 +85,7 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
+  
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -98,6 +99,7 @@ $(document).ready(function(){
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
+
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
@@ -106,6 +108,7 @@ $(document).ready(function(){
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
+
     $("#backButton").click(function(){
         $("#options").fadeOut();
         $("#playButton").fadeIn();
@@ -154,7 +157,6 @@ $(document).ready(function(){
         resetGame();
     });
 
-
     $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
@@ -180,6 +182,7 @@ $(document).ready(function(){
       });
       $("#leaderboard").fadeIn();
     })
+
     $("#scoreSubmitForm").submit(function(e) {
       $.ajax({
         type: "POST",
@@ -190,7 +193,6 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 });
 
 /**
