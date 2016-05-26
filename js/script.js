@@ -220,3 +220,12 @@ bgm.play();
 * SFX for clicking the correct ball.
 */
 var sfx = new Audio('sound/coin.wav');
+
+function changeImage() {
+    if (document.getElementById("bgmButton").src == "images/button/bgm.png") {
+        document.getElementById("bgmButton").src = "images/button/sfx.png";
+    }
+    else {
+        document.getElementById("bgmButton").src = "images/button/bgm.png";
+    }
+}
