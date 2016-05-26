@@ -246,9 +246,7 @@
 }
 #leaderBoard {
     display: none;
-}
-#leaderBoard tr:nth-child(n + 10) {
-    display: none;
+    overflow-y: auto;
 }
 #scoreSubmitForm {
     margin-top: 12px;
