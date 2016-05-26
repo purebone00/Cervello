@@ -109,8 +109,18 @@ $(document).ready(function(){
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
-    $("#backButton").click(function(){
+    $("#leaderboardButton").click(function(){
+        $("#playButton").fadeOut();
+        $("#title").fadeOut();
+        $("#optionButton").fadeOut();
+        $("#leaderBoardButton").fadeOut();
+        $("#tutorialButton").fadeOut();
+        $("#main").fadeOut();
+        $("#leaderboard").fadeIn();
+    });
+    $(".backButton").click(function(){
         $("#options").fadeOut();
+        $("#leaderboard").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
         $("#optionButton").fadeIn();
@@ -120,7 +130,6 @@ $(document).ready(function(){
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
-
 	});
 
     $("#bgmButton").click(function(){

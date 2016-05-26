@@ -77,7 +77,7 @@
 #backButton:hover, #submitButton:hover {
     color: #87CEFA;
 }
-#backButton {
+.backButton {
     border: 2px solid #87CEFA;
     border-radius: 4px;
     color: black;
@@ -245,11 +245,11 @@
     height: 40px;
 }
 #leaderboard {
-    bottom: 15%;
+    bottom: 20%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 70%;
+    height: 75%;
     display: none;
     border: 2px solid #87CEFA;
     border-radius: 4px;
