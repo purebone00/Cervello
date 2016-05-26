@@ -181,6 +181,7 @@ $(document).ready(function(){
         $("#clock").fadeOut();
         $("#timerUI").fadeOut();
         $("#gameOver").fadeOut();
+        $("#score").fadeOut();
         lives = 3;
         isPlaying = false;
         if(isPaused){
