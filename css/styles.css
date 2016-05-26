@@ -271,6 +271,9 @@
     margin: auto;
     font-size: 15px;
 }
+#leaderboardTable tr td:nth-child(1), th:nth-child(1) {
+    display: none;
+}
 #leaderboardTable tr:nth-child(n + 7){
     display: none;
 }
