@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cervello</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
@@ -195,7 +196,7 @@
 		};
 
 		//--------------------- target ---------------------
-		
+
 		/**
 		* An array of all ball objects
 		*/
@@ -256,22 +257,8 @@
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
-		/**
-		* Called when we have to reduce the life values.
-		*/
-		function deductLife(){
-			/**
-			* decrement the lives variable, and fade out the hearts graphic;
-			* if lives == 2, fade out heartThree
-			* if lives == 1, fade out heartTwo
-			* if lives == 0, fade out heartOne and execute gameOver()
-			**/
-			lives--;
-			if(lives <=0){
-				gameOver();
-			}
-		}
-		
+
+
 		/**
 		* A secondary check whenever a ball is clicked, call this function. returns 0 if target is correct, 1 if it isn't
 		*/
@@ -312,7 +299,7 @@
 					calculatePoints();
 					getNewTarget();
 					timeInSecs += 1.25;
-					
+
 					playCoin();
 					if(curBalls < maxBalls && tmpscore > pointsThreshold) {
 						curBalls++;
@@ -371,7 +358,7 @@
 
 		$("#pause_retryButton").click(function(){
         resetGame();
-		resetBalls();
+				resetBalls();
 
 
         $("#pause").fadeOut();
@@ -392,31 +379,37 @@
         isPlaying = true;
     	});
 
-    	$("#go_exitButton").click(function(){
-    		resetGame();
-    		resetBalls();
-        	$("#hud").fadeOut();
-        	$("#clock").fadeOut();
-        	$("#timerUI").fadeOut();
-        	$("#playButton").fadeIn();
-        	$("#optionButton").fadeIn();
-        	$("#leaderBoardButton").fadeIn();
-        	$("#tutorialButton").fadeIn();
-        	$("#title").fadeIn();
-        	$("#leaderBoardButton").fadeIn();
-        	$("#tutorialButton").fadeIn();
-        	$("#main").fadeIn();
-        	$("#hud").fadeOut();
-       		$("#clock").fadeOut();
-        	$("#timerUI").fadeOut();
-       		$("#gameOver").fadeOut();
-
-          	isPlaying = false;
-          	if(isPaused){
-          		isPaused = false;
-            }
-            clearInterval(ticker);
-    	});
+			$("#go_exitButton").click(function(){
+	        $("#heartOne").attr("src", "images/graphic/heart_active.png");
+	        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
+	        $("#heartThree").attr("src", "images/graphic/heart_active.png");
+	        $("#hud").fadeOut();
+	        $("#clock").fadeOut();
+	        $("#timerUI").fadeOut();
+	        $("#playButton").fadeIn();
+	        $("#optionButton").fadeIn();
+	        $("#leaderBoardButton").fadeIn();
+	        $("#tutorialButton").fadeIn();
+	        $("#title").fadeIn();
+	        $("#leaderBoardButton").fadeIn();
+	        $("#tutorialButton").fadeIn();
+	        $("#main").fadeIn();
+	        $("#hud").fadeOut();
+	        $("#clock").fadeOut();
+	        $("#timerUI").fadeOut();
+	        $("#gameOver").fadeOut();
+	        $("#score").fadeOut();
+	        lives = 3;
+	        isPlaying = false;
+	        if(isPaused){
+	            isPaused = false;
+	        }
+	        clearInterval(ticker);
+	        score = 0;
+	        document.getElementById("score").innerText = "Score: " + score;
+					resetGame();
+	        resetBalls();
+	    });
 
 	function moveBalls(){
 		for (var i = 0; i < balls.length - 1; i++) {
@@ -426,7 +419,6 @@
 		}
 		for (var i = 0, l = balls.length; i < l; i++) {
 			balls[i].iterate();
-			//balls[i].checkBorders();
 		}
 	}
         /**
@@ -439,7 +431,7 @@
 		}
 
 	</script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script type="test/javascript" src="js/resize.js"></script>
 </head>
 <body>
 	<div id="container" role = "container">
@@ -508,12 +500,7 @@
 					<tr>
 						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
-					</tr>	
-				<tr>
-						<td id="gameOverScore" colspan="2"></td>
-						<td><input type="hidden" name="score" id="	formScore" value=""></td>
 					</tr>
-					<input type="submit" value="Submit">
 				</table>
                 <input type="submit" value="Submit" id="submitButton">
 			</form>
@@ -521,7 +508,7 @@
 			<input type="image" src="images/button/exit.png" id="go_exitButton"/>
 		</div>
 		<div id="leaderboard">
-			<table  id="leaderboardTable">
+			<table id="leaderboardTable">
 			</table>
 		</div>
 	</div>

@@ -23,10 +23,6 @@ var isPlaying = false;
 */
 var isPaused = false;
 
-
-/**
-* Boolean on sfx is currently on.
-*/
 var sfxOnOff = true;
 
 /**
@@ -34,28 +30,22 @@ var sfxOnOff = true;
 */
 var score = 0;
 
-/**
-* SFX for clicking the correct ball, game over sound and lose life sound.
-*/
-
 var gameOverSound = new Audio('sound/gameOver.mp3');
 var coin = new Audio('sound/coin.wav');
 var wrong = new Audio('sound/wrong.wav');
 
-/** 
-* sound effect control connected to sfxOnOff
-*/
+
 
 function playCoin() {
 	if(sfxOnOff) {
 		coin.play();
-	} 
+	}
 }
 
 function playWrong() {
 	if(sfxOnOff) {
 		wrong.play();
-	} 
+	}
 }
 
 function endSound() {
@@ -75,34 +65,9 @@ function gameOver(){
 	gameOverSound.loop = false;
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
-    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore;
-
-    score = 0;
-    document.getElementById("score").innerText = "Score: " + score;
+    document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
+    document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-		function resetGame() {
-			alert('hello');	
-		getnewTarget();
-		score = 0;
-		$("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-		clearInterval(ticker);
-		startTimer(10);
-		
-		for (var i = 5; i < balls.length; i++) {
-			if(balls[i] != null) {
-				balls[i] = null;
-			}
-		}
-		curBalls = 5;
-		counter = 1;
-		variableMaxVelocity = 5;
-		document.getElementById("score").innerText = "score: " + score;
-		
-		}
-
-
 
 function resetGame() {
     lives = 3;
@@ -125,20 +90,6 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
-	var c =$('#view');
-	var ct = c.get(0).getContext('2d');
-	var containerTwo = $(c).parent();
-	
-	$(window).resize( respondCanvas );
-	
-	function respondCanvas() {
-		c.attr('width', $(containerTwo).width());
-		c.attr('height', $(containerTwo).height());
-	}
-	
-	respondCanvas();
-	
-	
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -173,12 +124,12 @@ $(document).ready(function(){
     });
     $("#sfxButton").click(function(){
 		sfxOnOff = !sfxOnOff;
-		playCoin();
-		playWrong();
-		playgameOver();
+    playCoin();
+    playWrong();
+    playgameOver();
 
 	});
-	
+
     $("#bgmButton").click(function(){
       if (bgm.paused) {
         bgm.play();
@@ -186,7 +137,7 @@ $(document).ready(function(){
         bgm.pause();
       }
     });
-	
+
     $("#pauseButton").click(function(){
         if(!isPaused){
             isPaused = true;
@@ -210,41 +161,7 @@ $(document).ready(function(){
 
         score = 0;
         document.getElementById("score").innerText = "Score: " + score.toFixed(0);
-    });
-    $("#pause_retryButton").click(function(){
-		resetGame();
-		
-    })
-        
-        
-    $("#go_exitButton").click(function(){
-        $("#heartOne").attr("src", "images/graphic/heart_active.png");
-        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
-        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#playButton").fadeIn();
-        $("#optionButton").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#title").fadeIn();
-        $("#leaderBoardButton").fadeIn();
-        $("#tutorialButton").fadeIn();
-        $("#main").fadeIn();
-        $("#hud").fadeOut();
-        $("#clock").fadeOut();
-        $("#timerUI").fadeOut();
-        $("#gameOver").fadeOut();
-        lives = 3;
-        isPlaying = false;
-        if(isPaused){
-            isPaused = false;
-        }
-        clearInterval(ticker);
-        score = 0;
-        document.getElementById("score").innerText = "Score: " + score;
-		location.reload();
+        resetGame();
     });
 
 
@@ -289,12 +206,6 @@ $(document).ready(function(){
 
 });
 
-$(document).keydown(function(e) {
-    //press up arrow key
-    if (e.keyCode == '38') {
-        alert('creators \n Albert \"Purebone00\" Chen \n Kevin \"Zireael\" Fong \n Jeff \"HitAndQuit007\" Nguyen \n Ntori \"Pomelo\" Nyamekye \n Matt \"peg631\" Lin ');
-        }
-});
 
 /**
 * Background music.
@@ -303,3 +214,7 @@ var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
 bgm.play();
 
+/**
+* SFX for clicking the correct ball.
+*/
+var sfx = new Audio('sound/coin.wav');

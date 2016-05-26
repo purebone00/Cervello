@@ -244,7 +244,28 @@
     width: 40px;
     height: 40px;
 }
-#leaderBoard {
+#leaderboard {
+    bottom: 15%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    display: none;
+    border: 2px solid #87CEFA;
+    border-radius: 4px;
+    background-color: #87CEFA;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "San Francisco";
+    font-size: 15px;
+    text-shadow: none;
+    color: white;
+}
+#leaderboardTable {
+    margin: auto;
+}
+#leaderboardTable tr:nth-child(n + 11){
     display: none;
 }
 #scoreSubmitForm {
@@ -265,7 +286,7 @@
     font-size: 16px;
     font-weight: bold;
     width: 100px;
-    margin: 4px;
+    margin: auto;
 }
 #submitScreen {
 
