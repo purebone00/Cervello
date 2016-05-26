@@ -92,7 +92,7 @@ $(document).ready(function(){
         $("#leaderBoardButton").fadeOut();
         $("#title").fadeOut();
         $("#main").fadeOut();
-        $("#hud").fadeIn();
+        $("#hud").css('visibility','visible').hide().fadeIn();
         $("#clock").fadeIn();
         $("#timerUI").fadeIn();
         $("#score").fadeIn();

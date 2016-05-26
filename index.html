@@ -380,7 +380,6 @@
 	        $("#heartOne").attr("src", "images/graphic/heart_active.png");
 	        $("#heartTwo").attr("src", "images/graphic/heart_active.png");
 	        $("#heartThree").attr("src", "images/graphic/heart_active.png");
-	        $("#hud").fadeOut();
 	        $("#clock").fadeOut();
 	        $("#timerUI").fadeOut();
 	        $("#playButton").fadeIn();
@@ -388,11 +387,11 @@
 	        $("#leaderBoardButton").fadeIn();
 	        $("#title").fadeIn();
 	        $("#main").fadeIn();
-	        $("#hud").fadeOut();
 	        $("#clock").fadeOut();
 	        $("#timerUI").fadeOut();
 	        $("#gameOver").fadeOut();
 	        $("#score").fadeOut();
+	        $("#hud").fadeTo(speed, 0);
 	        lives = 3;
 	        isPlaying = false;
 	        if(isPaused){
@@ -429,11 +428,24 @@
 </head>
 <body>
 	<div id="container">
+        <p id="timerUI">Timer:</p>
+        <span id="clock" style="font-weight: bold;">10</span>
+        <div id="score">Score: 0</div>
+        <div id="hud">
+            <span id="lives">
+                <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
+            </span>
+            <span id="targetBox">
+                <p>Target:&nbsp;</p>
+                <br/>
+                <canvas id="target"></canvas>
+            </span>
+            <input type="image" src="images/button/pause.png" id="pauseButton"/>
+        </div>
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
-		<p id="timerUI">Timer:</p>
-		<span id="clock" style="font-weight: bold;">10</span>
-        <div id="score">Score: 0</div>
 		<menu id="main">
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
@@ -455,19 +467,6 @@
 				<button class="backButton">Back</button>
 			</p>
 		</div>
-        <div id="hud">
-            <span id="lives">
-                <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
-                <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
-                <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
-            </span>
-            <span id="targetBox">
-                <p>Target:&nbsp;</p>
-                <br/>
-                <canvas id="target"></canvas>
-            </span>
-            <input type="image" src="images/button/pause.png" id="pauseButton"/>
-        </div>
         <div id="pause">
             Paused
             <br/>
