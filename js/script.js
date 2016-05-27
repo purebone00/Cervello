@@ -39,18 +39,21 @@ var wrong = new Audio('sound/wrong.wav');
 function playCoin() {
 	if(sfxOnOff) {
 		coin.play();
+        coin.volume = 10000;
 	}
 }
 
 function playWrong() {
 	if(sfxOnOff) {
 		wrong.play();
+        wrong.volume = 0.2;
 	}
 }
 
 function endSound() {
 	if(sfxOnOff) {
 		gameOverSound.play();
+        gameOverSound.volume = 0.5;
 	}
 }
 
@@ -226,6 +229,7 @@ $(document).ready(function(){
 */
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
+bgm.volume = 0.3;
 bgm.play();
 
 /**
