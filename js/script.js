@@ -55,20 +55,20 @@ function endSound() {
 }
 
 function checkAchievements(){
-    if(score >= 25){
+    if(score >= 500){
         //make first achievement badge visible; 500
         $("#achieveOne").fadeIn();
     }
 
-    if(score >= 50){
-        //make second chievement badge visible; 1000
+    if(score >= 5000){
+        //make second chievement badge visible; 5000
         setTimeout(function() {
             $("#achieveTwo").fadeIn();
         }, 1500);
     }
 
-    if(score >= 100){
-        //make third achievement badge visible; 100 000
+    if(score >= 10000){
+        //make third achievement badge visible; 10 000
         setTimeout(function() {
             $("#achieveThree").fadeIn();
         }, 3000);
