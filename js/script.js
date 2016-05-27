@@ -86,7 +86,7 @@ function gameOver(){
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
-
+    
     checkAchievements();
 }
 
@@ -126,6 +126,7 @@ $(document).ready(function(){
         isPlaying = true;
         startTimer(10);  // 10 seconds
     });
+
     $("#optionButton").click(function(){
         $("#playButton").fadeOut();
         $("#title").fadeOut();
@@ -134,7 +135,8 @@ $(document).ready(function(){
         $("#main").fadeOut();
         $("#options").fadeIn();
     });
-    $("#backButton").click(function(){
+
+    $(".backButton").click(function(){
         $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
@@ -181,7 +183,6 @@ $(document).ready(function(){
         checkAchievements();
     });
 
-
     $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
@@ -218,7 +219,6 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 });
 
 /**

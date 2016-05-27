@@ -392,6 +392,7 @@
 	        $("#gameOver").fadeOut();
 	        $("#score").fadeOut();
 	        $("#hud").fadeOut();
+
 	        lives = 3;
 	        isPlaying = false;
 	        if(isPaused){
@@ -400,9 +401,8 @@
 	        score = 0;
 	        document.getElementById("score").innerText = "Score: " + score;
 					resetGame();
-					clearInterval(ticker);
 	        resetBalls();
-	        clearInterval(ticker);
+			clearInterval(ticker);
 	    });
 
 	function moveBalls(){
@@ -429,24 +429,11 @@
 </head>
 <body>
 	<div id="container">
-        <p id="timerUI">Timer:</p>
-        <span id="clock" style="font-weight: bold;">10</span>
-        <div id="score">Score: 0</div>
-        <div id="hud">
-            <span id="lives">
-                <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
-                <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
-                <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
-            </span>
-            <span id="targetBox">
-                <p>Target:&nbsp;</p>
-                <br/>
-                <canvas id="target"></canvas>
-            </span>
-            <input type="image" src="images/button/pause.png" id="pauseButton"/>
-        </div>
 		<canvas id="view">Something went wrong...</canvas>
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
+		<p id="timerUI">Timer:</p>
+		<span id="clock" style="font-weight: bold;">10</span>
+        <div id="score">Score: 0</div>
 		<menu id="main">
 			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
@@ -468,6 +455,19 @@
 				<button class="backButton">Back</button>
 			</p>
 		</div>
+        <div id="hud">
+            <span id="lives">
+                <img src="images/graphic/heart_active.png" alt="heartOne" id="heartOne" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartTwo" id="heartTwo" class="heart"/>
+                <img src="images/graphic/heart_active.png" alt="heartThree" id="heartThree" class="heart"/>
+            </span>
+            <span id="targetBox">
+                <p>Target:&nbsp;</p>
+                <br/>
+                <canvas id="target"></canvas>
+            </span>
+            <input type="image" src="images/button/pause.png" id="pauseButton"/>
+        </div>
         <div id="pause">
             Paused
             <br/>
@@ -486,9 +486,10 @@
 			  <img src="images/graphic/medal1.png" id="achieveOne">
 			  <img src="images/graphic/medal2.png" id="achieveTwo">
 			  <img src="images/graphic/medal3.png" id="achieveThree">
-          </tr>
+
+		  </tr>
 					<tr>
-						<td id="nameLabel" >Name</td>
+						<td>Name</td>
 						<td><input type="text" name="name" id="name" value=""></td>
 					</tr>
 				</table>
@@ -499,11 +500,11 @@
 		</div>
 		<div id="leaderboard">
 			Leaderboard
-            <br/>
+			<br/>
 			<table id="leaderboardTable">
 			</table>
-            <br/>
-            <button class="backButton">Back</button>
+			<br/>
+			<button class="backButton">Back</button>
 		</div>
 	</div>
 </body>

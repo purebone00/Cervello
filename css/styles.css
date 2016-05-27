@@ -10,11 +10,9 @@
     left: 0;
     right: 0;
 }
-
 #view {
     width: 100%;
-    height: 85%;
-    bottom: 100%;
+    height: 100%;
     border: 1px solid #c3c3c3;
 }
 
@@ -24,6 +22,10 @@
     top: -125px;
     width: 200px;
     height: 70px;
+
+}
+#achieveOne, #achieveTwo, #achieveThree {
+    display: none;
 }
 #main {
     bottom: 4%;
@@ -94,8 +96,8 @@
 #clock {
     position: relative;
     color: black;
-    left: 79%;
-    top: 16%;
+    left: 375px;
+    top: -390px;
     font-family: "San Francisco";
     display: none;
     -webkit-user-select: none; /* Chrome/Safari */
@@ -107,9 +109,8 @@
     font-weight: bold;
     position: relative;
     font-family: "San Francisco";
-    left: 70%;
-    top: 25%;
-    width: 10%;
+    left: 334px;
+    top: -361px;
     color: black;
     display: none;
     -webkit-user-select: none; /* Chrome/Safari */
@@ -129,7 +130,9 @@
     text-shadow: none;
 }
 #hud {
+    bottom: 100%;
     width: 100%;
+    position: absolute;
     display: none;
     border: 1px solid black;
     margin-left:auto;
@@ -155,9 +158,8 @@
     font-size: 14px;
     font-weight: bold;
     position: relative;
-    left: 25%;
-    top: 10%;
-    width: 40%;
+    left: 115px;
+    top: -411px;
     font-family: "San Francisco";
     color: black;
     display: none;
@@ -245,13 +247,8 @@
     width: 40px;
     height: 40px;
 }
-
-#achieveOne, #achieveTwo, #achieveThree {
-    display: none;
-}
-
 #leaderboard {
-    bottom: 18%;
+    bottom: 15%;
     left: 25%;
     position: absolute;
     width: 50%;
@@ -264,7 +261,8 @@
     text-decoration: none;
     font-weight: bold;
     font-family: "San Francisco";
-    font-size: 18px;
+    font-size: 15px;
+    text-shadow: none;
     color: white;
     text-shadow:
             -1px -1px 0 #000,
@@ -310,16 +308,6 @@
 
 }
 
-#gameOverScore, #nameLabel {
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: "San Francisco";
-  font-size: 15px;
-}
-
-
 label {
   margin-left: 8%;
   margin-right: 8%;
@@ -338,8 +326,4 @@ label {
 }
 #hudTable {
     border: solid;
-}
-.medal {
-    height: 45px;
-    width: 45px;
 }
