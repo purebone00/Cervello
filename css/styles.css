@@ -10,6 +10,7 @@
     left: 0;
     right: 0;
 }
+
 #view {
     width: 100%;
     height: 85%;
@@ -128,9 +129,8 @@
     text-shadow: none;
 }
 #hud {
-    bottom: 100%;
     width: 100%;
-    visibility: hidden;
+    display: none;
     border: 1px solid black;
     margin-left:auto;
     margin-right:auto;
@@ -157,6 +157,7 @@
     position: relative;
     left: 25%;
     top: 10%;
+    width: 40%;
     font-family: "San Francisco";
     color: black;
     display: none;
@@ -216,11 +217,11 @@
             1px 1px 0 #000;
 }
 #gameOver {
-    bottom: 25%;
+    bottom: 15%;
     left: 25%;
     position: absolute;
     width: 50%;
-    height: 60%;
+    height: 75%;
     display: none;
     font-family: "San Francisco";
     border: 2px solid #87CEFA;
@@ -244,6 +245,11 @@
     width: 40px;
     height: 40px;
 }
+
+#achieveOne, #achieveTwo, #achieveThree {
+    display: none;
+}
+
 #leaderboard {
     bottom: 18%;
     left: 25%;
@@ -304,9 +310,20 @@
 
 }
 
+#gameOverScore, #nameLabel {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "San Francisco";
+  font-size: 15px;
+}
+
+
 label {
   margin-left: 8%;
   margin-right: 8%;
+  color: white;
   text-align: center;
   text-decoration: none;
   font-weight: bold;

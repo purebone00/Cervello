@@ -8,6 +8,8 @@ window.onload = function() {
     ctx.drawImage(img,10,10);
 }
 
+
+
 /**
 * The first canvas avaliable.
 */
@@ -32,7 +34,7 @@ var score = 0;
 
 var gameOverSound = new Audio('sound/gameOver.mp3');
 var coin = new Audio('sound/coin.wav');
-var wrong = new Audio('sound/wrong.mp3');
+var wrong = new Audio('sound/wrong.wav');
 
 
 
@@ -50,6 +52,7 @@ function playWrong() {
 
 function endSound() {
 	if(sfxOnOff) {
+		gameOverSound.loop = false;
 		gameOverSound.play();
 	}
 }
@@ -58,15 +61,21 @@ function endSound() {
 * Displays gameover screen.
 */
 function gameOver(){
+<<<<<<< HEAD
+	
+=======
     endSound();
     isPlaying = false;
+>>>>>>> f2eeef50f0eb0ea8bcab25ff1084539e25afc79f
     $("#gameOver").fadeIn();
+	endSound();
+	gameOverSound.loop = false;
     var gameOverScore = score;
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
 }
-		
+
 function resetGame() {
     lives = 3;
     $("#heartOne").attr("src", "images/graphic/heart_active.png");
@@ -78,15 +87,29 @@ function resetGame() {
 
     clearInterval(ticker);
     startTimer(10);
+
+
     
 }
+window.addEventListener("resize", onResizeCalled, false);
 
+function onResizeCalled() {
+	view.style.width = window,innerWidth + 'px';
+	view.style.height = window.innerHeight + 'px';
+}
 
 /**
 * Our entire menu system.
 */
 $(document).ready(function(){
+<<<<<<< HEAD
+
+    
+	
+	
+=======
   
+>>>>>>> f2eeef50f0eb0ea8bcab25ff1084539e25afc79f
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -110,11 +133,7 @@ $(document).ready(function(){
         $("#options").fadeIn();
     });
 
-<<<<<<< HEAD
     $(".backButton").click(function(){
-=======
-    $("#backButton").click(function(){
->>>>>>> 41830d7059f7eb296aa126317b230c4e4f3f839c
         $("#options").fadeOut();
         $("#playButton").fadeIn();
         $("#title").fadeIn();
@@ -162,6 +181,10 @@ $(document).ready(function(){
         resetGame();
     });
 
+
+    
+	
+
     $("#leaderBoardButton").click(function(){
       $.ajax({
         type: "POST",
@@ -186,12 +209,6 @@ $(document).ready(function(){
         }
       });
       $("#leaderboard").fadeIn();
-      $("#playButton").fadeOut();
-      $("#title").fadeOut();
-      $("#optionButton").fadeOut();
-      $("#leaderBoardButton").fadeOut();
-      $("#tutorialButton").fadeOut();
-      $("#main").fadeOut();
     })
 
     $("#scoreSubmitForm").submit(function(e) {
@@ -204,7 +221,11 @@ $(document).ready(function(){
       });
       e.preventDefault(); // avoid to execute the actual submit of the form.
     });
+	
+	//respondCanvas();
+
 });
+
 
 /**
 * Background music.

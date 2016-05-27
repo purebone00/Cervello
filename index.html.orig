@@ -40,7 +40,7 @@
 		/**
 		* MaxVelocity for the current game state. initialized to 5 at the start of a game.
 		*/
-    var variableMaxVelocity = 5;
+		var variableMaxVelocity = 5;
 		/**
 		* Colour counter to determine what that shapes colour is.
 		*/
@@ -253,7 +253,10 @@
 		function calculatePoints(){
 			//add some number of points to the score variable
 			score += timeInSecs;
-    	tmpscore += timeInSecs;
+    		tmpscore += timeInSecs;
+
+
+
 			document.getElementById("score").textContent = "Score: " + score.toFixed(0);
 		}
 
@@ -391,7 +394,7 @@
 	        $("#timerUI").fadeOut();
 	        $("#gameOver").fadeOut();
 	        $("#score").fadeOut();
-	        $("#hud").fadeOut();
+	        $("#hud").fadeTo(speed, 0);
 	        lives = 3;
 	        isPlaying = false;
 	        if(isPaused){
@@ -413,6 +416,7 @@
 		}
 		for (var i = 0, l = balls.length; i < l; i++) {
 			balls[i].iterate();
+			//balls[i].checkBorders();
 		}
 	}
   /**
@@ -429,6 +433,7 @@
 </head>
 <body>
 	<div id="container">
+<<<<<<< HEAD
         <p id="timerUI">Timer:</p>
         <span id="clock" style="font-weight: bold;">10</span>
         <div id="score">Score: 0</div>
@@ -446,9 +451,12 @@
             <input type="image" src="images/button/pause.png" id="pauseButton"/>
         </div>
 		<canvas id="view">Something went wrong...</canvas>
+=======
+		<canvas id="view" width = "480" height = "320">Something went wrong...</canvas>
+>>>>>>> 9845d49da9b3c588766b11798c6ca0caf3d8be75
 		<audio id = "soundEfx" src = "sound/coin.wav" style = "display: none;"></audio>
 		<menu id="main">
-			<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
+		 	<img id="title" src="images/graphic/title.png" alt="title.png" width="674px" height="232px"/>
 			<button id="playButton">Play</button>
 			<br/>
 			<button id="optionButton">Options</button>

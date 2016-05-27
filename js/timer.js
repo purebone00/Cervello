@@ -28,13 +28,16 @@ function deductLife(){
     switch (lives){
         case 2:
             $("#heartThree").attr("src", "images/graphic/heart_disactive.png");
-            break;
+	    playWrong();
+        break;
         case 1:
             $("#heartTwo").attr("src", "images/graphic/heart_disactive.png");
-            break;
+            playWrong();
+	break;
         case 0:
             $("#heartOne").attr("src", "images/graphic/heart_disactive.png");
-            break;
+	    playWrong();
+        break;
     }
 
     if(lives <=0){
@@ -61,8 +64,9 @@ function tick() {
         }
     } else {
         deductLife();
-		    playWrong();
-		    clearInterval(ticker); // stop counting at zero
+
+		
+            clearInterval(ticker); // stop counting at zero
         if(lives > 0) {
             startTimer(10);  // remove forward slashes in front of startTimer to repeat if required
         }
