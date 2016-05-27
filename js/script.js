@@ -39,21 +39,18 @@ var wrong = new Audio('sound/wrong.wav');
 function playCoin() {
 	if(sfxOnOff) {
 		coin.play();
-        coin.volume = 10000;
 	}
 }
 
 function playWrong() {
 	if(sfxOnOff) {
 		wrong.play();
-        wrong.volume = 0.2;
 	}
 }
 
 function endSound() {
 	if(sfxOnOff) {
 		gameOverSound.play();
-        gameOverSound.volume = 0.5;
 	}
 }
 
@@ -89,7 +86,7 @@ function gameOver(){
     document.getElementById("formScore").value = gameOverScore;
     document.getElementById("gameOverScore").innerText = "Score: " + gameOverScore.toFixed(0);
     document.getElementById("score").innerText = "Score: " + score.toFixed(0);
-    
+
     checkAchievements();
 }
 
@@ -115,7 +112,7 @@ function resetGame() {
 * Our entire menu system.
 */
 $(document).ready(function(){
-  
+
     $("#playButton").click(function(){
         $("#playButton").fadeOut();
         $("#optionButton").fadeOut();
@@ -229,7 +226,6 @@ $(document).ready(function(){
 */
 var bgm  = new Audio('sound/bkmusic.mp3');
 bgm.loop = true;
-bgm.volume = 0.3;
 bgm.play();
 
 /**
